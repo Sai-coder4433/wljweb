@@ -1,0 +1,7 @@
+{
+  "name": "Wafgaonkar Laxmi Jewellers",
+  "description": "वाफगावकर लक्ष्मी ज्वेलर्स - Established Maharashtrian luxury jewellery house since 1951. Premium gold, diamond, bridal and heritage ornaments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
