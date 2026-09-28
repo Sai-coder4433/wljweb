@@ -44,7 +44,7 @@ export const HeritageStrip: React.FC<HeritageStripProps> = ({ currentLang }) => 
                 className="flex items-center space-x-3.5 md:space-x-4 group justify-center md:justify-start"
               >
                 {/* Gold minimal icon circle */}
-                <div className="w-12 h-12 rounded-full bg-[#F7F1E6] border border-[#B8903C]/40 flex items-center justify-center text-[#B8903C] group-hover:bg-[#5A1720] group-hover:text-[#D4B56A] group-hover:border-[#5A1720] transition-all duration-300 shadow-sm flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-[#F3F0EA] border border-[#B8903C]/40 flex items-center justify-center text-[#B8903C] group-hover:bg-[#5A1720] group-hover:text-[#D4B56A] group-hover:border-[#5A1720] transition-all duration-300 shadow-sm flex-shrink-0">
                   <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
                 </div>
 

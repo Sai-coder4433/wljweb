@@ -40,8 +40,8 @@ export const MarqueeBanner: React.FC<MarqueeBannerProps> = ({
     <div
       className={`w-full overflow-hidden py-3 sm:py-3.5 border-y select-none transition-colors duration-500 ${
         isMaroon
-          ? 'bg-[#4B0F1A] border-[#D4AF37]/30 text-[#F7F1E6]'
-          : 'bg-[#FCF8F1] border-[#D4AF37]/25 text-[#2F2521]'
+          ? 'bg-[#3F1C46] border-[#D7B95F]/30 text-[#F3F0EA]'
+          : 'bg-[#FAF8F4] border-[#D7B95F]/25 text-[#45234B]'
       }`}
     >
       <div className="animate-marquee flex items-center whitespace-nowrap">
@@ -49,12 +49,12 @@ export const MarqueeBanner: React.FC<MarqueeBannerProps> = ({
           <div key={idx} className="flex items-center mx-4 sm:mx-6">
             <span
               className={`font-marathi-serif tracking-widest text-xs sm:text-sm font-medium ${
-                isMaroon ? 'text-[#F7F1E6]/95' : 'text-[#2F2521]/90'
+                isMaroon ? 'text-[#F3F0EA]/95' : 'text-[#45234B]/90'
               }`}
             >
               {phrase}
             </span>
-            <span className="ml-4 sm:ml-6 inline-block w-1.5 h-1.5 rounded-full bg-[#D4AF37] opacity-80" />
+            <span className="ml-4 sm:ml-6 inline-block w-1.5 h-1.5 rounded-full bg-[#D7B95F] opacity-80" />
           </div>
         ))}
       </div>

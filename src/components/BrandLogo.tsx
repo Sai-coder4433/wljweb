@@ -27,7 +27,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
         {/* Main Brand Title */}
         <span
           className={`font-marathi-display font-bold tracking-tight truncate ${textSize} ${
-            isDark ? 'text-[#4B0F1A]' : 'text-[#F7F1E6]'
+            isDark ? 'text-[#3F1C46]' : 'text-[#F3F0EA]'
           }`}
         >
           वाफगावकर लक्ष्मी ज्वेलर्स
@@ -40,15 +40,15 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
             <div className="flex items-center space-x-1.5 sm:hidden">
               <span
                 className={`font-cinzel tracking-[0.14em] uppercase text-[8px] font-semibold truncate ${
-                  isDark ? 'text-[#76685F]' : 'text-[#D4AF37]'
+                  isDark ? 'text-[#766B73]' : 'text-[#D7B95F]'
                 }`}
               >
                 Wafgaonkar
               </span>
-              <span className="w-1 h-1 rounded-full bg-[#D4AF37] flex-shrink-0" />
+              <span className="w-1 h-1 rounded-full bg-[#D7B95F] flex-shrink-0" />
               <span
                 className={`font-cinzel tracking-wider text-[8px] font-medium flex-shrink-0 ${
-                  isDark ? 'text-[#D4AF37]' : 'text-[#D4AF37]'
+                  isDark ? 'text-[#D7B95F]' : 'text-[#D7B95F]'
                 }`}
               >
                 Since 1951
@@ -59,15 +59,15 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
             <div className="hidden sm:flex items-center space-x-2">
               <span
                 className={`font-cinzel tracking-[0.16em] uppercase text-[9px] md:text-[10px] font-medium ${
-                  isDark ? 'text-[#76685F]' : 'text-[#D4AF37]'
+                  isDark ? 'text-[#766B73]' : 'text-[#D7B95F]'
                 }`}
               >
                 Wafgaonkar Laxmi Jewellers
               </span>
-              <span className="w-1 h-1 rounded-full bg-[#D4AF37]" />
+              <span className="w-1 h-1 rounded-full bg-[#D7B95F]" />
               <span
                 className={`font-cinzel tracking-wider text-[9px] md:text-[10px] ${
-                  isDark ? 'text-[#76685F]' : 'text-[#D4AF37]'
+                  isDark ? 'text-[#766B73]' : 'text-[#D7B95F]'
                 }`}
               >
                 Since 1951

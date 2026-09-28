@@ -60,14 +60,14 @@ export const BridalTrousseauView: React.FC<BridalTrousseauViewProps> = ({
       </div>
 
       {/* Hero Banner for Bridal */}
-      <div className="relative rounded-3xl overflow-hidden bg-[#3D1017] text-[#F7F1E6] p-8 md:p-14 mb-12 border border-[#B8903C]/40 luxury-shadow">
+      <div className="relative rounded-3xl overflow-hidden bg-[#3D1017] text-[#F3F0EA] p-8 md:p-14 mb-12 border border-[#B8903C]/40 luxury-shadow">
         <div className="absolute inset-0 bg-pattern-jharokha opacity-15 pointer-events-none"></div>
         <div className="relative max-w-2xl">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#D4B56A]/15 border border-[#D4B56A]/30 text-[#D4B56A] text-xs uppercase tracking-widest font-cinzel mb-3">
             <ShieldCheck className="w-3.5 h-3.5 text-[#D4B56A]" />
             <span>{isMr ? 'अस्सल महाराष्ट्रीयन विवाह सोहळा' : 'Authentic Maharashtrian Nuptials'}</span>
           </div>
-          <h1 className="font-marathi-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[#F7F1E6]">
+          <h1 className="font-marathi-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[#F3F0EA]">
             {isMr ? 'शाही वधू दालन' : 'Royal Maharashtrian Bridal Suite'}
           </h1>
           <p className="font-marathi-serif text-base md:text-lg text-[#EFE4D2]/90 leading-relaxed mb-6">
@@ -97,7 +97,7 @@ export const BridalTrousseauView: React.FC<BridalTrousseauViewProps> = ({
             onClick={() => setSelectedSubtype(st.id)}
             className={`px-5 py-2 rounded-full whitespace-nowrap font-semibold transition-all duration-300 ${
               selectedSubtype === st.id
-                ? 'bg-[#5A1720] text-[#F7F1E6] shadow-md border border-[#D4B56A]'
+                ? 'bg-[#5A1720] text-[#F3F0EA] shadow-md border border-[#D4B56A]'
                 : 'bg-[#EFE4D2]/60 text-[#3A2922] hover:bg-[#EFE4D2] border border-[#B8903C]/30'
             }`}
           >

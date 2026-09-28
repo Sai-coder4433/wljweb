@@ -39,23 +39,23 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-end">
-      <div className="w-full max-w-md bg-[#FCF8F1] h-full flex flex-col justify-between font-marathi-serif shadow-2xl border-l border-[#D4AF37]/40 animate-in slide-in-from-right duration-300">
+      <div className="w-full max-w-md bg-[#FAF8F4] h-full flex flex-col justify-between font-marathi-serif shadow-2xl border-l border-[#D7B95F]/40 animate-in slide-in-from-right duration-300">
         
         {/* Header */}
-        <div className="p-5 border-b border-[#D4AF37]/30 flex items-center justify-between bg-[#F7F1E6]">
+        <div className="p-5 border-b border-[#D7B95F]/30 flex items-center justify-between bg-[#F3F0EA]">
           <div className="flex items-center space-x-2">
-            <Heart className="w-5 h-5 text-[#4B0F1A] fill-[#4B0F1A]" />
-            <h3 className="font-marathi-display text-lg font-bold text-[#4B0F1A]">
+            <Heart className="w-5 h-5 text-[#3F1C46] fill-[#3F1C46]" />
+            <h3 className="font-marathi-display text-lg font-bold text-[#3F1C46]">
               {isMr ? 'माझी निवड (Wishlist)' : 'My Wishlist'}
             </h3>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-[#4B0F1A] text-[#F7F1E6] font-bold">
+            <span className="text-xs px-2 py-0.5 rounded-full bg-[#3F1C46] text-[#F3F0EA] font-bold">
               {wishlistProducts.length}
             </span>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full text-[#2F2521] hover:bg-white transition-colors"
+            className="p-1.5 rounded-full text-[#45234B] hover:bg-white transition-colors"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
@@ -66,11 +66,11 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
         <div className="p-5 flex-grow overflow-y-auto space-y-3">
           {wishlistProducts.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-3">
-              <Heart className="w-12 h-12 text-[#D4AF37]/40" />
-              <h4 className="font-marathi-display text-lg font-bold text-[#4B0F1A]">
+              <Heart className="w-12 h-12 text-[#D7B95F]/40" />
+              <h4 className="font-marathi-display text-lg font-bold text-[#3F1C46]">
                 {isMr ? 'निवड यादी रिकामी आहे' : 'Your Wishlist is Empty'}
               </h4>
-              <p className="text-xs text-[#76685F] max-w-xs leading-relaxed">
+              <p className="text-xs text-[#766B73] max-w-xs leading-relaxed">
                 {isMr 
                   ? 'दागिन्यांच्या कार्डवरील हृदयाच्या चिन्हावर क्लिक करून आपले आवडते दागिने जतन करा आणि व्हॉट्सॲपवर एकत्र चौकशी करा.' 
                   : 'Click the heart icon on any jewellery card to save your favored designs here.'}
@@ -80,7 +80,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
             wishlistProducts.map((product) => (
               <div
                 key={product.id}
-                className="p-3.5 rounded-xl bg-white border border-[#D4AF37]/25 shadow-xs flex items-start space-x-3 text-left"
+                className="p-3.5 rounded-xl bg-white border border-[#D7B95F]/25 shadow-xs flex items-start space-x-3 text-left"
               >
                 <img
                   src={product.images[0]}
@@ -89,7 +89,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
                     onSelectProduct(product);
                     onClose();
                   }}
-                  className="w-16 h-16 rounded-lg object-contain bg-[#FCF8F1] border border-[#D4AF37]/20 flex-shrink-0 cursor-pointer p-1"
+                  className="w-16 h-16 rounded-lg object-contain bg-[#FAF8F4] border border-[#D7B95F]/20 flex-shrink-0 cursor-pointer p-1"
                 />
 
                 <div className="flex-grow min-w-0">
@@ -98,14 +98,14 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
                       onSelectProduct(product);
                       onClose();
                     }}
-                    className="font-marathi-serif text-sm font-bold text-[#2F2521] hover:text-[#4B0F1A] transition-colors truncate cursor-pointer"
+                    className="font-marathi-serif text-sm font-bold text-[#45234B] hover:text-[#3F1C46] transition-colors truncate cursor-pointer"
                   >
                     {isMr ? product.marathiName : product.name}
                   </h4>
-                  <div className="text-[11px] text-[#76685F] font-cinzel">
+                  <div className="text-[11px] text-[#766B73] font-cinzel">
                     {product.purity} • {product.weight}
                   </div>
-                  <div className="font-cinzel text-sm font-bold text-[#4B0F1A] mt-1">
+                  <div className="font-cinzel text-sm font-bold text-[#3F1C46] mt-1">
                     ₹ {product.price.toLocaleString('en-IN')}
                   </div>
                 </div>
@@ -113,7 +113,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
                 {/* Remove button */}
                 <button
                   onClick={() => onRemoveFromWishlist(product)}
-                  className="text-[#76685F] hover:text-[#4B0F1A] p-1 transition-colors"
+                  className="text-[#766B73] hover:text-[#3F1C46] p-1 transition-colors"
                   aria-label="Remove item"
                 >
                   <Trash2 className="w-4 h-4" />
@@ -125,15 +125,15 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
 
         {/* Footer Enquiry Action */}
         {wishlistProducts.length > 0 && (
-          <div className="p-5 border-t border-[#D4AF37]/30 bg-[#F7F1E6] space-y-2">
+          <div className="p-5 border-t border-[#D7B95F]/30 bg-[#F3F0EA] space-y-2">
             <button
               onClick={handleInquireAll}
-              className="w-full py-3 px-6 rounded-full bg-[#4B0F1A] hover:bg-[#72263A] text-[#F7F1E6] text-xs sm:text-sm font-marathi-serif font-bold transition-all shadow-xs flex items-center justify-center space-x-2 border border-[#D4AF37]/50"
+              className="w-full py-3 px-6 rounded-full bg-[#3F1C46] hover:bg-[#4A2252] text-[#F3F0EA] text-xs sm:text-sm font-marathi-serif font-bold transition-all shadow-xs flex items-center justify-center space-x-2 border border-[#D7B95F]/50"
             >
-              <MessageCircle className="w-4 h-4 text-[#D4AF37]" />
+              <MessageCircle className="w-4 h-4 text-[#D7B95F]" />
               <span>{isMr ? 'WhatsApp वर सर्व दागिन्यांची चौकशी करा' : 'Inquire All on WhatsApp'}</span>
             </button>
-            <p className="text-[11px] text-center text-[#76685F]">
+            <p className="text-[11px] text-center text-[#766B73]">
               {isMr ? 'थेट आमच्या सुवर्ण सल्लागारांशी संपर्क साधा' : 'Connect directly with our jewellery consultants'}
             </p>
           </div>

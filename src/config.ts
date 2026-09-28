@@ -41,16 +41,16 @@ export const BRAND_CONFIG = {
     }
   },
   
-  // Palette References
+  // Palette References — Final Colour System
   colors: {
-    warmCream: "#F7F1E6",
-    lightCream: "#FCF9F3",
-    deepMaroon: "#571A22",
-    darkMaroon: "#3E1118",
-    richBrown: "#332621",
-    champagneGold: "#B99A5A",
-    softGold: "#D8C18A",
-    mainText: "#29231F",
-    mutedText: "#766A61"
+    warmIvory:   "#F3F0EA",  // Main canvas
+    ivoryLight:  "#FAF8F4",  // Card surfaces
+    deepPlum:    "#3F1C46",  // Primary dark brand colour
+    plumMid:     "#4A2252",  // Hover / active
+    softMauve:   "#BDA9C4",  // Category section accent
+    softLilac:   "#D8C9D8",  // Secondary light bg
+    champagne:   "#D7B95F",  // Thin gold accents
+    textPrimary: "#45234B",  // Main headings / product names
+    textSecondary: "#766B73" // Descriptions / metadata
   }
 };

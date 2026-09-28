@@ -58,12 +58,12 @@ export const ShopByOccasion: React.FC<ShopByOccasionProps> = ({
               <div className="absolute inset-4 rounded-xl border border-transparent group-hover:border-[#D4B56A]/50 transition-all duration-500 pointer-events-none"></div>
 
               {/* Content Overlay */}
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end text-[#F7F1E6]">
+              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end text-[#F3F0EA]">
                 <span className="text-[11px] uppercase tracking-[0.2em] font-cinzel text-[#D4B56A] font-semibold mb-1.5">
                   {occ.name}
                 </span>
 
-                <h3 className="font-marathi-display text-2xl md:text-3xl font-bold mb-2 text-[#F7F1E6] group-hover:text-[#D4B56A] transition-colors">
+                <h3 className="font-marathi-display text-2xl md:text-3xl font-bold mb-2 text-[#F3F0EA] group-hover:text-[#D4B56A] transition-colors">
                   {isMr ? occ.marathiName : occ.name}
                 </h3>
 
@@ -72,7 +72,7 @@ export const ShopByOccasion: React.FC<ShopByOccasionProps> = ({
                 </p>
 
                 {/* Animated Link */}
-                <div className="flex items-center space-x-2 text-xs md:text-sm font-marathi-serif font-bold text-[#D4B56A] group-hover:text-[#F7F1E6] transition-colors">
+                <div className="flex items-center space-x-2 text-xs md:text-sm font-marathi-serif font-bold text-[#D4B56A] group-hover:text-[#F3F0EA] transition-colors">
                   <span>{isMr ? 'दागिने निवडा' : 'View Ornaments'}</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" />
                 </div>

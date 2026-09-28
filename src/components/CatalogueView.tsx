@@ -116,20 +116,20 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
     <div className="py-8 md:py-14 px-4 md:px-8 max-w-7xl mx-auto min-h-screen text-left">
       
       {/* Top Breadcrumb: मुख्यपृष्ठ / सोन्याचे दागिने */}
-      <div className="flex items-center space-x-2 text-xs text-[#76685F] font-marathi-serif mb-6">
+      <div className="flex items-center space-x-2 text-xs text-[#766B73] font-marathi-serif mb-6">
         <button
           onClick={onBackToHome}
-          className="flex items-center space-x-1.5 text-[#4B0F1A] hover:text-[#72263A] font-semibold transition-colors"
+          className="flex items-center space-x-1.5 text-[#3F1C46] hover:text-[#4A2252] font-semibold transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>{isMr ? 'मुख्यपृष्ठ' : 'Home'}</span>
         </button>
-        <span className="text-[#D4AF37]/50">/</span>
-        <span className="text-[#2F2521] font-semibold">{pageTitle}</span>
+        <span className="text-[#D7B95F]/50">/</span>
+        <span className="text-[#45234B] font-semibold">{pageTitle}</span>
         {selectedSubCatSlug !== 'all' && (
           <>
-            <span className="text-[#D4AF37]/50">/</span>
-            <span className="text-[#4B0F1A] font-semibold">
+            <span className="text-[#D7B95F]/50">/</span>
+            <span className="text-[#3F1C46] font-semibold">
               {subcategoriesToShow.find((s) => s.slug === selectedSubCatSlug)
                 ? (isMr 
                     ? subcategoriesToShow.find((s) => s.slug === selectedSubCatSlug)?.marathiName 
@@ -141,12 +141,12 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
       </div>
 
       {/* Heading: सोन्याचे दागिने */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-[#D4AF37]/25 gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-[#D7B95F]/25 gap-4">
         <div>
-          <h1 className="font-marathi-display text-3xl sm:text-4xl font-bold text-[#4B0F1A] tracking-tight">
+          <h1 className="font-marathi-display text-3xl sm:text-4xl font-bold text-[#3F1C46] tracking-tight">
             {pageTitle}
           </h1>
-          <p className="font-marathi-serif text-xs sm:text-sm text-[#76685F] mt-1">
+          <p className="font-marathi-serif text-xs sm:text-sm text-[#766B73] mt-1">
             {isMr
               ? `एकूण ${filteredProducts.length} अस्सल दागिने उपलब्ध`
               : `${filteredProducts.length} authentic pieces available`}
@@ -155,12 +155,12 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
 
         {/* Sort selector */}
         <div className="flex items-center space-x-2 text-xs font-marathi-serif">
-          <ArrowUpDown className="w-3.5 h-3.5 text-[#76685F]" />
-          <span className="text-[#76685F]">{isMr ? 'क्रम लावा:' : 'Sort By:'}</span>
+          <ArrowUpDown className="w-3.5 h-3.5 text-[#766B73]" />
+          <span className="text-[#766B73]">{isMr ? 'क्रम लावा:' : 'Sort By:'}</span>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as any)}
-            className="bg-[#FCF8F1] border border-[#D4AF37]/35 text-[#2F2521] rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-[#4B0F1A]"
+            className="bg-[#FAF8F4] border border-[#D7B95F]/35 text-[#45234B] rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-[#3F1C46]"
           >
             <option value="popular">{isMr ? 'निवडक / लोकप्रिय' : 'Curated'}</option>
             <option value="price-asc">{isMr ? 'किंमत: कमी ते जास्त' : 'Price: Low to High'}</option>
@@ -178,8 +178,8 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
           }}
           className={`px-4 py-2 rounded-full text-xs font-marathi-serif whitespace-nowrap transition-colors flex-shrink-0 ${
             selectedMainCatSlug === 'all'
-              ? 'bg-[#4B0F1A] text-[#F7F1E6] font-bold'
-              : 'bg-[#FCF8F1] text-[#2F2521] border border-[#D4AF37]/30 hover:border-[#4B0F1A]'
+              ? 'bg-[#3F1C46] text-[#F3F0EA] font-bold'
+              : 'bg-[#FAF8F4] text-[#45234B] border border-[#D7B95F]/30 hover:border-[#3F1C46]'
           }`}
         >
           {isMr ? 'सर्व दागिने' : 'All Jewellery'}
@@ -194,8 +194,8 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
             }}
             className={`px-4 py-2 rounded-full text-xs font-marathi-serif whitespace-nowrap transition-colors flex-shrink-0 ${
               selectedMainCatSlug === cat.slug
-                ? 'bg-[#4B0F1A] text-[#F7F1E6] font-bold'
-                : 'bg-[#FCF8F1] text-[#2F2521] border border-[#D4AF37]/30 hover:border-[#4B0F1A]'
+                ? 'bg-[#3F1C46] text-[#F3F0EA] font-bold'
+                : 'bg-[#FAF8F4] text-[#45234B] border border-[#D7B95F]/30 hover:border-[#3F1C46]'
             }`}
           >
             {isMr ? cat.marathiName : cat.name}
@@ -205,13 +205,13 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
 
       {/* SUBCATEGORY DESIGN: Simple visual tiles: Image + Name */}
       {subcategoriesToShow.length > 0 && (
-        <div className="mb-10 p-5 rounded-2xl bg-[#FCF8F1] border border-[#D4AF37]/30">
-          <div className="text-xs uppercase tracking-wider text-[#76685F] font-semibold mb-3 font-marathi-serif flex items-center justify-between">
+        <div className="mb-10 p-5 rounded-2xl bg-[#FAF8F4] border border-[#D7B95F]/30">
+          <div className="text-xs uppercase tracking-wider text-[#766B73] font-semibold mb-3 font-marathi-serif flex items-center justify-between">
             <span>{isMr ? 'उप-श्रेणी निवडा:' : 'Select Subcategory:'}</span>
             {selectedSubCatSlug !== 'all' && (
               <button
                 onClick={() => setSelectedSubCatSlug('all')}
-                className="text-xs text-[#4B0F1A] underline"
+                className="text-xs text-[#3F1C46] underline"
               >
                 {isMr ? 'सर्व उप-दागिने पहा' : 'Reset subcategory'}
               </button>
@@ -227,11 +227,11 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
                   onClick={() => setSelectedSubCatSlug(sub.slug)}
                   className={`group rounded-xl p-2 border transition-all duration-300 cursor-pointer flex items-center space-x-2.5 ${
                     isSubActive
-                      ? 'bg-[#4B0F1A] text-[#F7F1E6] border-[#4B0F1A] shadow-xs'
-                      : 'bg-white hover:bg-[#F7F1E6] border-[#D4AF37]/25 text-[#2F2521]'
+                      ? 'bg-[#3F1C46] text-[#F3F0EA] border-[#3F1C46] shadow-xs'
+                      : 'bg-white hover:bg-[#F3F0EA] border-[#D7B95F]/25 text-[#45234B]'
                   }`}
                 >
-                  <div className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-[#F7F1E6]">
+                  <div className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-[#F3F0EA]">
                     <img
                       src={sub.image}
                       alt={sub.marathiName}
@@ -263,8 +263,8 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
           ))}
         </div>
       ) : (
-        <div className="py-20 text-center bg-[#FCF8F1] rounded-2xl border border-[#D4AF37]/20">
-          <p className="font-marathi-serif text-[#76685F] text-base mb-4">
+        <div className="py-20 text-center bg-[#FAF8F4] rounded-2xl border border-[#D7B95F]/20">
+          <p className="font-marathi-serif text-[#766B73] text-base mb-4">
             {isMr ? 'या श्रेणीमध्ये सध्या कोणतेही दागिने उपलब्ध नाहीत.' : 'No jewellery found in this category.'}
           </p>
           <button
@@ -272,7 +272,7 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
               setSelectedMainCatSlug('all');
               setSelectedSubCatSlug('all');
             }}
-            className="px-6 py-2 rounded-full bg-[#4B0F1A] text-[#F7F1E6] text-xs font-marathi-serif font-bold"
+            className="px-6 py-2 rounded-full bg-[#3F1C46] text-[#F3F0EA] text-xs font-marathi-serif font-bold"
           >
             {isMr ? 'सर्व दागिने पहा' : 'View All Jewellery'}
           </button>

@@ -57,19 +57,19 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
     : branches.filter((b) => b.id === activeTab);
 
   return (
-    <section className="py-14 md:py-20 px-4 md:px-8 max-w-7xl mx-auto text-left">
+    <section className="py-14 md:py-20 px-4 md:px-8 max-w-7xl mx-auto text-left rounded-3xl bg-[#D8C9D8]/15 border border-[#D8C9D8]/30 my-8">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
-        <div className="inline-flex items-center space-x-2 text-[#D4AF37] font-cinzel text-xs uppercase tracking-[0.25em] mb-2.5">
-          <Store className="w-3.5 h-3.5 text-[#D4AF37]" />
+        <div className="inline-flex items-center space-x-2 text-[#D7B95F] font-cinzel text-xs uppercase tracking-[0.25em] mb-2.5">
+          <Store className="w-3.5 h-3.5 text-[#D7B95F]" />
           <span>{isMr ? 'दालन दर्शन' : 'VISIT OUR SHOWROOMS'}</span>
         </div>
         
-        <h2 className="font-marathi-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#4B0F1A] tracking-tight mb-3">
+        <h2 className="font-marathi-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#3F1C46] tracking-tight mb-3">
           {isMr ? 'आमच्या दालनाला भेट द्या' : 'Visit Our Showrooms in Chakan'}
         </h2>
         
-        <p className="font-marathi-serif text-[#76685F] text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
+        <p className="font-marathi-serif text-[#766B73] text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
           {isMr
             ? 'चाकण येथील आमच्या दोन्ही दालनात येऊन प्रत्यक्ष शुद्ध सोन्याच्या दागिन्यांची भव्यता, चमक आणि अस्सल कारागिरीचा सुखद अनुभव घ्या. आमचे तज्ज्ञ सुवर्ण सल्लागार आपल्या सेवेत सदैव तत्पर आहेत.'
             : 'Step into our two signature showrooms in Chakan to experience the tactile brilliance, hallmarked purity, and heirloom craftsmanship of pure gold and silver jewellery.'}
@@ -81,8 +81,8 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
             onClick={() => setActiveTab('all')}
             className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-marathi-serif font-bold transition-all ${
               activeTab === 'all'
-                ? 'bg-[#4B0F1A] text-[#F7F1E6] shadow-xs border border-[#D4AF37]'
-                : 'bg-[#FCF8F1] text-[#2F2521] border border-[#D4AF37]/30 hover:bg-[#F7F1E6]'
+                ? 'bg-[#3F1C46] text-[#F3F0EA] shadow-xs border border-[#D7B95F]'
+                : 'bg-[#FAF8F4] text-[#45234B] border border-[#D7B95F]/30 hover:bg-[#F3F0EA]'
             }`}
           >
             {isMr ? 'दोन्ही शाखा' : 'Both Showrooms'}
@@ -91,8 +91,8 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
             onClick={() => setActiveTab('branch-1')}
             className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-marathi-serif font-bold transition-all ${
               activeTab === 'branch-1'
-                ? 'bg-[#4B0F1A] text-[#F7F1E6] shadow-xs border border-[#D4AF37]'
-                : 'bg-[#FCF8F1] text-[#2F2521] border border-[#D4AF37]/30 hover:bg-[#F7F1E6]'
+                ? 'bg-[#3F1C46] text-[#F3F0EA] shadow-xs border border-[#D7B95F]'
+                : 'bg-[#FAF8F4] text-[#45234B] border border-[#D7B95F]/30 hover:bg-[#F3F0EA]'
             }`}
           >
             {isMr ? 'शाखा १: जुनी बाजारपेठ' : 'Branch 1: Juni Bazarpeth'}
@@ -101,8 +101,8 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
             onClick={() => setActiveTab('branch-2')}
             className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-marathi-serif font-bold transition-all ${
               activeTab === 'branch-2'
-                ? 'bg-[#4B0F1A] text-[#F7F1E6] shadow-xs border border-[#D4AF37]'
-                : 'bg-[#FCF8F1] text-[#2F2521] border border-[#D4AF37]/30 hover:bg-[#F7F1E6]'
+                ? 'bg-[#3F1C46] text-[#F3F0EA] shadow-xs border border-[#D7B95F]'
+                : 'bg-[#FAF8F4] text-[#45234B] border border-[#D7B95F]/30 hover:bg-[#F3F0EA]'
             }`}
           >
             {isMr ? 'शाखा २: माणिक चौक' : 'Branch 2: Manik Chowk'}
@@ -115,26 +115,26 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
         {displayedBranches.map((branch) => (
           <div
             key={branch.id}
-            className="bg-[#FCF8F1] rounded-2xl sm:rounded-3xl border border-[#D4AF37]/35 overflow-hidden shadow-xs hover:border-[#D4AF37] transition-all flex flex-col justify-between"
+            className="bg-[#FAF8F4] rounded-2xl sm:rounded-3xl border border-[#D7B95F]/35 overflow-hidden shadow-xs hover:border-[#D7B95F] transition-all flex flex-col justify-between"
           >
             {/* Top Area: Clean English "Shop Photo" Frame */}
-            <div className="relative bg-[#4B0F1A] text-[#F7F1E6] p-6 sm:p-8 flex flex-col items-center justify-center text-center overflow-hidden border-b border-[#D4AF37]/30">
+            <div className="relative bg-[#3F1C46] text-[#F3F0EA] p-6 sm:p-8 flex flex-col items-center justify-center text-center overflow-hidden border-b border-[#D7B95F]/30">
               {/* Subtle background decorative pattern */}
-              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#D7B95F_1px,transparent_1px)] [background-size:16px_16px]"></div>
               
               {/* Branch Badge */}
-              <div className="relative z-10 inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#72263A] border border-[#D4AF37]/40 text-[#D4AF37] text-[11px] font-cinzel tracking-wider uppercase mb-2.5">
-                <Award className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <div className="relative z-10 inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#4A2252] border border-[#D7B95F]/40 text-[#D7B95F] text-[11px] font-cinzel tracking-wider uppercase mb-2.5">
+                <Award className="w-3.5 h-3.5 text-[#D7B95F]" />
                 <span>{isMr ? `शाखा क्र. ${branch.number}` : `Branch No. ${branch.number}`}</span>
               </div>
 
               {/* Clean English "Shop Photo" Frame */}
-              <div className="relative z-10 w-full max-w-sm py-4 px-5 sm:py-5 sm:px-6 rounded-xl sm:rounded-2xl bg-[#370B13]/80 border border-[#D4AF37]/40 backdrop-blur-xs text-center space-y-1 shadow-inner">
-                <Store className="w-7 h-7 sm:w-8 sm:h-8 text-[#D4AF37] mx-auto opacity-90" />
-                <div className="font-cinzel text-base sm:text-xl font-bold tracking-widest text-[#F7F1E6] uppercase">
+              <div className="relative z-10 w-full max-w-sm py-4 px-5 sm:py-5 sm:px-6 rounded-xl sm:rounded-2xl bg-[#2A0E33]/80 border border-[#D7B95F]/40 backdrop-blur-xs text-center space-y-1 shadow-inner">
+                <Store className="w-7 h-7 sm:w-8 sm:h-8 text-[#D7B95F] mx-auto opacity-90" />
+                <div className="font-cinzel text-base sm:text-xl font-bold tracking-widest text-[#F3F0EA] uppercase">
                   Shop Photo
                 </div>
-                <div className="font-marathi-serif text-xs text-[#D4AF37]/90">
+                <div className="font-marathi-serif text-xs text-[#D7B95F]/90">
                   {isMr ? `${branch.nameMr.split(':')[1]} - दालन` : `${branch.nameEn.split(':')[1]}`}
                 </div>
               </div>
@@ -145,27 +145,27 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
               
               {/* Title & Tag */}
               <div>
-                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#D4AF37] font-cinzel font-semibold block mb-1">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#D7B95F] font-cinzel font-semibold block mb-1">
                   {isMr ? branch.tagMr : branch.tagEn}
                 </span>
-                <h3 className="font-marathi-display text-lg sm:text-2xl font-bold text-[#4B0F1A] leading-snug">
+                <h3 className="font-marathi-display text-lg sm:text-2xl font-bold text-[#3F1C46] leading-snug">
                   {isMr ? branch.nameMr : branch.nameEn}
                 </h3>
               </div>
 
               {/* Information Rows */}
-              <div className="space-y-3.5 pt-1 border-t border-[#D4AF37]/20">
+              <div className="space-y-3.5 pt-1 border-t border-[#D7B95F]/20">
                 
                 {/* Address */}
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F7F1E6] border border-[#D4AF37]/40 flex items-center justify-center flex-shrink-0 text-[#4B0F1A] mt-0.5">
-                    <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D4AF37]" />
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F3F0EA] border border-[#D7B95F]/40 flex items-center justify-center flex-shrink-0 text-[#3F1C46] mt-0.5">
+                    <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D7B95F]" />
                   </div>
                   <div>
-                    <h4 className="font-marathi-serif font-bold text-[11px] sm:text-xs text-[#2F2521] uppercase tracking-wider">
+                    <h4 className="font-marathi-serif font-bold text-[11px] sm:text-xs text-[#45234B] uppercase tracking-wider">
                       {isMr ? 'पत्ता' : 'Address'}
                     </h4>
-                    <p className="font-marathi-serif text-xs sm:text-sm text-[#2F2521] mt-0.5 leading-relaxed font-medium">
+                    <p className="font-marathi-serif text-xs sm:text-sm text-[#45234B] mt-0.5 leading-relaxed font-medium">
                       {isMr ? branch.addressMr : branch.addressEn}
                     </p>
                   </div>
@@ -173,14 +173,14 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
 
                 {/* Timings */}
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F7F1E6] border border-[#D4AF37]/40 flex items-center justify-center flex-shrink-0 text-[#4B0F1A] mt-0.5">
-                    <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D4AF37]" />
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F3F0EA] border border-[#D7B95F]/40 flex items-center justify-center flex-shrink-0 text-[#3F1C46] mt-0.5">
+                    <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D7B95F]" />
                   </div>
                   <div>
-                    <h4 className="font-marathi-serif font-bold text-[11px] sm:text-xs text-[#2F2521] uppercase tracking-wider">
+                    <h4 className="font-marathi-serif font-bold text-[11px] sm:text-xs text-[#45234B] uppercase tracking-wider">
                       {isMr ? 'दालनाची वेळ' : 'Showroom Timings'}
                     </h4>
-                    <p className="font-marathi-serif text-xs sm:text-sm text-[#2F2521] mt-0.5 font-medium">
+                    <p className="font-marathi-serif text-xs sm:text-sm text-[#45234B] mt-0.5 font-medium">
                       {isMr ? branch.timingsMr : branch.timingsEn}
                     </p>
                   </div>
@@ -188,14 +188,14 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
 
                 {/* Phone */}
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F7F1E6] border border-[#D4AF37]/40 flex items-center justify-center flex-shrink-0 text-[#4B0F1A] mt-0.5">
-                    <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D4AF37]" />
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F3F0EA] border border-[#D7B95F]/40 flex items-center justify-center flex-shrink-0 text-[#3F1C46] mt-0.5">
+                    <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D7B95F]" />
                   </div>
                   <div>
-                    <h4 className="font-marathi-serif font-bold text-[11px] sm:text-xs text-[#2F2521] uppercase tracking-wider">
+                    <h4 className="font-marathi-serif font-bold text-[11px] sm:text-xs text-[#45234B] uppercase tracking-wider">
                       {isMr ? 'फोन नंबर' : 'Phone'}
                     </h4>
-                    <p className="font-cinzel text-xs sm:text-sm text-[#4B0F1A] mt-0.5 font-bold">
+                    <p className="font-cinzel text-xs sm:text-sm text-[#3F1C46] mt-0.5 font-bold">
                       <a href={`tel:${branch.phone}`} className="hover:underline">
                         {branch.phone}
                       </a>
@@ -206,22 +206,22 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
               </div>
 
               {/* Action Buttons: Full-width and easy tap on mobile */}
-              <div className="pt-3.5 border-t border-[#D4AF37]/20 flex flex-col sm:flex-row gap-2.5">
+              <div className="pt-3.5 border-t border-[#D7B95F]/20 flex flex-col sm:flex-row gap-2.5">
                 <a
                   href={branch.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-full bg-[#4B0F1A] hover:bg-[#72263A] text-[#F7F1E6] text-xs font-marathi-serif font-semibold border border-[#D4AF37]/40 transition-colors shadow-xs w-full sm:w-auto"
+                  className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-full bg-[#3F1C46] hover:bg-[#4A2252] text-[#F3F0EA] text-xs font-marathi-serif font-semibold border border-[#D7B95F]/40 transition-colors shadow-xs w-full sm:w-auto"
                 >
-                  <Navigation className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  <Navigation className="w-3.5 h-3.5 text-[#D7B95F]" />
                   <span>{isMr ? 'गुगल मॅपवर दिशा पहा' : 'Get Directions'}</span>
                 </a>
 
                 <button
                   onClick={() => handleWhatsAppBranch(branch.number, isMr ? branch.nameMr : branch.nameEn)}
-                  className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-full bg-[#4B0F1A]/10 hover:bg-[#4B0F1A] text-[#4B0F1A] hover:text-[#F7F1E6] text-xs font-marathi-serif font-semibold transition-colors shadow-xs w-full sm:w-auto border border-[#D4AF37]/40"
+                  className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-full bg-[#3F1C46]/10 hover:bg-[#3F1C46] text-[#3F1C46] hover:text-[#F3F0EA] text-xs font-marathi-serif font-semibold transition-colors shadow-xs w-full sm:w-auto border border-[#D7B95F]/40"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  <MessageCircle className="w-3.5 h-3.5 text-[#D7B95F]" />
                   <span>{isMr ? 'व्हॉट्सॲपवर संपर्क करा' : 'WhatsApp Us'}</span>
                 </button>
               </div>

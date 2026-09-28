@@ -56,7 +56,7 @@ export const StoreExperienceSection: React.FC<StoreExperienceSectionProps> = ({ 
             onClick={() => setSelectedBranch(branch)}
             className={`px-6 py-2.5 rounded-full font-marathi-serif text-sm font-semibold transition-all duration-300 ${
               selectedBranch.id === branch.id
-                ? 'bg-[#5A1720] text-[#F7F1E6] shadow-lg border border-[#D4B56A]'
+                ? 'bg-[#5A1720] text-[#F3F0EA] shadow-lg border border-[#D4B56A]'
                 : 'bg-[#EFE4D2]/60 text-[#3A2922] hover:bg-[#EFE4D2] border border-[#B8903C]/30'
             }`}
           >
@@ -81,10 +81,10 @@ export const StoreExperienceSection: React.FC<StoreExperienceSectionProps> = ({ 
             </>
           ) : (
             <div className="w-full h-full min-h-[260px] rounded-2xl bg-[#2D0C11] border border-[#B99A5A]/40 p-8 flex flex-col items-center justify-center text-center space-y-2">
-              <div className="w-14 h-14 rounded-full bg-[#571A22] border border-[#D8C18A]/50 flex items-center justify-center text-[#D8C18A] mb-1 shadow-md">
+              <div className="w-14 h-14 rounded-full bg-[#4A2252] border border-[#D8C18A]/50 flex items-center justify-center text-[#D8C18A] mb-1 shadow-md">
                 <MapPin className="w-7 h-7 text-[#D8C18A]" />
               </div>
-              <span className="font-cinzel text-xl sm:text-2xl font-bold tracking-widest text-[#F7F1E6] uppercase">
+              <span className="font-cinzel text-xl sm:text-2xl font-bold tracking-widest text-[#F3F0EA] uppercase">
                 Shop Photo
               </span>
               <p className="font-marathi-serif text-sm text-[#D8C18A]">
@@ -93,11 +93,11 @@ export const StoreExperienceSection: React.FC<StoreExperienceSectionProps> = ({ 
             </div>
           )}
           
-          <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#3D1017]/90 backdrop-blur-md border border-[#D4B56A]/30 text-[#F7F1E6]">
+          <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#3D1017]/90 backdrop-blur-md border border-[#D4B56A]/30 text-[#F3F0EA]">
             <div className="text-xs uppercase font-cinzel text-[#D4B56A] font-semibold mb-0.5">
               {isMr ? selectedBranch.marathiCity : selectedBranch.city} • Chakan
             </div>
-            <div className="font-marathi-display text-lg font-bold text-[#F7F1E6]">
+            <div className="font-marathi-display text-lg font-bold text-[#F3F0EA]">
               {isMr ? selectedBranch.marathiName : selectedBranch.name}
             </div>
           </div>
@@ -163,7 +163,7 @@ export const StoreExperienceSection: React.FC<StoreExperienceSectionProps> = ({ 
               href={`https://maps.google.com/?q=${encodeURIComponent(selectedBranch.mapQuery)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-full border border-[#5A1720] text-[#5A1720] hover:bg-[#5A1720] hover:text-[#F7F1E6] text-xs font-marathi-serif font-bold transition-all flex items-center space-x-1.5"
+              className="px-5 py-2.5 rounded-full border border-[#5A1720] text-[#5A1720] hover:bg-[#5A1720] hover:text-[#F3F0EA] text-xs font-marathi-serif font-bold transition-all flex items-center space-x-1.5"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               <span>{isMr ? 'गुगल मॅपवर दिशा पहा' : 'Get Directions'}</span>
@@ -187,7 +187,7 @@ export const StoreExperienceSection: React.FC<StoreExperienceSectionProps> = ({ 
             {/* Book Appointment CTA */}
             <button
               onClick={() => setShowAppointmentForm(!showAppointmentForm)}
-              className="px-6 py-2.5 rounded-full bg-[#5A1720] text-[#F7F1E6] hover:bg-[#3D1017] hover:text-[#D4B56A] text-xs font-marathi-serif font-bold transition-all shadow-md flex items-center space-x-1.5"
+              className="px-6 py-2.5 rounded-full bg-[#5A1720] text-[#F3F0EA] hover:bg-[#3D1017] hover:text-[#D4B56A] text-xs font-marathi-serif font-bold transition-all shadow-md flex items-center space-x-1.5"
             >
               <Calendar className="w-3.5 h-3.5 text-[#D4B56A]" />
               <span>{isMr ? 'स्टोअरला भेट द्या (अपॉइंटमेंट)' : 'Book Store Visit'}</span>
@@ -196,7 +196,7 @@ export const StoreExperienceSection: React.FC<StoreExperienceSectionProps> = ({ 
 
           {/* Quick Appointment Booking Inline Drawer */}
           {showAppointmentForm && (
-            <div className="mt-4 p-5 rounded-2xl bg-[#F7F1E6] border border-[#B8903C]/40 animate-in fade-in slide-in-from-top-2 duration-300">
+            <div className="mt-4 p-5 rounded-2xl bg-[#F3F0EA] border border-[#B8903C]/40 animate-in fade-in slide-in-from-top-2 duration-300">
               {appointmentBooked ? (
                 <div className="text-center py-4 space-y-2">
                   <CheckCircle2 className="w-10 h-10 text-[#25D366] mx-auto" />
@@ -284,7 +284,7 @@ export const StoreExperienceSection: React.FC<StoreExperienceSectionProps> = ({ 
                     </button>
                     <button
                       type="submit"
-                      className="px-6 py-2 rounded-md bg-[#5A1720] text-[#F7F1E6] hover:bg-[#3D1017] font-bold"
+                      className="px-6 py-2 rounded-md bg-[#5A1720] text-[#F3F0EA] hover:bg-[#3D1017] font-bold"
                     >
                       {isMr ? 'भेट बुक करा' : 'Confirm Visit'}
                     </button>

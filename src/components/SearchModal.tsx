@@ -48,11 +48,11 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-start justify-center pt-16 md:pt-24 px-4">
-      <div className="bg-[#FCF8F1] rounded-2xl max-w-2xl w-full overflow-hidden border border-[#D4AF37]/40 shadow-2xl animate-in zoom-in-95 duration-200 text-left">
+      <div className="bg-[#FAF8F4] rounded-2xl max-w-2xl w-full overflow-hidden border border-[#D7B95F]/40 shadow-2xl animate-in zoom-in-95 duration-200 text-left">
         
         {/* Search Input Bar */}
-        <div className="p-4 md:p-5 border-b border-[#D4AF37]/30 flex items-center space-x-3 bg-white">
-          <Search className="w-5 h-5 text-[#4B0F1A]" />
+        <div className="p-4 md:p-5 border-b border-[#D7B95F]/30 flex items-center space-x-3 bg-white">
+          <Search className="w-5 h-5 text-[#3F1C46]" />
           <input
             type="text"
             autoFocus
@@ -63,26 +63,26 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                 ? 'दागिने, प्रकार किंवा कोड शोधा... (उदा. ठुशी, नथ, मंगळसूत्र)'
                 : 'Search by ornament name, metal, SKU... (e.g., Thushi, Nath)'
             }
-            className="w-full text-base font-marathi-serif text-[#2F2521] bg-transparent focus:outline-none placeholder-[#76685F]/60"
+            className="w-full text-base font-marathi-serif text-[#45234B] bg-transparent focus:outline-none placeholder-[#766B73]/60"
           />
           {searchTerm && (
             <button
               onClick={() => setSearchTerm('')}
-              className="text-[#76685F] hover:text-[#2F2521] p-1"
+              className="text-[#766B73] hover:text-[#45234B] p-1"
             >
               <X className="w-4 h-4" />
             </button>
           )}
           <button
             onClick={onClose}
-            className="text-xs px-2.5 py-1 rounded-md bg-[#F7F1E6] text-[#2F2521] hover:bg-[#4B0F1A] hover:text-[#F7F1E6] transition-colors"
+            className="text-xs px-2.5 py-1 rounded-md bg-[#F3F0EA] text-[#45234B] hover:bg-[#3F1C46] hover:text-[#F3F0EA] transition-colors"
           >
             ESC
           </button>
         </div>
 
         {/* Popular Tags */}
-        <div className="px-5 py-3 bg-[#F7F1E6] border-b border-[#B99A5A]/20 flex items-center space-x-2 overflow-x-auto text-xs font-marathi-serif">
+        <div className="px-5 py-3 bg-[#F3F0EA] border-b border-[#B99A5A]/20 flex items-center space-x-2 overflow-x-auto text-xs font-marathi-serif">
           <span className="text-[#766A61] flex-shrink-0 font-medium">
             {isMr ? 'लोकप्रिय शोध:' : 'Popular:'}
           </span>
@@ -93,7 +93,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                 onSelectCategory(item.slug);
                 onClose();
               }}
-              className="px-2.5 py-1 rounded-full bg-white hover:bg-[#571A22] text-[#29231F] hover:text-white border border-[#B99A5A]/30 transition-colors whitespace-nowrap flex-shrink-0 text-xs"
+              className="px-2.5 py-1 rounded-full bg-white hover:bg-[#4A2252] text-[#29231F] hover:text-white border border-[#B99A5A]/30 transition-colors whitespace-nowrap flex-shrink-0 text-xs"
             >
               {item.label}
             </button>
@@ -123,16 +123,16 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     onSelectProduct(product);
                     onClose();
                   }}
-                  className="p-2.5 rounded-xl bg-white hover:bg-[#F7F1E6] border border-[#B99A5A]/20 flex items-center justify-between transition-colors cursor-pointer group"
+                  className="p-2.5 rounded-xl bg-white hover:bg-[#F3F0EA] border border-[#B99A5A]/20 flex items-center justify-between transition-colors cursor-pointer group"
                 >
                   <div className="flex items-center space-x-3.5">
                     <img
                       src={product.images[0]}
                       alt={product.name}
-                      className="w-12 h-12 rounded-lg object-contain bg-[#FCF9F3] border border-[#B99A5A]/20 p-0.5"
+                      className="w-12 h-12 rounded-lg object-contain bg-[#FAF8F4] border border-[#B99A5A]/20 p-0.5"
                     />
                     <div>
-                      <h4 className="font-marathi-serif font-bold text-sm text-[#29231F] group-hover:text-[#571A22] transition-colors">
+                      <h4 className="font-marathi-serif font-bold text-sm text-[#29231F] group-hover:text-[#4A2252] transition-colors">
                         {isMr ? product.marathiName : product.name}
                       </h4>
                       <div className="text-[11px] text-[#766A61] font-cinzel">
@@ -142,7 +142,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   </div>
 
                   <div className="flex items-center space-x-3">
-                    <span className="font-cinzel font-bold text-sm text-[#571A22]">
+                    <span className="font-cinzel font-bold text-sm text-[#4A2252]">
                       ₹ {product.price.toLocaleString('en-IN')}
                     </span>
                     <ArrowRight className="w-4 h-4 text-[#B99A5A] opacity-0 group-hover:opacity-100 transition-opacity" />

@@ -37,7 +37,7 @@ export const HeritageStorySection: React.FC<HeritageStorySectionProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-[#3D1017]/80 via-transparent to-transparent"></div>
                 
                 {/* Archival Badge */}
-                <div className="absolute bottom-4 inset-x-4 p-3 bg-[#F7F1E6]/95 backdrop-blur-md rounded-lg border border-[#B8903C]/40 text-center shadow-lg">
+                <div className="absolute bottom-4 inset-x-4 p-3 bg-[#F3F0EA]/95 backdrop-blur-md rounded-lg border border-[#B8903C]/40 text-center shadow-lg">
                   <div className="font-cinzel text-xs font-bold text-[#9D7A35] uppercase tracking-widest">
                     Original Pedhi Estd.
                   </div>

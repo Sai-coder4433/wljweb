@@ -51,10 +51,10 @@ export const CustomCursor: React.FC = () => {
       <div
         className={`-translate-x-1/2 -translate-y-1/2 rounded-full border transition-all duration-200 ${
           isHoveringClickable
-            ? 'w-8 h-8 border-[#4B0F1A] bg-[#4B0F1A]/10 scale-110'
+            ? 'w-8 h-8 border-[#3F1C46] bg-[#3F1C46]/10 scale-110'
             : isHoveringImage
-            ? 'w-10 h-10 border-[#D4AF37] bg-[#D4AF37]/10 scale-125'
-            : 'w-3.5 h-3.5 border-[#72263A]/70 bg-[#4B0F1A]/20'
+            ? 'w-10 h-10 border-[#D7B95F] bg-[#D7B95F]/10 scale-125'
+            : 'w-3.5 h-3.5 border-[#4A2252]/70 bg-[#3F1C46]/20'
         }`}
       />
     </div>

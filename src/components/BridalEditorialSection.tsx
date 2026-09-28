@@ -27,7 +27,7 @@ export const BridalEditorialSection: React.FC<BridalEditorialSectionProps> = ({
   ];
 
   return (
-    <section className="relative py-20 md:py-32 bg-[#3D1017] text-[#F7F1E6] overflow-hidden">
+    <section className="relative py-20 md:py-32 bg-[#3D1017] text-[#F3F0EA] overflow-hidden">
       {/* Background Architectural Texture */}
       <div className="absolute inset-0 bg-pattern-jharokha opacity-15 pointer-events-none"></div>
       
@@ -47,7 +47,7 @@ export const BridalEditorialSection: React.FC<BridalEditorialSectionProps> = ({
               <span>{isMr ? 'शाही महाराष्ट्रीयन वधू संग्रह' : 'Royal Maharashtrian Bridal Suite'}</span>
             </div>
 
-            <h2 className="font-marathi-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F7F1E6] mb-5 drop-shadow">
+            <h2 className="font-marathi-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F3F0EA] mb-5 drop-shadow">
               {isMr ? 'तिच्या आयुष्यातील सर्वात खास दिवसासाठी' : 'For The Most Sacred Day Of Her Life'}
             </h2>
 
@@ -60,10 +60,10 @@ export const BridalEditorialSection: React.FC<BridalEditorialSectionProps> = ({
             <div className="flex flex-wrap items-center gap-4">
               <button
                 onClick={onNavigateBridal}
-                className="px-8 py-3.5 rounded-full bg-[#D4B56A] text-[#3D1017] hover:bg-[#B8903C] hover:text-[#F7F1E6] font-marathi-serif font-bold text-sm md:text-base transition-all duration-300 shadow-xl flex items-center space-x-2 group transform hover:-translate-y-0.5"
+                className="px-8 py-3.5 rounded-full bg-[#D4B56A] text-[#3D1017] hover:bg-[#B8903C] hover:text-[#F3F0EA] font-marathi-serif font-bold text-sm md:text-base transition-all duration-300 shadow-xl flex items-center space-x-2 group transform hover:-translate-y-0.5"
               >
                 <span>{isMr ? 'वधू संग्रह पहा' : 'Explore Bridal Collection'}</span>
-                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform text-[#3D1017] group-hover:text-[#F7F1E6]" />
+                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform text-[#3D1017] group-hover:text-[#F3F0EA]" />
               </button>
 
               <div className="text-xs text-[#D4B56A] font-marathi-serif flex items-center gap-1.5">
@@ -120,7 +120,7 @@ export const BridalEditorialSection: React.FC<BridalEditorialSectionProps> = ({
                     className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-500"
                   />
                 </div>
-                <div className="font-marathi-serif text-xs md:text-sm font-bold text-[#F7F1E6] group-hover:text-[#D4B56A] transition-colors leading-tight">
+                <div className="font-marathi-serif text-xs md:text-sm font-bold text-[#F3F0EA] group-hover:text-[#D4B56A] transition-colors leading-tight">
                   {isMr ? cat.name : cat.enName}
                 </div>
               </div>

@@ -121,7 +121,7 @@ export const GoldGlitterCanvas: React.FC<{ className?: string }> = ({ className 
         radGrad.addColorStop(0, '#FFFFFF'); // Specular light point
         radGrad.addColorStop(0.18, '#FFF4BA'); // Light champagne gold
         radGrad.addColorStop(0.48, '#FFD700'); // Pure bright gold
-        radGrad.addColorStop(0.82, '#D4AF37'); // Heritage Gold
+        radGrad.addColorStop(0.82, '#D7B95F'); // Heritage Gold
         radGrad.addColorStop(1, '#7E5700'); // Deep metallic gold shadow edge
 
         ctx.beginPath();

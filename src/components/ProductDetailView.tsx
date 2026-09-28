@@ -58,18 +58,18 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
     <div className="py-8 md:py-14 px-4 md:px-8 max-w-7xl mx-auto min-h-screen text-left">
       
       {/* Breadcrumb Navigation */}
-      <nav className="flex items-center space-x-2 text-xs text-[#76685F] font-marathi-serif mb-8 overflow-x-auto whitespace-nowrap">
+      <nav className="flex items-center space-x-2 text-xs text-[#766B73] font-marathi-serif mb-8 overflow-x-auto whitespace-nowrap">
         <button
           onClick={onBackToCatalogue}
-          className="flex items-center space-x-1.5 text-[#4B0F1A] hover:text-[#72263A] font-semibold transition-colors"
+          className="flex items-center space-x-1.5 text-[#3F1C46] hover:text-[#4A2252] font-semibold transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>{isMr ? 'मुख्य कॅटलॉग' : 'Catalogue'}</span>
         </button>
-        <span className="text-[#D4AF37]/50">/</span>
-        <span className="text-[#76685F]">{isMr ? product.marathiCategory : product.category}</span>
-        <span className="text-[#D4AF37]/50">/</span>
-        <span className="text-[#2F2521] font-medium truncate max-w-xs">
+        <span className="text-[#D7B95F]/50">/</span>
+        <span className="text-[#766B73]">{isMr ? product.marathiCategory : product.category}</span>
+        <span className="text-[#D7B95F]/50">/</span>
+        <span className="text-[#45234B] font-medium truncate max-w-xs">
           {isMr ? product.marathiName : product.name}
         </span>
       </nav>
@@ -79,7 +79,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
         
         {/* LEFT: High-resolution Product Image Gallery */}
         <div className="lg:col-span-6 space-y-4">
-          <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white border border-[#D4AF37]/25 p-6 flex items-center justify-center shadow-xs">
+          <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white border border-[#D7B95F]/25 p-6 flex items-center justify-center shadow-xs">
             <img
               src={product.images[selectedImageIndex] || product.images[0]}
               alt={product.name}
@@ -91,12 +91,12 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
               onClick={() => onToggleWishlist(product)}
               className={`absolute top-4 right-4 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-xs ${
                 isWishlisted
-                  ? 'bg-[#4B0F1A] text-[#D4AF37]'
-                  : 'bg-[#F7F1E6] text-[#2F2521] hover:text-[#4B0F1A] hover:bg-white'
+                  ? 'bg-[#3F1C46] text-[#D7B95F]'
+                  : 'bg-[#F3F0EA] text-[#45234B] hover:text-[#3F1C46] hover:bg-white'
               }`}
               aria-label="Wishlist"
             >
-              <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-[#D4AF37]' : ''}`} />
+              <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-[#D7B95F]' : ''}`} />
             </button>
           </div>
 
@@ -109,8 +109,8 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
                   onClick={() => setSelectedImageIndex(idx)}
                   className={`w-20 h-20 rounded-xl overflow-hidden p-1 border-2 transition-all flex-shrink-0 bg-white ${
                     selectedImageIndex === idx
-                      ? 'border-[#4B0F1A] shadow-xs'
-                      : 'border-[#D4AF37]/30 hover:border-[#D4AF37]'
+                      ? 'border-[#3F1C46] shadow-xs'
+                      : 'border-[#D7B95F]/30 hover:border-[#D7B95F]'
                   }`}
                 >
                   <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-contain" />
@@ -120,10 +120,10 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
           )}
 
           {/* Authentic BIS Hallmark Assurance badge */}
-          <div className="bg-[#FCF8F1] rounded-xl p-3.5 border border-[#D4AF37]/30 flex items-center space-x-3">
-            <ShieldCheck className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
-            <div className="text-xs font-marathi-serif text-[#2F2521]">
-              <span className="font-bold text-[#4B0F1A]">१००% BIS हॉलमार्क प्रमाणित:</span>{' '}
+          <div className="bg-[#FAF8F4] rounded-xl p-3.5 border border-[#D7B95F]/30 flex items-center space-x-3">
+            <ShieldCheck className="w-5 h-5 text-[#D7B95F] flex-shrink-0" />
+            <div className="text-xs font-marathi-serif text-[#45234B]">
+              <span className="font-bold text-[#3F1C46]">१००% BIS हॉलमार्क प्रमाणित:</span>{' '}
               {isMr 
                 ? 'प्रत्येक दागिना सरकारी हॉलमार्क आणि शुद्धतेच्या खात्रीसह उपलब्ध आहे.' 
                 : 'Every ornament comes with authentic BIS Hallmark purity certification.'}
@@ -136,46 +136,46 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
           
           <div>
             {/* Category & Purity Tag */}
-            <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-cinzel font-semibold mb-1.5 flex items-center space-x-2">
+            <div className="text-xs uppercase tracking-widest text-[#D7B95F] font-cinzel font-semibold mb-1.5 flex items-center space-x-2">
               <span>{product.purity}</span>
               <span>•</span>
               <span>{isMr ? product.marathiCategory : product.category}</span>
             </div>
             
             {/* Product Title */}
-            <h1 className="font-marathi-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#2F2521] mb-2 leading-tight">
+            <h1 className="font-marathi-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#45234B] mb-2 leading-tight">
               {isMr ? product.marathiName : product.name}
             </h1>
 
             {/* Product SKU */}
-            <p className="text-xs text-[#76685F] font-mono">
+            <p className="text-xs text-[#766B73] font-mono">
               SKU: {product.sku}
             </p>
           </div>
 
           {/* Price Box */}
-          <div className="py-4 px-5 rounded-2xl bg-[#FCF8F1] border border-[#D4AF37]/30 flex items-center justify-between">
+          <div className="py-4 px-5 rounded-2xl bg-[#FAF8F4] border border-[#D7B95F]/30 flex items-center justify-between">
             <div>
-              <span className="text-[11px] text-[#76685F] font-marathi-serif block">
+              <span className="text-[11px] text-[#766B73] font-marathi-serif block">
                 {isMr ? 'अंदाजे किंमत (सर्व कर समाविष्ट)' : 'Estimated Price (Taxes Included)'}
               </span>
-              <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#4B0F1A]">
+              <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#3F1C46]">
                 {formattedPrice}
               </span>
             </div>
 
             <div className="text-right">
-              <span className="text-[11px] text-[#76685F] font-marathi-serif block">
+              <span className="text-[11px] text-[#766B73] font-marathi-serif block">
                 {isMr ? 'वजन' : 'Weight'}
               </span>
-              <span className="font-cinzel text-base font-semibold text-[#2F2521]">
+              <span className="font-cinzel text-base font-semibold text-[#45234B]">
                 {product.weight}
               </span>
             </div>
           </div>
 
           {/* Editorial Description */}
-          <div className="font-marathi-serif text-sm text-[#2F2521] leading-relaxed">
+          <div className="font-marathi-serif text-sm text-[#45234B] leading-relaxed">
             {isMr ? product.marathiDescription : product.description}
           </div>
 
@@ -185,9 +185,9 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 px-6 rounded-full bg-[#4B0F1A] hover:bg-[#72263A] text-[#F7F1E6] text-sm sm:text-base font-marathi-serif font-bold transition-all shadow-xs flex items-center justify-center space-x-2.5 border border-[#D4AF37]/50 hover:border-[#D4AF37] group"
+              className="w-full py-3.5 px-6 rounded-full bg-[#3F1C46] hover:bg-[#4A2252] text-[#F3F0EA] text-sm sm:text-base font-marathi-serif font-bold transition-all shadow-xs flex items-center justify-center space-x-2.5 border border-[#D7B95F]/50 hover:border-[#D7B95F] group"
             >
-              <MessageCircle className="w-5 h-5 fill-[#F7F1E6] text-[#F7F1E6]" />
+              <MessageCircle className="w-5 h-5 fill-[#F3F0EA] text-[#F3F0EA]" />
               <span>{isMr ? 'WhatsApp वर चौकशी करा' : 'WhatsApp वर चौकशी करा'}</span>
             </a>
 
@@ -195,58 +195,58 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
             <div className="grid grid-cols-2 gap-3 pt-1">
               <button
                 onClick={onOpenStoreLocator}
-                className="py-2.5 px-4 rounded-full bg-[#4B0F1A]/10 hover:bg-[#4B0F1A] text-[#4B0F1A] hover:text-[#F7F1E6] text-xs font-marathi-serif font-semibold transition-colors flex items-center justify-center space-x-1.5 border border-[#D4AF37]/40"
+                className="py-2.5 px-4 rounded-full bg-[#3F1C46]/10 hover:bg-[#3F1C46] text-[#3F1C46] hover:text-[#F3F0EA] text-xs font-marathi-serif font-semibold transition-colors flex items-center justify-center space-x-1.5 border border-[#D7B95F]/40"
               >
-                <MapPin className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <MapPin className="w-3.5 h-3.5 text-[#D7B95F]" />
                 <span>{isMr ? 'दालनाला भेट द्या' : 'Visit Store'}</span>
               </button>
 
               <a
                 href={`tel:${BRAND_CONFIG.PHONE_NUMBER}`}
-                className="py-2.5 px-4 rounded-full bg-white hover:bg-[#F7F1E6] text-[#2F2521] text-xs font-marathi-serif font-semibold transition-colors flex items-center justify-center space-x-1.5 border border-[#D4AF37]/30 text-center"
+                className="py-2.5 px-4 rounded-full bg-white hover:bg-[#F3F0EA] text-[#45234B] text-xs font-marathi-serif font-semibold transition-colors flex items-center justify-center space-x-1.5 border border-[#D7B95F]/30 text-center"
               >
-                <Phone className="w-3.5 h-3.5 text-[#4B0F1A]" />
+                <Phone className="w-3.5 h-3.5 text-[#3F1C46]" />
                 <span>{isMr ? 'कॉल करा' : 'Call Us'}</span>
               </a>
             </div>
           </div>
 
           {/* SPECIFICATIONS TABLE */}
-          <div className="pt-4 border-t border-[#D4AF37]/20">
-            <h3 className="font-marathi-display text-base font-bold text-[#4B0F1A] mb-3">
+          <div className="pt-4 border-t border-[#D7B95F]/20">
+            <h3 className="font-marathi-display text-base font-bold text-[#3F1C46] mb-3">
               {isMr ? 'दागिन्यांची सविस्तर माहिती' : 'Product Specifications'}
             </h3>
 
-            <div className="bg-[#FCF8F1] rounded-xl overflow-hidden border border-[#D4AF37]/25 divide-y divide-[#D4AF37]/15 font-marathi-serif text-xs">
+            <div className="bg-[#FAF8F4] rounded-xl overflow-hidden border border-[#D7B95F]/25 divide-y divide-[#D7B95F]/15 font-marathi-serif text-xs">
               <div className="py-2.5 px-4 flex justify-between">
-                <span className="text-[#76685F]">{isMr ? 'धातू (Metal)' : 'Metal'}</span>
-                <span className="font-medium text-[#2F2521]">{isMr ? product.marathiMetal : product.metal}</span>
+                <span className="text-[#766B73]">{isMr ? 'धातू (Metal)' : 'Metal'}</span>
+                <span className="font-medium text-[#45234B]">{isMr ? product.marathiMetal : product.metal}</span>
               </div>
 
               <div className="py-2.5 px-4 flex justify-between">
-                <span className="text-[#76685F]">{isMr ? 'शुद्धता (Purity)' : 'Purity'}</span>
-                <span className="font-bold text-[#4B0F1A]">{product.purity}</span>
+                <span className="text-[#766B73]">{isMr ? 'शुद्धता (Purity)' : 'Purity'}</span>
+                <span className="font-bold text-[#3F1C46]">{product.purity}</span>
               </div>
 
               <div className="py-2.5 px-4 flex justify-between">
-                <span className="text-[#76685F]">{isMr ? 'अंदाजे एकूण वजन (Gross Weight)' : 'Gross Weight'}</span>
-                <span className="font-medium text-[#2F2521]">{product.weight}</span>
+                <span className="text-[#766B73]">{isMr ? 'अंदाजे एकूण वजन (Gross Weight)' : 'Gross Weight'}</span>
+                <span className="font-medium text-[#45234B]">{product.weight}</span>
               </div>
 
               <div className="py-2.5 px-4 flex justify-between">
-                <span className="text-[#76685F]">{isMr ? 'श्रेणी (Category)' : 'Category'}</span>
-                <span className="font-medium text-[#2F2521]">{isMr ? product.marathiCategory : product.category}</span>
+                <span className="text-[#766B73]">{isMr ? 'श्रेणी (Category)' : 'Category'}</span>
+                <span className="font-medium text-[#45234B]">{isMr ? product.marathiCategory : product.category}</span>
               </div>
 
               <div className="py-2.5 px-4 flex justify-between">
-                <span className="text-[#76685F]">{isMr ? 'प्रमाणपत्र (Certification)' : 'Certification'}</span>
-                <span className="font-medium text-[#2F2521]">BIS Hallmarked (Govt. Certified)</span>
+                <span className="text-[#766B73]">{isMr ? 'प्रमाणपत्र (Certification)' : 'Certification'}</span>
+                <span className="font-medium text-[#45234B]">BIS Hallmarked (Govt. Certified)</span>
               </div>
 
               {product.specifications.map((spec, i) => (
                 <div key={i} className="py-2.5 px-4 flex justify-between">
-                  <span className="text-[#76685F]">{isMr ? spec.marathiLabel : spec.label}</span>
-                  <span className="font-medium text-[#2F2521]">{spec.value}</span>
+                  <span className="text-[#766B73]">{isMr ? spec.marathiLabel : spec.label}</span>
+                  <span className="font-medium text-[#45234B]">{spec.value}</span>
                 </div>
               ))}
             </div>
@@ -258,8 +258,8 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
 
       {/* RELATED PIECES */}
       {relatedProducts.length > 0 && (
-        <div className="pt-12 border-t border-[#D4AF37]/20">
-          <h2 className="font-marathi-display text-2xl font-bold text-[#4B0F1A] mb-6">
+        <div className="pt-12 border-t border-[#D7B95F]/20">
+          <h2 className="font-marathi-display text-2xl font-bold text-[#3F1C46] mb-6">
             {isMr ? 'हे दागिने देखील पहा' : 'You May Also Like'}
           </h2>
 

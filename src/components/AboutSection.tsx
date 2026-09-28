@@ -34,11 +34,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
   return (
     <section ref={sectionRef} className="py-14 md:py-24 px-4 md:px-8 max-w-7xl mx-auto text-left">
-      <div className="bg-[#FCF8F1] rounded-3xl border border-[#D4AF37]/35 p-6 md:p-12 lg:p-14 shadow-xs overflow-hidden">
+      <div className="bg-[#FAF8F4] rounded-3xl border border-[#D7B95F]/35 p-6 md:p-12 lg:p-14 shadow-xs overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-14 items-center">
           
           {/* LEFT: Large Image with slow reveal */}
-          <div className="md:col-span-6 relative rounded-2xl overflow-hidden border border-[#D4AF37]/40 aspect-[4/5] sm:aspect-[4/4] md:aspect-[4/5] shadow-md group">
+          <div className="md:col-span-6 relative rounded-2xl overflow-hidden border border-[#D7B95F]/40 aspect-[4/5] sm:aspect-[4/4] md:aspect-[4/5] shadow-md group">
             <img
               src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1000&auto=format&fit=crop"
               alt="Wafgaonkar Master Goldsmith Craftsmanship"
@@ -47,13 +47,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               } group-hover:scale-105`}
             />
             {/* Cinematic Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#2F2521]/75 via-[#2F2521]/15 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#45234B]/75 via-[#45234B]/15 to-transparent pointer-events-none" />
             
-            <div className="absolute bottom-5 left-5 right-5 text-[#FCF8F1]">
-              <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-cinzel font-semibold block">
+            <div className="absolute bottom-5 left-5 right-5 text-[#FAF8F4]">
+              <span className="text-[10px] uppercase tracking-widest text-[#D7B95F] font-cinzel font-semibold block">
                 AUTHENTIC CRAFTSMANSHIP
               </span>
-              <span className="font-marathi-display text-base sm:text-lg font-bold text-[#FCF8F1]">
+              <span className="font-marathi-display text-base sm:text-lg font-bold text-[#FAF8F4]">
                 {isMr ? '१९५१ पासूनची अखंड परंपरा' : 'Master Craftsmanship Since 1951'}
               </span>
             </div>
@@ -68,8 +68,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
               }`}
             >
-              <span className="w-6 h-[1.5px] bg-[#D4AF37]" />
-              <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-cinzel font-bold block">
+              <span className="w-6 h-[1.5px] bg-[#D7B95F]" />
+              <span className="text-xs uppercase tracking-[0.25em] text-[#D7B95F] font-cinzel font-bold block">
                 SINCE 1951
               </span>
             </div>
@@ -77,7 +77,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             {/* Large Heading line-by-line reveal */}
             <div className="overflow-hidden">
               <h2
-                className={`font-marathi-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#4B0F1A] tracking-tight leading-[1.2] transition-all duration-700 delay-100 ${
+                className={`font-marathi-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#3F1C46] tracking-tight leading-[1.2] transition-all duration-700 delay-100 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
               >
@@ -99,7 +99,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
             {/* Short text */}
             <p
-              className={`font-marathi-serif text-[#2F2521] text-sm sm:text-base leading-relaxed transition-all duration-700 delay-200 ${
+              className={`font-marathi-serif text-[#45234B] text-sm sm:text-base leading-relaxed transition-all duration-700 delay-200 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
@@ -109,9 +109,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             </p>
 
             {/* Small gold line that draws itself from left to right */}
-            <div className="w-full max-w-xs h-[1.5px] bg-[#D4AF37]/25 overflow-hidden my-4">
+            <div className="w-full max-w-xs h-[1.5px] bg-[#D7B95F]/25 overflow-hidden my-4">
               <div
-                className={`h-full bg-[#D4AF37] transition-all duration-700 delay-300 ease-out ${
+                className={`h-full bg-[#D7B95F] transition-all duration-700 delay-300 ease-out ${
                   isVisible ? 'w-full' : 'w-0'
                 }`}
               />
@@ -125,10 +125,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             >
               <button
                 onClick={onOpenAboutModal}
-                className="inline-flex items-center space-x-2 text-sm sm:text-base font-marathi-serif font-bold text-[#4B0F1A] hover:text-[#72263A] group transition-colors"
+                className="inline-flex items-center space-x-2 text-sm sm:text-base font-marathi-serif font-bold text-[#3F1C46] hover:text-[#4A2252] group transition-colors"
               >
                 <span>{isMr ? 'आमची कहाणी' : 'Our Story'}</span>
-                <span className="text-[#D4AF37] transform transition-transform duration-300 group-hover:translate-x-1.5">
+                <span className="text-[#D7B95F] transform transition-transform duration-300 group-hover:translate-x-1.5">
                   →
                 </span>
               </button>

@@ -32,7 +32,7 @@ export const BrandLoader: React.FC<BrandLoaderProps> = ({ onComplete }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#F7F1E6] transition-opacity duration-300 pointer-events-none ${
+      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#F3F0EA] transition-opacity duration-300 pointer-events-none ${
         fading ? 'opacity-0' : 'opacity-100'
       }`}
     >
@@ -41,14 +41,14 @@ export const BrandLoader: React.FC<BrandLoaderProps> = ({ onComplete }) => {
         <BrandLogo variant="dark" size="lg" showSubtitle={true} />
 
         {/* Elegant thin champagne-gold progress line animating 0 -> 100% */}
-        <div className="w-48 h-[1.5px] bg-[#D4AF37]/25 overflow-hidden rounded-full mt-2">
+        <div className="w-48 h-[1.5px] bg-[#D7B95F]/25 overflow-hidden rounded-full mt-2">
           <div
-            className="h-full bg-[#D4AF37] transition-all duration-700 ease-out"
+            className="h-full bg-[#D7B95F] transition-all duration-700 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>
 
-        <span className="font-cinzel text-[10px] uppercase tracking-[0.25em] text-[#76685F] opacity-75">
+        <span className="font-cinzel text-[10px] uppercase tracking-[0.25em] text-[#766B73] opacity-75">
           Pure Tradition • Since 1951
         </span>
       </div>

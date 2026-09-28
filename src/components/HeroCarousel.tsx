@@ -94,7 +94,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
   const current = HERO_SLIDES[currentSlide];
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#4B0F1A]">
+    <section className="relative w-full overflow-hidden bg-[#3F1C46]">
       {/* 65-75vh container on desktop */}
       <div className="relative w-full h-[58vh] sm:h-[64vh] md:h-[70vh] lg:h-[74vh] max-h-[720px]">
         {HERO_SLIDES.map((slide, index) => {
@@ -118,8 +118,8 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                 />
               </picture>
 
-              {/* Sophisticated Editorial Vignette & Gradient - Calm Warm Darkness */}
-              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#2F2521]/90 via-[#2F2521]/55 to-transparent"></div>
+              {/* Sophisticated Editorial Vignette & Gradient — Warm Ivory → Deep Plum */}
+              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#3F1C46]/90 via-[#3F1C46]/50 to-transparent"></div>
 
               {/* Minimal Text Content */}
               <div className="absolute inset-0 flex items-center">
@@ -130,7 +130,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                     {slide.smallLabelMr && (
                       <div className="overflow-hidden">
                         <span 
-                          className={`inline-block text-xs md:text-sm font-cinzel tracking-[0.25em] text-[#D4AF37] uppercase font-semibold transition-all duration-700 ease-out ${
+                          className={`inline-block text-xs md:text-sm font-cinzel tracking-[0.25em] text-[#D7B95F] uppercase font-semibold transition-all duration-700 ease-out ${
                             isActive ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0 tracking-normal'
                           }`}
                         >
@@ -144,7 +144,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                       {(isMr ? slide.headlineMr : slide.headlineEn).split('\n').map((line, lIdx) => (
                         <div key={lIdx} className="overflow-hidden">
                           <h1
-                            className={`font-marathi-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-[#FCF8F1] font-bold leading-[1.18] tracking-tight transition-all duration-800 ease-out ${
+                            className={`font-marathi-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-[#FAF8F4] font-bold leading-[1.18] tracking-tight transition-all duration-800 ease-out ${
                               isActive ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                             }`}
                             style={{
@@ -172,10 +172,10 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                           }
                           onNavigate('catalogue');
                         }}
-                        className="group inline-flex items-center space-x-2.5 px-7 py-3 sm:px-9 sm:py-3.5 rounded-full bg-[#4B0F1A] hover:bg-[#72263A] text-[#F7F1E6] text-xs sm:text-sm font-marathi-serif font-bold transition-all border border-[#D4AF37]/50 shadow-md hover:border-[#D4AF37] hover:scale-[1.02]"
+                        className="group inline-flex items-center space-x-2.5 px-7 py-3 sm:px-9 sm:py-3.5 rounded-full bg-[#3F1C46] hover:bg-[#4A2252] text-[#F3F0EA] text-xs sm:text-sm font-marathi-serif font-bold transition-all border border-[#D7B95F]/50 shadow-md hover:border-[#D7B95F] hover:scale-[1.02]"
                       >
                         <span>{isMr ? slide.ctaMr : slide.ctaEn}</span>
-                        <span className="text-[#D4AF37] transform transition-transform duration-300 group-hover:translate-x-1">
+                        <span className="text-[#D7B95F] transform transition-transform duration-300 group-hover:translate-x-1">
                           →
                         </span>
                       </button>
@@ -191,14 +191,14 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
         {/* Minimal Slide Arrows (Desktop) */}
         <button
           onClick={handlePrev}
-          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#2F2521]/40 hover:bg-[#2F2521]/80 text-[#FCF8F1] items-center justify-center transition-colors border border-white/20"
+          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#3F1C46]/50 hover:bg-[#3F1C46]/90 text-[#FAF8F4] items-center justify-center transition-colors border border-white/20"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={handleNext}
-          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#2F2521]/40 hover:bg-[#2F2521]/80 text-[#FCF8F1] items-center justify-center transition-colors border border-white/20"
+          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#3F1C46]/50 hover:bg-[#3F1C46]/90 text-[#FAF8F4] items-center justify-center transition-colors border border-white/20"
           aria-label="Next slide"
         >
           <ChevronRight className="w-5 h-5" />
@@ -215,7 +215,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
               }}
               className={`transition-all duration-300 rounded-full ${
                 idx === currentSlide
-                  ? 'w-6 h-1.5 bg-[#D4AF37]'
+                  ? 'w-6 h-1.5 bg-[#D7B95F]'
                   : 'w-1.5 h-1.5 bg-white/40 hover:bg-white/70'
               }`}
               aria-label={`Slide ${idx + 1}`}

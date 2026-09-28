@@ -73,7 +73,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ currentLang }) => {
             return (
               <div
                 key={idx}
-                className="p-6 md:p-7 rounded-2xl bg-[#F7F1E6] border border-[#B8903C]/25 hover:border-[#B8903C] transition-all duration-300 luxury-shadow flex items-start space-x-4 group"
+                className="p-6 md:p-7 rounded-2xl bg-[#F3F0EA] border border-[#B8903C]/25 hover:border-[#B8903C] transition-all duration-300 luxury-shadow flex items-start space-x-4 group"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#EFE4D2] border border-[#B8903C]/30 flex items-center justify-center text-[#5A1720] group-hover:bg-[#5A1720] group-hover:text-[#D4B56A] transition-all duration-300 flex-shrink-0">
                   <Icon className="w-6 h-6 stroke-[1.5]" />

@@ -33,12 +33,12 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-[#F7F1E6] rounded-2xl max-w-3xl w-full overflow-hidden border border-[#B8903C]/40 luxury-shadow relative animate-in zoom-in-95 duration-200">
+      <div className="bg-[#F3F0EA] rounded-2xl max-w-3xl w-full overflow-hidden border border-[#B8903C]/40 luxury-shadow relative animate-in zoom-in-95 duration-200">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-white/80 text-[#3A2922] hover:bg-[#5A1720] hover:text-[#F7F1E6] transition-colors flex items-center justify-center"
+          className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-white/80 text-[#3A2922] hover:bg-[#5A1720] hover:text-[#F3F0EA] transition-colors flex items-center justify-center"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -98,7 +98,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                   onAddToCart(product);
                   onClose();
                 }}
-                className="w-full py-2.5 px-4 rounded-full bg-[#5A1720] text-[#F7F1E6] hover:bg-[#3D1017] hover:text-[#D4B56A] text-xs font-bold transition-all flex items-center justify-center space-x-1.5 shadow"
+                className="w-full py-2.5 px-4 rounded-full bg-[#5A1720] text-[#F3F0EA] hover:bg-[#3D1017] hover:text-[#D4B56A] text-xs font-bold transition-all flex items-center justify-center space-x-1.5 shadow"
               >
                 <ShoppingBag className="w-4 h-4 text-[#D4B56A]" />
                 <span>{isMr ? 'बॅगमध्ये जोडा' : 'Add to Bag'}</span>
@@ -120,7 +120,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                     onViewDetails(product);
                     onClose();
                   }}
-                  className="py-2 px-3 rounded-full border border-[#5A1720] text-[#5A1720] hover:bg-[#5A1720] hover:text-[#F7F1E6] text-[11px] font-bold transition-all flex items-center justify-center space-x-1"
+                  className="py-2 px-3 rounded-full border border-[#5A1720] text-[#5A1720] hover:bg-[#5A1720] hover:text-[#F3F0EA] text-[11px] font-bold transition-all flex items-center justify-center space-x-1"
                 >
                   <span>{isMr ? 'संपूर्ण तपशील' : 'Full Details'}</span>
                   <ArrowRight className="w-3 h-3" />

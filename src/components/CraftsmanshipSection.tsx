@@ -34,7 +34,7 @@ export const CraftsmanshipSection: React.FC<CraftsmanshipSectionProps> = ({ curr
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-[#F7F1E6] border-b border-[#B8903C]/20 px-4 md:px-8">
+    <section className="py-20 md:py-28 bg-[#F3F0EA] border-b border-[#B8903C]/20 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Heading */}

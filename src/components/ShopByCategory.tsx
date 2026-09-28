@@ -58,7 +58,7 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
 
               {/* Badges */}
               <div className="absolute top-3 left-3">
-                <span className="px-2.5 py-0.5 rounded-full bg-[#F7F1E6]/90 backdrop-blur-sm text-[#5A1720] text-[11px] font-cinzel font-semibold border border-[#B8903C]/30 shadow-sm">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#F3F0EA]/90 backdrop-blur-sm text-[#5A1720] text-[11px] font-cinzel font-semibold border border-[#B8903C]/30 shadow-sm">
                   {cat.itemCount}+ {isMr ? 'नमुने' : 'Designs'}
                 </span>
               </div>
