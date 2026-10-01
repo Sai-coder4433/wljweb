@@ -31,8 +31,8 @@ export const MAIN_CATEGORIES: MainCategory[] = [
     subcategories: [
       { id: 'haar', marathiName: 'हार व चोकर', name: 'Haar & Choker', image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=400&auto=format&fit=crop', slug: 'necklaces' },
       { id: 'thushi-gold', marathiName: 'पेशवाई ठुशी', name: 'Peshwai Thushi', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=400&auto=format&fit=crop', slug: 'thushi' },
-      { id: 'mangalsutra-sub', marathiName: 'मंगळसूत्र', name: 'Mangalsutra', image: 'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=400&auto=format&fit=crop', slug: 'mangalsutra' },
-      { id: 'bangdya', marathiName: 'बांगड्या व तोडे', name: 'Bangles & Tode', image: 'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=400&auto=format&fit=crop', slug: 'bangles' },
+      { id: 'mangalsutra-sub', marathiName: 'मंगळसूत्र', name: 'Mangalsutra', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=400&auto=format&fit=crop', slug: 'mangalsutra' },
+      { id: 'bangdya', marathiName: 'बांगड्या व तोडे', name: 'Bangles & Tode', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=400&auto=format&fit=crop', slug: 'bangles' },
       { id: 'jhumke-gold', marathiName: 'झुमके व कर्णफुले', name: 'Earrings & Jhumkas', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=400&auto=format&fit=crop', slug: 'earrings' },
       { id: 'angathya-gold', marathiName: 'अंगठ्या', name: 'Rings', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=400&auto=format&fit=crop', slug: 'rings' },
       { id: 'nath-gold', marathiName: 'ब्राह्मणी नथ', name: 'Nath', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=400&auto=format&fit=crop', slug: 'nath' },
@@ -54,10 +54,10 @@ export const MAIN_CATEGORIES: MainCategory[] = [
     slug: 'mangalsutra',
     marathiName: 'मंगळसूत्र',
     name: 'Mangalsutra',
-    image: 'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600&auto=format&fit=crop',
     subcategories: [
-      { id: 'traditional-vati', marathiName: 'पारंपरिक वटी', name: 'Traditional Vati', image: 'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=400&auto=format&fit=crop', slug: 'vati' },
-      { id: 'mani-mangalsutra', marathiName: 'काळे मणी मंगळसूत्र', name: 'Gold Mani Mangalsutra', image: 'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=400&auto=format&fit=crop', slug: 'mani' },
+      { id: 'traditional-vati', marathiName: 'पारंपरिक वटी', name: 'Traditional Vati', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=400&auto=format&fit=crop', slug: 'vati' },
+      { id: 'mani-mangalsutra', marathiName: 'काळे मणी मंगळसूत्र', name: 'Gold Mani Mangalsutra', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=400&auto=format&fit=crop', slug: 'mani' },
       { id: 'short-mangalsutra', marathiName: 'नाजूक दैनंदिन मंगळसूत्र', name: 'Delicate Everyday', image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=400&auto=format&fit=crop', slug: 'delicate' },
     ],
   },
@@ -92,12 +92,12 @@ export const MAIN_CATEGORIES: MainCategory[] = [
     slug: 'bangles',
     marathiName: 'बांगड्या',
     name: 'Bangles & Tode',
-    image: 'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop',
     subcategories: [
-      { id: 'shindeshahi-tode', marathiName: 'शिंदेशाही तोडे', name: 'Shindeshahi Tode', image: 'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=400&auto=format&fit=crop', slug: 'shindeshahi' },
+      { id: 'shindeshahi-tode', marathiName: 'शिंदेशाही तोडे', name: 'Shindeshahi Tode', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=400&auto=format&fit=crop', slug: 'shindeshahi' },
       { id: 'gahu-tode', marathiName: 'गहू तोडे', name: 'Gahu Tode', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=400&auto=format&fit=crop', slug: 'gahu' },
-      { id: 'patlya-sub', marathiName: 'पारंपरिक पाटल्या', name: 'Patlya', image: 'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=400&auto=format&fit=crop', slug: 'patlya' },
-      { id: 'pichhodi-sub', marathiName: 'सुवर्ण पिच्छोडी', name: 'Pichhodi', image: 'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=400&auto=format&fit=crop', slug: 'pichhodi' },
+      { id: 'patlya-sub', marathiName: 'पारंपरिक पाटल्या', name: 'Patlya', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=400&auto=format&fit=crop', slug: 'patlya' },
+      { id: 'pichhodi-sub', marathiName: 'सुवर्ण पिच्छोडी', name: 'Pichhodi', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=400&auto=format&fit=crop', slug: 'pichhodi' },
     ],
   },
   {
@@ -172,28 +172,28 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
     return () => observer.disconnect();
   }, []);
 
-  // Category section background tonal transition: Warm Ivory → Soft Mauve → Warm Ivory
+  // Category section background tonal transition: Warm Ivory → Champagne Gold → Warm Ivory
   const currentAccentCatId = hoveredCatId || activeMainCat.id;
   const getDynamicBackgroundClass = (catId: string) => {
     switch (catId) {
       case 'gold':
-        return 'bg-gradient-to-b from-[#F3F0EA] via-[#BDA9C4]/25 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(215,185,95,0.06)]';
+        return 'bg-gradient-to-b from-[#F3F0EA] via-[#E5CCA0]/25 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(215,185,95,0.08)]';
       case 'diamond':
-        return 'bg-gradient-to-b from-[#F3F0EA] via-[#D8C9D8]/30 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(216,201,216,0.3)]';
+        return 'bg-gradient-to-b from-[#F3F0EA] via-[#FAF8F4] to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(215,185,95,0.06)]';
       case 'mangalsutra':
-        return 'bg-gradient-to-b from-[#F3F0EA] via-[#BDA9C4]/28 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(189,169,196,0.12)]';
+        return 'bg-gradient-to-b from-[#F3F0EA] via-[#E5CCA0]/20 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(215,185,95,0.10)]';
       case 'necklaces':
-        return 'bg-gradient-to-b from-[#F3F0EA] via-[#D8C9D8]/28 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(189,169,196,0.10)]';
+        return 'bg-gradient-to-b from-[#F3F0EA] via-[#FAF8F4] to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(215,185,95,0.08)]';
       case 'earrings':
-        return 'bg-gradient-to-b from-[#F3F0EA] via-[#BDA9C4]/22 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(215,185,95,0.06)]';
+        return 'bg-gradient-to-b from-[#F3F0EA] via-[#E5CCA0]/20 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(215,185,95,0.06)]';
       case 'bangles':
-        return 'bg-gradient-to-b from-[#F3F0EA] via-[#D8C9D8]/25 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(189,169,196,0.09)]';
+        return 'bg-gradient-to-b from-[#F3F0EA] via-[#FAF8F4] to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(215,185,95,0.07)]';
       case 'rings':
-        return 'bg-gradient-to-b from-[#F3F0EA] via-[#BDA9C4]/20 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(215,185,95,0.07)]';
+        return 'bg-gradient-to-b from-[#F3F0EA] via-[#E5CCA0]/20 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(215,185,95,0.07)]';
       case 'silver':
-        return 'bg-gradient-to-b from-[#F3F0EA] via-[#D8C9D8]/22 to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(216,201,216,0.10)]';
+        return 'bg-gradient-to-b from-[#F3F0EA] via-[#FAF8F4] to-[#F3F0EA] shadow-[inset_0_0_80px_rgba(215,185,95,0.05)]';
       default:
-        return 'bg-gradient-to-b from-[#F3F0EA] via-[#BDA9C4]/20 to-[#F3F0EA]';
+        return 'bg-gradient-to-b from-[#F3F0EA] via-[#E5CCA0]/15 to-[#F3F0EA]';
     }
   };
 
@@ -286,12 +286,12 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
         currentAccentCatId
       )}`}
     >
-      {/* Large faint typography in background (opacity ~5%) */}
+      {/* Large faint typography in background (opacity ~4%) */}
       <div className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center overflow-hidden opacity-[0.04] select-none">
-        <span className="font-cinzel text-[14vw] font-black tracking-[0.2em] text-[#3F1C46] leading-none whitespace-nowrap">
+        <span className="font-cinzel text-[14vw] font-black tracking-[0.2em] text-[#D7B95F] leading-none whitespace-nowrap">
           JEWELLERY
         </span>
-        <span className="font-cinzel text-[11vw] font-black tracking-[0.25em] text-[#BDA9C4] leading-none whitespace-nowrap -mt-4">
+        <span className="font-cinzel text-[11vw] font-black tracking-[0.25em] text-[#D7B95F]/70 leading-none whitespace-nowrap -mt-4">
           COLLECTION
         </span>
       </div>
@@ -306,10 +306,10 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
           <span className="text-[10px] sm:text-xs font-cinzel uppercase tracking-[0.25em] text-[#D7B95F] font-semibold block mb-1">
             CURATED CATALOGUE • SINCE 1951
           </span>
-          <h2 className="font-marathi-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#3F1C46] tracking-tight">
+          <h2 className="font-marathi-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#3C0015] tracking-tight">
             {isMr ? 'दागिन्यांची निवड करा' : 'Choose Your Jewellery'}
           </h2>
-          <p className="font-marathi-serif text-xs sm:text-sm text-[#766B73] mt-1">
+          <p className="font-marathi-serif text-xs sm:text-sm text-[#766A61] mt-1">
             {isMr ? 'आपल्या आवडीचा साज निवडा.' : 'Select your favorite jewellery style.'}
           </p>
         </div>
@@ -318,14 +318,14 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
         <div className="flex items-center space-x-2 self-end sm:self-center">
           <button
             onClick={() => handleScroll('left')}
-            className="w-9 h-9 rounded-full bg-[#FAF8F4] border border-[#D7B95F]/40 text-[#3F1C46] hover:bg-[#3F1C46] hover:text-[#F3F0EA] transition-all flex items-center justify-center shadow-xs"
+            className="w-9 h-9 rounded-full bg-[#FAF8F4] border border-[#D7B95F]/40 text-[#3C0015] hover:bg-[#3C0015] hover:text-[#FAF8F4] transition-all flex items-center justify-center shadow-xs cursor-pointer"
             aria-label="Scroll left"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => handleScroll('right')}
-            className="w-9 h-9 rounded-full bg-[#FAF8F4] border border-[#D7B95F]/40 text-[#3F1C46] hover:bg-[#3F1C46] hover:text-[#F3F0EA] transition-all flex items-center justify-center shadow-xs"
+            className="w-9 h-9 rounded-full bg-[#FAF8F4] border border-[#D7B95F]/40 text-[#3C0015] hover:bg-[#3C0015] hover:text-[#FAF8F4] transition-all flex items-center justify-center shadow-xs cursor-pointer"
             aria-label="Scroll right"
           >
             <ChevronRight className="w-5 h-5" />
@@ -362,11 +362,11 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                 <div
                   className={`relative w-[76px] h-[76px] sm:w-[94px] sm:h-[94px] rounded-full p-1 transition-all duration-350 ease-out animate-category-breathe ${
                     isSelected
-                      ? 'ring-2 ring-[#D7B95F] ring-offset-2 ring-offset-[#F3F0EA] bg-[#BDA9C4] scale-[1.04] shadow-md'
-                      : 'ring-1 ring-[#D7B95F]/35 group-hover:ring-2 group-hover:ring-[#D7B95F] bg-[#FAF8F4] group-hover:bg-[#BDA9C4]/35'
+                      ? 'ring-2 ring-[#D7B95F] ring-offset-2 ring-offset-[#F3F0EA] bg-[#E5CCA0] scale-[1.04] shadow-md'
+                      : 'ring-1 ring-[#D7B95F]/35 group-hover:ring-2 group-hover:ring-[#D7B95F] bg-[#FAF8F4] group-hover:bg-[#E5CCA0]/35'
                   }`}
                 >
-                  <div className="w-full h-full rounded-full overflow-hidden bg-[#45234B]">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-[#3C0015]">
                     <img
                       src={cat.image}
                       alt=""
@@ -381,8 +381,8 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                   <span
                     className={`block font-marathi-serif text-xs sm:text-sm leading-tight transition-colors text-center truncate ${
                       isSelected
-                        ? 'font-bold text-[#3F1C46]'
-                        : 'font-medium text-[#45234B] group-hover:text-[#3F1C46]'
+                        ? 'font-bold text-[#3C0015]'
+                        : 'font-medium text-[#29231F] group-hover:text-[#3C0015]'
                     }`}
                   >
                     {isMr ? cat.marathiName : cat.name}
@@ -397,11 +397,26 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
         </div>
       </div>
 
-      {/* 02. SUBCATEGORIES — Deep Plum luxury container */}
-      <div className="relative bg-[#3F1C46] border-2 border-[#D7B95F]/50 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 md:p-8 lg:p-10 shadow-[0_20px_50px_-10px_rgba(63,28,70,0.55)] mb-6 sm:mb-8 overflow-hidden text-left">
+      {/* 02. SUBCATEGORIES — Real Royal Maroon Velvet Cloth container */}
+      <div 
+        className="relative border-2 border-[#D7B95F]/65 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 md:p-8 lg:p-10 shadow-[0_25px_60px_-10px_rgba(40,0,15,0.75)] mb-6 sm:mb-8 overflow-hidden text-left bg-[#320012]"
+        style={{
+          backgroundImage: `
+            radial-gradient(ellipse 90% 60% at 50% 30%, rgba(130, 20, 50, 0.30) 0%, rgba(30, 0, 10, 0.60) 100%),
+            linear-gradient(145deg, rgba(35, 0, 12, 0.50) 0%, rgba(55, 0, 20, 0.30) 45%, rgba(25, 0, 8, 0.55) 100%),
+            url('/royal_maroon_velvet_bg.jpg')
+          `,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 35%',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         
-        <div className="absolute top-0 right-0 w-80 sm:w-96 h-80 sm:h-96 bg-[#D7B95F]/12 rounded-full blur-3xl pointer-events-none -mr-24 -mt-24" />
-        <div className="absolute bottom-0 left-0 w-64 sm:w-80 h-64 sm:h-80 bg-[#BDA9C4]/20 rounded-full blur-3xl pointer-events-none -ml-24 -mb-24" />
+        {/* Subtle top gold velvet trim sheen */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D7B95F]/80 to-transparent pointer-events-none" />
+
+        <div className="absolute top-0 right-0 w-80 sm:w-96 h-80 sm:h-96 bg-[#D7B95F]/15 rounded-full blur-3xl pointer-events-none -mr-24 -mt-24" />
+        <div className="absolute bottom-0 left-0 w-64 sm:w-80 h-64 sm:h-80 bg-[#78142D]/35 rounded-full blur-3xl pointer-events-none -ml-24 -mb-24" />
 
         {/* Section Header */}
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between pb-3.5 sm:pb-5 mb-4 sm:mb-6 border-b border-[#D7B95F]/25 gap-3 sm:gap-4">
@@ -411,7 +426,7 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                 {isMr ? 'उप-प्रकार निवडा' : 'Select Subcategory'}
               </span>
               <span className="text-xs sm:text-sm text-[#D7B95F]/70">•</span>
-              <span className="text-[10px] sm:text-xs font-bold text-[#F3F0EA] font-marathi-serif tracking-wide bg-[#2A0E33]/85 px-2.5 sm:px-3 py-0.5 rounded-full border border-[#D7B95F]/40 shadow-xs">
+              <span className="text-[10px] sm:text-xs font-bold text-[#F3F0EA] font-marathi-serif tracking-wide bg-[#24000C]/85 px-2.5 sm:px-3 py-0.5 rounded-full border border-[#D7B95F]/40 shadow-xs">
                 {isMr ? activeMainCat.marathiName : activeMainCat.name}
               </span>
             </div>
@@ -426,10 +441,10 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
               onSelectCategory(activeMainCat.slug);
               onNavigateCatalogue();
             }}
-            className="inline-flex items-center space-x-1.5 sm:space-x-2 px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full bg-[#FAF8F4] hover:bg-[#F3F0EA] text-[#3F1C46] transition-all duration-300 text-xs sm:text-sm font-marathi-serif font-bold self-start sm:self-center shadow-md hover:shadow-xl hover:scale-105 active:scale-95 border border-[#D7B95F]/70 group cursor-pointer"
+            className="inline-flex items-center space-x-1.5 sm:space-x-2 px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full bg-[#FAF8F4] hover:bg-[#F3F0EA] text-[#3C0015] transition-all duration-300 text-xs sm:text-sm font-marathi-serif font-bold self-start sm:self-center shadow-md hover:shadow-xl hover:scale-105 active:scale-95 border border-[#D7B95F]/70 group cursor-pointer"
           >
             <span>{isMr ? `कॅटलॉगमध्ये सर्व पहा` : `Browse All in Catalogue`}</span>
-            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transform transition-transform group-hover:translate-x-1.5 duration-300 text-[#3F1C46]" />
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transform transition-transform group-hover:translate-x-1.5 duration-300 text-[#3C0015]" />
           </button>
         </div>
 
@@ -444,13 +459,13 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                 onClick={() => setSelectedSubCategory(sub.slug)}
                 className={`group flex items-center space-x-2 sm:space-x-2.5 px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl border transition-all duration-300 flex-shrink-0 cursor-pointer ${
                   isSubActive
-                    ? 'bg-[#BDA9C4] text-[#3F1C46] border-[#D7B95F] shadow-lg scale-[1.03] ring-1 ring-[#D7B95F]'
-                    : 'bg-[#2A0E33]/85 hover:bg-[#4A2252] text-[#F3F0EA] border border-[#D7B95F]/35 hover:border-[#D7B95F] hover:scale-[1.03] shadow-md backdrop-blur-xs'
+                    ? 'bg-gradient-to-r from-[#D7B95F] to-[#E9CCA0] text-[#3C0015] border-[#FAF8F4] shadow-lg scale-[1.03] ring-2 ring-[#D7B95F]'
+                    : 'bg-[#24000C]/85 hover:bg-[#5A001C] text-[#F3F0EA] border border-[#D7B95F]/35 hover:border-[#D7B95F] hover:scale-[1.03] shadow-md backdrop-blur-xs'
                 }`}
               >
                 <div
                   className={`w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg overflow-hidden flex-shrink-0 border transition-all duration-300 ${
-                    isSubActive ? 'border-[#3F1C46]/30 bg-white shadow-xs' : 'border-[#D7B95F]/40 bg-white group-hover:border-[#D7B95F]'
+                    isSubActive ? 'border-[#3C0015]/30 bg-white shadow-xs' : 'border-[#D7B95F]/40 bg-white group-hover:border-[#D7B95F]'
                   }`}
                 >
                   <img
@@ -462,7 +477,7 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                 </div>
                 <span
                   className={`font-marathi-serif text-xs sm:text-sm whitespace-nowrap transition-colors duration-200 ${
-                    isSubActive ? 'font-bold text-[#3F1C46]' : 'font-semibold text-[#F3F0EA] group-hover:text-white'
+                    isSubActive ? 'font-bold text-[#3C0015]' : 'font-semibold text-[#F3F0EA] group-hover:text-white'
                   }`}
                 >
                   {isMr ? sub.marathiName : sub.name}
@@ -483,13 +498,13 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                   : `Available Ornaments (${filteredProducts.length})`}
               </span>
             </span>
-            <span className="text-[9px] sm:text-[11px] font-cinzel text-[#D7B95F] tracking-[0.15em] sm:tracking-[0.2em] uppercase font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#2A0E33]/90 border border-[#D7B95F]/50 shadow-xs">
+            <span className="text-[9px] sm:text-[11px] font-cinzel text-[#D7B95F] tracking-[0.15em] sm:tracking-[0.2em] uppercase font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#24000C]/90 border border-[#D7B95F]/50 shadow-xs">
               100% 916 BIS HALLMARKED
             </span>
           </div>
 
           {filteredProducts.length === 0 ? (
-            <div className="text-center py-8 sm:py-12 bg-[#2A0E33]/60 rounded-xl sm:rounded-2xl border border-dashed border-[#D7B95F]/40 p-4 sm:p-6 shadow-xs">
+            <div className="text-center py-8 sm:py-12 bg-[#24000C]/60 rounded-xl sm:rounded-2xl border border-dashed border-[#D7B95F]/40 p-4 sm:p-6 shadow-xs">
               <p className="font-marathi-serif text-xs sm:text-base text-[#F3F0EA]/90">
                 {isMr ? 'या प्रकारात नवीन दागिने लवकरच उपलब्ध होत आहेत.' : 'New designs arriving soon in this collection.'}
               </p>
@@ -513,7 +528,7 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                   <div
                     key={p.id}
                     onClick={() => onSelectProduct && onSelectProduct(p)}
-                    className="group bg-[#FAF8F4] rounded-xl sm:rounded-2xl border border-[#D7B95F]/35 hover:border-[#D7B95F] transition-all duration-500 overflow-hidden flex flex-col shadow-md hover:shadow-2xl cursor-pointer text-left transform hover:-translate-y-1.5 hover:scale-[1.01] hover:bg-[#BDA9C4]/10"
+                    className="group bg-[#FAF8F4] rounded-xl sm:rounded-2xl border border-[#D7B95F]/35 hover:border-[#D7B95F] transition-all duration-500 overflow-hidden flex flex-col shadow-md hover:shadow-2xl cursor-pointer text-left transform hover:-translate-y-1.5 hover:scale-[1.01] hover:bg-[#D7B95F]/10"
                   >
                     {/* Product Image Stage with hover zoom */}
                     <div className="relative aspect-[4/4] w-full overflow-hidden bg-white p-2.5 sm:p-4 md:p-5 flex items-center justify-center border-b border-[#D7B95F]/20">
@@ -533,8 +548,8 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                           }}
                           className={`absolute top-1.5 right-1.5 sm:top-2.5 sm:right-2.5 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-colors shadow-xs ${
                             isWish
-                              ? 'bg-[#3F1C46] text-[#D7B95F]'
-                              : 'bg-[#F3F0EA]/95 text-[#45234B] hover:text-[#3F1C46] hover:bg-white'
+                              ? 'bg-[#3C0015] text-[#D7B95F]'
+                              : 'bg-[#F3F0EA]/95 text-[#3C0015] hover:text-[#5A001E] hover:bg-white'
                           }`}
                           aria-label="Wishlist"
                         >
@@ -543,7 +558,7 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                       )}
 
                       {/* Hallmark Badge */}
-                      <span className="absolute bottom-1.5 left-1.5 sm:bottom-2 sm:left-2 px-1.5 sm:px-2 py-0.5 rounded-sm bg-[#3F1C46] text-[#F3F0EA] text-[8px] sm:text-[9px] md:text-[10px] font-cinzel font-semibold tracking-wider border border-[#D7B95F]/40 shadow-xs">
+                      <span className="absolute bottom-1.5 left-1.5 sm:bottom-2 sm:left-2 px-1.5 sm:px-2 py-0.5 rounded-sm bg-[#3C0015] text-[#F3F0EA] text-[8px] sm:text-[9px] md:text-[10px] font-cinzel font-semibold tracking-wider border border-[#D7B95F]/40 shadow-xs">
                         {p.purity.includes('22K') ? '22K 916' : p.metal === 'Diamond' ? 'IGI CERTIFIED' : '92.5 SILVER'}
                       </span>
                     </div>
@@ -551,16 +566,16 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                     {/* Content */}
                     <div className="p-2.5 sm:p-3.5 md:p-4 flex flex-col flex-grow justify-between space-y-1.5 sm:space-y-2.5">
                       <div>
-                        <div className="text-[9px] sm:text-[10px] md:text-[11px] font-cinzel text-[#766B73] font-semibold">
+                        <div className="text-[9px] sm:text-[10px] md:text-[11px] font-cinzel text-[#766A61] font-semibold">
                           {p.purity} • {p.weight}
                         </div>
-                        <h4 className="font-marathi-serif font-bold text-xs sm:text-sm text-[#45234B] group-hover:text-[#3F1C46] transition-colors line-clamp-1 leading-snug mt-0.5">
+                        <h4 className="font-marathi-serif font-bold text-xs sm:text-sm text-[#2C0010] group-hover:text-[#5A001E] transition-colors line-clamp-1 leading-snug mt-0.5">
                           {isMr ? p.marathiName : p.name}
                         </h4>
                       </div>
 
                       <div className="pt-1.5 sm:pt-2 border-t border-[#D7B95F]/15 flex items-center justify-between">
-                        <span className="font-cinzel text-xs sm:text-sm md:text-base font-bold text-[#3F1C46]">
+                        <span className="font-cinzel text-xs sm:text-sm md:text-base font-bold text-[#3C0015]">
                           ₹ {p.price.toLocaleString('en-IN')}
                         </span>
 
@@ -571,7 +586,7 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="p-1 sm:p-1.5 rounded-full bg-[#3F1C46] hover:bg-[#4A2252] text-[#F3F0EA] transition-colors border border-[#D7B95F]/40 shadow-xs"
+                          className="p-1 sm:p-1.5 rounded-full bg-[#3C0015] hover:bg-[#5A001E] text-[#F3F0EA] transition-colors border border-[#D7B95F]/40 shadow-xs"
                           title="WhatsApp Inquiry"
                           aria-label="WhatsApp Inquiry"
                         >

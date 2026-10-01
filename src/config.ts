@@ -41,16 +41,21 @@ export const BRAND_CONFIG = {
     }
   },
   
-  // Palette References — Final Colour System
+  // Palette References — Velvet, Cream & Golden System
   colors: {
-    warmIvory:   "#F3F0EA",  // Main canvas
-    ivoryLight:  "#FAF8F4",  // Card surfaces
-    deepPlum:    "#3F1C46",  // Primary dark brand colour
-    plumMid:     "#4A2252",  // Hover / active
-    softMauve:   "#BDA9C4",  // Category section accent
-    softLilac:   "#D8C9D8",  // Secondary light bg
-    champagne:   "#D7B95F",  // Thin gold accents
-    textPrimary: "#45234B",  // Main headings / product names
-    textSecondary: "#766B73" // Descriptions / metadata
+    warmIvory:     "#F3F0EA",  // Main canvas / Warm Cream
+    ivoryLight:    "#FAF8F4",  // Card surfaces / Light Cream
+    velvetMaroon:  "#3C0015",  // Royal Velvet primary dark brand colour
+    velvetMid:     "#500018",  // Velvet Hover / active
+    golden:        "#D7B95F",  // Heritage Gold accents
+    champagneGold: "#E5CCA0",  // Soft champagne gold accent
+    textPrimary:   "#29231F",  // Main headings / product names (Warm Noir)
+    textSecondary: "#766A61",  // Descriptions / metadata (Muted warm)
+    deepMaroon:    "#3C0015",  // Alias
+    deepPlum:      "#3C0015",  // Alias to velvet maroon
+    plumMid:       "#500018",  // Alias to velvet mid
+    softMauve:     "#E5CCA0",  // Alias to champagne gold
+    softLilac:     "#F3F0EA",  // Alias to warm ivory
+    champagne:     "#D7B95F"   // Alias to golden
   }
 };

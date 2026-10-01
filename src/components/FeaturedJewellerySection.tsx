@@ -32,12 +32,12 @@ export const FeaturedJewellerySection: React.FC<FeaturedJewellerySectionProps> =
         <span className="font-cinzel text-xs uppercase tracking-[0.25em] text-[#D7B95F] font-semibold block mb-1.5">
           SIGNATURE CREATIONS • 100% HALLMARK
         </span>
-        <h2 className="font-marathi-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#3F1C46] tracking-tight mb-2">
+        <h2 className="font-marathi-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#3C0015] tracking-tight mb-2">
           {isMr ? 'निवडक दागिने' : 'Featured Jewellery'}
         </h2>
         {/* Small gold line beneath heading */}
         <div className="w-16 h-[1.5px] bg-[#D7B95F] mx-auto my-3" />
-        <p className="font-marathi-serif text-sm md:text-base text-[#766B73]">
+        <p className="font-marathi-serif text-sm md:text-base text-[#766A61]">
           {isMr 
             ? 'उत्कृष्ट कारागिरी आणि अस्सल शुद्धतेचा मनमोहक मिलाफ.' 
             : 'Handpicked masterworks of pure gold and certified gems.'}
@@ -62,7 +62,7 @@ export const FeaturedJewellerySection: React.FC<FeaturedJewellerySectionProps> =
       <div className="text-center">
         <button
           onClick={onNavigateCatalogue}
-          className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-full bg-[#3F1C46] hover:bg-[#4A2252] text-[#F3F0EA] font-marathi-serif text-sm font-semibold transition-all border border-[#D7B95F]/40 shadow-xs hover:border-[#D7B95F] group"
+          className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-full bg-[#3C0015] hover:bg-[#500018] text-[#F3F0EA] font-marathi-serif text-sm font-semibold transition-all border border-[#D7B95F]/40 shadow-xs hover:border-[#D7B95F] group"
         >
           <span>{isMr ? 'सर्व दागिने पहा' : 'View All Jewellery'}</span>
           <ArrowRight className="w-4 h-4 text-[#D7B95F] transform group-hover:translate-x-1 transition-transform" />

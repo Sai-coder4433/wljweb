@@ -110,7 +110,7 @@ export default function App() {
   const isMr = currentLang === 'mr';
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F3F0EA] text-[#45234B] selection:bg-[#3F1C46] selection:text-[#F3F0EA] cursor-luxury">
+    <div className="min-h-screen flex flex-col bg-[#F3F0EA] text-[#29231F] selection:bg-[#3C0015] selection:text-[#F3F0EA] cursor-luxury">
       
       {/* 00. BRAND LOADER (< 1s) & LUXURY CUSTOM CURSOR */}
       {isLoading && <BrandLoader onComplete={() => setIsLoading(false)} />}
@@ -273,7 +273,7 @@ export default function App() {
         )}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 bg-[#3F1C46] hover:bg-[#4A2252] text-[#F3F0EA] p-3.5 rounded-full shadow-lg border border-[#D7B95F]/50 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:border-[#D7B95F]"
+        className="fixed bottom-6 right-6 z-40 bg-[#3C0015] hover:bg-[#500018] text-[#F3F0EA] p-3.5 rounded-full shadow-lg border border-[#D7B95F]/50 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:border-[#D7B95F]"
         aria-label="Chat on WhatsApp"
         title={isMr ? 'WhatsApp वर संपर्क साधा' : 'Chat on WhatsApp'}
       >

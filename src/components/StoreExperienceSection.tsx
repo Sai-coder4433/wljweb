@@ -81,7 +81,7 @@ export const StoreExperienceSection: React.FC<StoreExperienceSectionProps> = ({ 
             </>
           ) : (
             <div className="w-full h-full min-h-[260px] rounded-2xl bg-[#2D0C11] border border-[#B99A5A]/40 p-8 flex flex-col items-center justify-center text-center space-y-2">
-              <div className="w-14 h-14 rounded-full bg-[#4A2252] border border-[#D8C18A]/50 flex items-center justify-center text-[#D8C18A] mb-1 shadow-md">
+              <div className="w-14 h-14 rounded-full bg-[#3C0015] border border-[#D8C18A]/50 flex items-center justify-center text-[#D8C18A] mb-1 shadow-md">
                 <MapPin className="w-7 h-7 text-[#D8C18A]" />
               </div>
               <span className="font-cinzel text-xl sm:text-2xl font-bold tracking-widest text-[#F3F0EA] uppercase">

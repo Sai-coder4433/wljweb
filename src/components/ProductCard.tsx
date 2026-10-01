@@ -32,7 +32,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
   return (
     <div
-      className="group relative bg-[#FAF8F4] rounded-2xl overflow-hidden border border-[#D7B95F]/25 hover:border-[#D7B95F] hover:bg-[#BDA9C4]/08 transition-all duration-500 ease-out flex flex-col shadow-xs hover:shadow-xl cursor-pointer text-left transform hover:-translate-y-[3px]"
+      className="group relative bg-[#FAF8F4] rounded-2xl overflow-hidden border border-[#D7B95F]/25 hover:border-[#D7B95F] hover:bg-[#D7B95F]/08 transition-all duration-500 ease-out flex flex-col shadow-xs hover:shadow-xl cursor-pointer text-left transform hover:-translate-y-[3px]"
       onClick={() => onSelectProduct(product)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -69,16 +69,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           }}
           className={`absolute top-3.5 right-3.5 z-20 w-8 h-8 rounded-full flex items-center justify-center transition-colors shadow-xs ${
             isWishlisted
-              ? 'bg-[#3F1C46] text-[#D7B95F]'
-              : 'bg-[#F3F0EA]/90 text-[#45234B] hover:text-[#3F1C46] hover:bg-white'
+              ? 'bg-[#3C0015] text-[#D7B95F]'
+              : 'bg-[#F3F0EA]/90 text-[#29231F] hover:text-[#3C0015] hover:bg-white'
           }`}
           aria-label="Wishlist"
         >
           <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-[#D7B95F]' : ''}`} />
         </button>
 
-        {/* Soft Mauve hover overlay panel */}
-        <div className="absolute inset-x-0 bottom-0 bg-[#3F1C46]/88 backdrop-blur-xs text-[#F3F0EA] py-2 px-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all duration-400 transform translate-y-2 group-hover:translate-y-0">
+        {/* Royal Velvet Maroon hover overlay panel */}
+        <div className="absolute inset-x-0 bottom-0 bg-[#3C0015]/90 backdrop-blur-xs text-[#F3F0EA] py-2 px-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all duration-400 transform translate-y-2 group-hover:translate-y-0">
           <span className="text-[11px] font-marathi-serif font-bold tracking-wide">
             {isMr ? 'अधिक माहिती पहा' : 'View Specifications'}
           </span>
@@ -92,12 +92,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       <div className="p-4 sm:p-5 flex flex-col flex-grow justify-between space-y-3">
         <div>
           {/* Short Type / Purity */}
-          <div className="text-[11px] font-cinzel tracking-wider text-[#766B73] uppercase font-semibold mb-1">
+          <div className="text-[11px] font-cinzel tracking-wider text-[#766A61] uppercase font-semibold mb-1">
             {product.purity} • {product.weight}
           </div>
 
           {/* Product Name */}
-          <h3 className="font-marathi-serif font-bold text-sm sm:text-base text-[#45234B] group-hover:text-[#3F1C46] transition-colors line-clamp-1 leading-snug">
+          <h3 className="font-marathi-serif font-bold text-sm sm:text-base text-[#29231F] group-hover:text-[#3C0015] transition-colors line-clamp-1 leading-snug">
             {isMr ? product.marathiName : product.name}
           </h3>
 
@@ -107,11 +107,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Price & Details Link */}
         <div className="pt-2 border-t border-[#D7B95F]/15 flex items-center justify-between">
-          <div className="font-cinzel text-base sm:text-lg font-bold text-[#3F1C46] tracking-tight">
+          <div className="font-cinzel text-base sm:text-lg font-bold text-[#3C0015] tracking-tight">
             {formattedPrice}
           </div>
 
-          <span className="inline-flex items-center text-xs font-marathi-serif font-semibold text-[#766B73] group-hover:text-[#3F1C46] transition-colors">
+          <span className="inline-flex items-center text-xs font-marathi-serif font-semibold text-[#766A61] group-hover:text-[#3C0015] transition-colors">
             <span>{isMr ? 'अधिक माहिती' : 'Details'}</span>
             <span className="ml-1 text-[#D7B95F] transform transition-transform duration-300 group-hover:translate-x-1">→</span>
           </span>

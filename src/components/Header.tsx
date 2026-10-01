@@ -73,7 +73,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* CENTER: Marathi Navigation (Desktop) */}
-        <nav className="hidden lg:flex items-center space-x-7 xl:space-x-9 text-[14px] font-medium text-[#45234B]">
+        <nav className="hidden lg:flex items-center space-x-7 xl:space-x-9 text-[14px] font-medium text-[#29231F]">
           {/* मुख्यपृष्ठ */}
           <button
             onClick={() => {
@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             className={`font-marathi-serif tracking-wide transition-colors py-1 relative ${
-              currentView === 'home' ? 'text-[#3F1C46] font-bold' : 'hover:text-[#3F1C46]'
+              currentView === 'home' ? 'text-[#3C0015] font-bold' : 'hover:text-[#3C0015]'
             }`}
           >
             {isMr ? 'मुख्यपृष्ठ' : 'Home'}
@@ -102,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onNavigate('catalogue');
               }}
               className={`flex items-center space-x-1 font-marathi-serif tracking-wide py-1 transition-colors relative ${
-                currentView === 'catalogue' ? 'text-[#3F1C46] font-bold' : 'hover:text-[#3F1C46]'
+                currentView === 'catalogue' ? 'text-[#3C0015] font-bold' : 'hover:text-[#3C0015]'
               }`}
             >
               <span>{isMr ? 'दागिने' : 'Jewellery'}</span>
@@ -122,7 +122,7 @@ export const Header: React.FC<HeaderProps> = ({
                       onNavigate('catalogue');
                       setDropdownOpen(false);
                     }}
-                    className="w-full px-4 py-2 text-xs font-marathi-serif text-[#45234B] hover:bg-[#BDA9C4]/20 hover:text-[#3F1C46] transition-colors flex items-center justify-between"
+                    className="w-full px-4 py-2 text-xs font-marathi-serif text-[#29231F] hover:bg-[#D7B95F]/15 hover:text-[#3C0015] transition-colors flex items-center justify-between"
                   >
                     <span>{item.name}</span>
                     <span className="text-[10px] text-[#D7B95F]">→</span>
@@ -138,7 +138,7 @@ export const Header: React.FC<HeaderProps> = ({
               onSelectCategory('all');
               onNavigate('catalogue');
             }}
-            className="font-marathi-serif tracking-wide hover:text-[#3F1C46] transition-colors py-1"
+            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1"
           >
             {isMr ? 'संग्रह' : 'Collections'}
           </button>
@@ -146,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* आमच्याविषयी */}
           <button
             onClick={() => onNavigate('about')}
-            className="font-marathi-serif tracking-wide hover:text-[#3F1C46] transition-colors py-1"
+            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1"
           >
             {isMr ? 'आमच्याविषयी' : 'About Us'}
           </button>
@@ -154,19 +154,19 @@ export const Header: React.FC<HeaderProps> = ({
           {/* संपर्क */}
           <button
             onClick={onOpenStoreLocator}
-            className="font-marathi-serif tracking-wide hover:text-[#3F1C46] transition-colors py-1"
+            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1"
           >
             {isMr ? 'संपर्क' : 'Contact'}
           </button>
         </nav>
 
         {/* RIGHT: Search, Wishlist, Language Switch */}
-        <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4 text-[#45234B] flex-shrink-0">
+        <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4 text-[#29231F] flex-shrink-0">
           
           {/* Search */}
           <button
             onClick={onOpenSearch}
-            className="p-1.5 sm:p-2 rounded-full hover:bg-[#BDA9C4]/20 text-[#45234B] hover:text-[#3F1C46] transition-colors"
+            className="p-1.5 sm:p-2 rounded-full hover:bg-[#D7B95F]/15 text-[#29231F] hover:text-[#3C0015] transition-colors"
             aria-label="Search jewellery"
             title={isMr ? 'दागिने शोधा' : 'Search catalogue'}
           >
@@ -176,13 +176,13 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Wishlist */}
           <button
             onClick={onOpenWishlist}
-            className="p-1.5 sm:p-2 rounded-full hover:bg-[#BDA9C4]/20 text-[#45234B] hover:text-[#3F1C46] transition-colors relative"
+            className="p-1.5 sm:p-2 rounded-full hover:bg-[#D7B95F]/15 text-[#29231F] hover:text-[#3C0015] transition-colors relative"
             aria-label="Wishlist"
             title={isMr ? 'पसंतीचे दागिने' : 'Wishlist'}
           >
             <Heart className="w-4 h-4 md:w-4.5 md:h-4.5" />
             {wishlistCount > 0 && (
-              <span className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#3F1C46] text-[#F3F0EA] text-[9px] sm:text-[10px] font-bold flex items-center justify-center">
+              <span className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#3C0015] text-[#F3F0EA] text-[9px] sm:text-[10px] font-bold flex items-center justify-center">
                 {wishlistCount}
               </span>
             )}
@@ -191,17 +191,17 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Language Switch: मराठी | English */}
           <button
             onClick={onToggleLang}
-            className="hidden sm:flex items-center px-2.5 py-1 rounded-full text-xs font-marathi-serif text-[#766B73] hover:text-[#3F1C46] border border-[#D7B95F]/35 transition-colors ml-1"
+            className="hidden sm:flex items-center px-2.5 py-1 rounded-full text-xs font-marathi-serif text-[#766A61] hover:text-[#3C0015] border border-[#D7B95F]/35 transition-colors ml-1"
           >
-            <span className={isMr ? 'font-bold text-[#3F1C46]' : ''}>मराठी</span>
+            <span className={isMr ? 'font-bold text-[#3C0015]' : ''}>मराठी</span>
             <span className="mx-1 text-[#D7B95F]/60">|</span>
-            <span className={!isMr ? 'font-bold text-[#3F1C46]' : ''}>English</span>
+            <span className={!isMr ? 'font-bold text-[#3C0015]' : ''}>English</span>
           </button>
 
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 sm:p-2 rounded-lg text-[#45234B] hover:bg-[#BDA9C4]/20 ml-0.5"
+            className="lg:hidden p-1.5 sm:p-2 rounded-lg text-[#29231F] hover:bg-[#D7B95F]/15 ml-0.5"
             aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -220,13 +220,13 @@ export const Header: React.FC<HeaderProps> = ({
                 setMobileMenuOpen(false);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="block w-full text-left py-2 text-sm font-semibold text-[#3F1C46] border-b border-[#D7B95F]/15"
+              className="block w-full text-left py-2 text-sm font-semibold text-[#3C0015] border-b border-[#D7B95F]/15"
             >
               {isMr ? 'मुख्यपृष्ठ' : 'Home'}
             </button>
 
             <div className="py-1">
-              <span className="block text-xs uppercase tracking-wider text-[#766B73] mb-2 font-bold">
+              <span className="block text-xs uppercase tracking-wider text-[#766A61] mb-2 font-bold">
                 {isMr ? 'दागिने श्रेणी' : 'Jewellery Categories'}
               </span>
               <div className="grid grid-cols-2 gap-2 text-xs">
@@ -238,7 +238,7 @@ export const Header: React.FC<HeaderProps> = ({
                       onNavigate('catalogue');
                       setMobileMenuOpen(false);
                     }}
-                    className="text-left py-1.5 px-2 rounded-md hover:bg-[#BDA9C4]/20 text-[#45234B]"
+                    className="text-left py-1.5 px-2 rounded-md hover:bg-[#D7B95F]/15 text-[#29231F]"
                   >
                     {item.name}
                   </button>
@@ -252,7 +252,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onNavigate('catalogue');
                 setMobileMenuOpen(false);
               }}
-              className="block w-full text-left py-2 text-sm text-[#45234B] border-b border-[#D7B95F]/15"
+              className="block w-full text-left py-2 text-sm text-[#29231F] border-b border-[#D7B95F]/15"
             >
               {isMr ? 'सर्व संग्रह' : 'All Collections'}
             </button>
@@ -262,7 +262,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onNavigate('about');
                 setMobileMenuOpen(false);
               }}
-              className="block w-full text-left py-2 text-sm text-[#45234B] border-b border-[#D7B95F]/15"
+              className="block w-full text-left py-2 text-sm text-[#29231F] border-b border-[#D7B95F]/15"
             >
               {isMr ? 'आमच्याविषयी' : 'About Us'}
             </button>
@@ -272,17 +272,17 @@ export const Header: React.FC<HeaderProps> = ({
                 onOpenStoreLocator();
                 setMobileMenuOpen(false);
               }}
-              className="block w-full text-left py-2 text-sm text-[#45234B] border-b border-[#D7B95F]/15"
+              className="block w-full text-left py-2 text-sm text-[#29231F] border-b border-[#D7B95F]/15"
             >
               {isMr ? 'संपर्क व दालन' : 'Store & Contact'}
             </button>
 
             {/* Mobile Language switch */}
             <div className="pt-2 flex items-center justify-between text-xs">
-              <span className="text-[#766B73]">{isMr ? 'भाषा बदला:' : 'Change Language:'}</span>
+              <span className="text-[#766A61]">{isMr ? 'भाषा बदला:' : 'Change Language:'}</span>
               <button
                 onClick={onToggleLang}
-                className="px-3 py-1 rounded-full border border-[#D7B95F]/40 text-[#3F1C46] font-semibold"
+                className="px-3 py-1 rounded-full border border-[#D7B95F]/40 text-[#3C0015] font-semibold"
               >
                 {isMr ? 'English मध्ये पहा' : 'मराठी मध्ये पहा'}
               </button>

@@ -94,7 +94,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
   const current = HERO_SLIDES[currentSlide];
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#3F1C46]">
+    <section className="relative w-full overflow-hidden bg-[#2C0010]">
       {/* 65-75vh container on desktop */}
       <div className="relative w-full h-[58vh] sm:h-[64vh] md:h-[70vh] lg:h-[74vh] max-h-[720px]">
         {HERO_SLIDES.map((slide, index) => {
@@ -119,7 +119,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
               </picture>
 
               {/* Sophisticated Editorial Vignette & Gradient — Warm Ivory → Deep Plum */}
-              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#3F1C46]/90 via-[#3F1C46]/50 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#2C0014]/90 via-[#500818]/50 to-transparent"></div>
 
               {/* Minimal Text Content */}
               <div className="absolute inset-0 flex items-center">
@@ -172,7 +172,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                           }
                           onNavigate('catalogue');
                         }}
-                        className="group inline-flex items-center space-x-2.5 px-7 py-3 sm:px-9 sm:py-3.5 rounded-full bg-[#3F1C46] hover:bg-[#4A2252] text-[#F3F0EA] text-xs sm:text-sm font-marathi-serif font-bold transition-all border border-[#D7B95F]/50 shadow-md hover:border-[#D7B95F] hover:scale-[1.02]"
+                        className="group inline-flex items-center space-x-2.5 px-7 py-3 sm:px-9 sm:py-3.5 rounded-full bg-[#3C0015] hover:bg-[#500018] text-[#F3F0EA] text-xs sm:text-sm font-marathi-serif font-bold transition-all border border-[#D7B95F]/50 shadow-md hover:border-[#D7B95F] hover:scale-[1.02]"
                       >
                         <span>{isMr ? slide.ctaMr : slide.ctaEn}</span>
                         <span className="text-[#D7B95F] transform transition-transform duration-300 group-hover:translate-x-1">
@@ -191,14 +191,14 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
         {/* Minimal Slide Arrows (Desktop) */}
         <button
           onClick={handlePrev}
-          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#3F1C46]/50 hover:bg-[#3F1C46]/90 text-[#FAF8F4] items-center justify-center transition-colors border border-white/20"
+          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#3C0015]/60 hover:bg-[#3C0015]/95 text-[#FAF8F4] items-center justify-center transition-colors border border-[#D7B95F]/40 cursor-pointer"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={handleNext}
-          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#3F1C46]/50 hover:bg-[#3F1C46]/90 text-[#FAF8F4] items-center justify-center transition-colors border border-white/20"
+          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#3C0015]/60 hover:bg-[#3C0015]/95 text-[#FAF8F4] items-center justify-center transition-colors border border-[#D7B95F]/40 cursor-pointer"
           aria-label="Next slide"
         >
           <ChevronRight className="w-5 h-5" />

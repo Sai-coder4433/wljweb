@@ -48,7 +48,7 @@ export const BrandLoader: React.FC<BrandLoaderProps> = ({ onComplete }) => {
           />
         </div>
 
-        <span className="font-cinzel text-[10px] uppercase tracking-[0.25em] text-[#766B73] opacity-75">
+        <span className="font-cinzel text-[10px] uppercase tracking-[0.25em] text-[#766A61] opacity-75">
           Pure Tradition • Since 1951
         </span>
       </div>

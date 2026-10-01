@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="bg-[#3F1C46] text-[#F3F0EA] pt-14 pb-10 border-t border-[#D7B95F]/35 text-left">
+    <footer className="velvet-bg text-[#F3F0EA] pt-14 pb-10 border-t border-[#D7B95F]/35 text-left">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
         {/* 4 COLUMNS */}
@@ -32,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* COL 1: Official logo + Short heritage line + Since 1951 (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-4">
             <BrandLogo variant="light" size="md" showSubtitle={true} />
-            <p className="font-marathi-serif text-sm text-[#BDA9C4] leading-relaxed max-w-sm pt-1">
+            <p className="font-marathi-serif text-sm text-[#FAF8F4]/80 leading-relaxed max-w-sm pt-1">
               {isMr 
                 ? '“१९५१ पासून विश्वासाची परंपरा — शुद्ध सुवर्ण, अस्सल कारागिरी आणि अखंड कौटुंबिक स्नेह.”' 
                 : '“A tradition of trust since 1951 — authentic craftsmanship, pure gold, and enduring family bond.”'}
@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className="font-marathi-display text-sm font-bold text-[#D7B95F] tracking-wider uppercase">
               {isMr ? 'महत्त्वाचे दुवे' : 'Quick Links'}
             </h4>
-            <ul className="space-y-2 text-xs font-marathi-serif text-[#BDA9C4]">
+            <ul className="space-y-2 text-xs font-marathi-serif text-[#FAF8F4]/80">
               <li>
                 <button
                   onClick={() => {
@@ -107,7 +107,7 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className="font-marathi-display text-sm font-bold text-[#D7B95F] tracking-wider uppercase">
               {isMr ? 'दागिने श्रेणी' : 'Categories'}
             </h4>
-            <ul className="space-y-1.5 text-xs font-marathi-serif text-[#BDA9C4]">
+            <ul className="space-y-1.5 text-xs font-marathi-serif text-[#FAF8F4]/80">
               <li>
                 <button
                   onClick={() => {
@@ -212,7 +212,7 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className="font-marathi-display text-sm font-bold text-[#D7B95F] tracking-wider uppercase">
               {isMr ? 'दालन व संपर्क (चाकण)' : 'Showrooms & Contact'}
             </h4>
-            <div className="space-y-2.5 text-xs font-marathi-serif text-[#BDA9C4]">
+            <div className="space-y-2.5 text-xs font-marathi-serif text-[#FAF8F4]/80">
               <div className="pb-1 border-b border-[#D7B95F]/20">
                 <span className="text-[#D7B95F] font-bold block">{isMr ? 'शाखा क्र. १ (मुख्य पेढी):' : 'Branch 1 (Main Pedhi):'}</span>
                 <p className="text-[#F3F0EA] mt-0.5">
@@ -233,7 +233,7 @@ export const Footer: React.FC<FooterProps> = ({
                   {BRAND_CONFIG.PHONE_NUMBER}
                 </a>
               </p>
-              <p className="text-[#BDA9C4] leading-normal">
+              <p className="text-[#FAF8F4]/80 leading-normal">
                 <span className="text-[#D7B95F] block font-semibold">{isMr ? 'दालनाची वेळ:' : 'Hours:'}</span>
                 {isMr ? BRAND_CONFIG.store.hoursMarathi : BRAND_CONFIG.store.hoursEnglish}
               </p>
@@ -243,7 +243,7 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* BOTTOM: Copyright */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#BDA9C4] font-marathi-serif gap-3">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#FAF8F4]/80 font-marathi-serif gap-3">
           <p>
             {isMr
               ? '© २०२६ वाफगावकर लक्ष्मी ज्वेलर्स. सर्व हक्क सुरक्षित.'

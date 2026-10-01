@@ -47,7 +47,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               } group-hover:scale-105`}
             />
             {/* Cinematic Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#45234B]/75 via-[#45234B]/15 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#2C0010]/75 via-[#2C0010]/15 to-transparent pointer-events-none" />
             
             <div className="absolute bottom-5 left-5 right-5 text-[#FAF8F4]">
               <span className="text-[10px] uppercase tracking-widest text-[#D7B95F] font-cinzel font-semibold block">
@@ -77,7 +77,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             {/* Large Heading line-by-line reveal */}
             <div className="overflow-hidden">
               <h2
-                className={`font-marathi-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#3F1C46] tracking-tight leading-[1.2] transition-all duration-700 delay-100 ${
+                className={`font-marathi-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#3C0015] tracking-tight leading-[1.2] transition-all duration-700 delay-100 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
               >
@@ -99,7 +99,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
             {/* Short text */}
             <p
-              className={`font-marathi-serif text-[#45234B] text-sm sm:text-base leading-relaxed transition-all duration-700 delay-200 ${
+              className={`font-marathi-serif text-[#29231F] text-sm sm:text-base leading-relaxed transition-all duration-700 delay-200 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
@@ -125,7 +125,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             >
               <button
                 onClick={onOpenAboutModal}
-                className="inline-flex items-center space-x-2 text-sm sm:text-base font-marathi-serif font-bold text-[#3F1C46] hover:text-[#4A2252] group transition-colors"
+                className="inline-flex items-center space-x-2 text-sm sm:text-base font-marathi-serif font-bold text-[#3C0015] hover:text-[#500018] group transition-colors cursor-pointer"
               >
                 <span>{isMr ? 'आमची कहाणी' : 'Our Story'}</span>
                 <span className="text-[#D7B95F] transform transition-transform duration-300 group-hover:translate-x-1.5">

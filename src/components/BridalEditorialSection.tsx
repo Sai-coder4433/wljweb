@@ -18,10 +18,10 @@ export const BridalEditorialSection: React.FC<BridalEditorialSectionProps> = ({
   const bridalCategories = [
     { name: 'वधू हार', enName: 'Bridal Haar', image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=600&auto=format&fit=crop' },
     { name: 'ठुशी', enName: 'Royal Thushi', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600&auto=format&fit=crop' },
-    { name: 'चंद्रहार', enName: 'Chandrahar', image: 'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=600&auto=format&fit=crop' },
+    { name: 'चंद्रहार', enName: 'Chandrahar', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600&auto=format&fit=crop' },
     { name: 'कोल्हापुरी साज', enName: 'Kolhapuri Saaj', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=600&auto=format&fit=crop' },
     { name: 'नथ', enName: 'Brahmani Nath', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop' },
-    { name: 'बांगड्या व पाटल्या', enName: 'Patlya & Bangles', image: 'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=600&auto=format&fit=crop' },
+    { name: 'बांगड्या व पाटल्या', enName: 'Patlya & Bangles', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop' },
     { name: 'मंगळसूत्र', enName: 'Vati Mangalsutra', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=600&auto=format&fit=crop' },
     { name: 'कर्णफुले व झुमके', enName: 'Jhumkas & Earrings', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=600&auto=format&fit=crop' },
   ];

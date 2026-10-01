@@ -27,7 +27,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
         {/* Main Brand Title */}
         <span
           className={`font-marathi-display font-bold tracking-tight truncate ${textSize} ${
-            isDark ? 'text-[#3F1C46]' : 'text-[#F3F0EA]'
+            isDark ? 'text-[#3C0015]' : 'text-[#F3F0EA]'
           }`}
         >
           वाफगावकर लक्ष्मी ज्वेलर्स
@@ -40,7 +40,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
             <div className="flex items-center space-x-1.5 sm:hidden">
               <span
                 className={`font-cinzel tracking-[0.14em] uppercase text-[8px] font-semibold truncate ${
-                  isDark ? 'text-[#766B73]' : 'text-[#D7B95F]'
+                  isDark ? 'text-[#766A61]' : 'text-[#D7B95F]'
                 }`}
               >
                 Wafgaonkar
@@ -59,7 +59,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
             <div className="hidden sm:flex items-center space-x-2">
               <span
                 className={`font-cinzel tracking-[0.16em] uppercase text-[9px] md:text-[10px] font-medium ${
-                  isDark ? 'text-[#766B73]' : 'text-[#D7B95F]'
+                  isDark ? 'text-[#766A61]' : 'text-[#D7B95F]'
                 }`}
               >
                 Wafgaonkar Laxmi Jewellers
@@ -67,7 +67,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
               <span className="w-1 h-1 rounded-full bg-[#D7B95F]" />
               <span
                 className={`font-cinzel tracking-wider text-[9px] md:text-[10px] ${
-                  isDark ? 'text-[#766B73]' : 'text-[#D7B95F]'
+                  isDark ? 'text-[#766A61]' : 'text-[#D7B95F]'
                 }`}
               >
                 Since 1951

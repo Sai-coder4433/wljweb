@@ -35,7 +35,7 @@ export const MaroonEditorialMoment: React.FC<MaroonEditorialMomentProps> = ({
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#3F1C46] text-[#F3F0EA] py-16 md:py-24 my-10 overflow-hidden border-y border-[#D7B95F]/35 select-none"
+      className="relative w-full velvet-bg text-[#F3F0EA] py-16 md:py-24 my-10 overflow-hidden border-y border-[#D7B95F]/35 select-none"
     >
       {/* Background Editorial Watermark Typography (subtle 5-8% opacity) */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden opacity-[0.04]">
@@ -113,10 +113,10 @@ export const MaroonEditorialMoment: React.FC<MaroonEditorialMomentProps> = ({
             >
               <button
                 onClick={onExploreCollections}
-                className="inline-flex items-center space-x-3 px-8 py-3.5 rounded-full bg-[#FAF8F4] hover:bg-[#F3F0EA] text-[#3F1C46] font-marathi-serif text-sm font-bold tracking-wide transition-all duration-300 shadow-md hover:scale-[1.02] border border-[#D7B95F] group"
+                className="inline-flex items-center space-x-3 px-8 py-3.5 rounded-full bg-[#FAF8F4] hover:bg-[#F3F0EA] text-[#3C0015] font-marathi-serif text-sm font-bold tracking-wide transition-all duration-300 shadow-md hover:scale-[1.02] border border-[#D7B95F] group"
               >
                 <span>{isMr ? 'दागिने संग्रह पहा' : 'Explore Jewels'}</span>
-                <ArrowRight className="w-4 h-4 text-[#3F1C46] transform group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-[#3C0015] transform group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>
@@ -128,7 +128,7 @@ export const MaroonEditorialMoment: React.FC<MaroonEditorialMomentProps> = ({
                 isVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-8'
               }`}
             >
-              <div className="aspect-[4/5] overflow-hidden bg-[#2A0E33]">
+              <div className="aspect-[4/5] overflow-hidden bg-[#2C0014]">
                 <img
                   src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=1000&auto=format&fit=crop"
                   alt="Wafgaonkar Royal Heritage Jewellery"
@@ -137,7 +137,7 @@ export const MaroonEditorialMoment: React.FC<MaroonEditorialMomentProps> = ({
               </div>
 
               {/* Bottom Subtle Overlay */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#2A0E33] via-[#2A0E33]/60 to-transparent p-6 text-left">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#2C0014] via-[#2C0014]/60 to-transparent p-6 text-left">
                 <span className="font-cinzel text-[10px] tracking-[0.2em] uppercase text-[#D7B95F] block font-semibold">
                   TRADITIONAL MAHARASHTRIAN GOLD
                 </span>

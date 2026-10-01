@@ -62,7 +62,7 @@ export const CATEGORIES: CategoryItem[] = [
     id: 'tode-kade',
     name: 'Tode & Kade',
     marathiName: 'तोडे व कडे',
-    image: 'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop',
     itemCount: 78,
     slug: 'bangles',
     metalType: 'Gold',
@@ -72,7 +72,7 @@ export const CATEGORIES: CategoryItem[] = [
     id: 'mangalsutra',
     name: 'Mangalsutra',
     marathiName: 'मंगळसूत्र',
-    image: 'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
     itemCount: 64,
     slug: 'mangalsutra',
     metalType: 'Gold',
@@ -102,7 +102,7 @@ export const CATEGORIES: CategoryItem[] = [
     id: 'bangles-patlya',
     name: 'Bangdya & Patlya',
     marathiName: 'बांगड्या',
-    image: 'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop',
     itemCount: 76,
     slug: 'bangles',
     metalType: 'Gold',
@@ -246,7 +246,7 @@ export const FEATURED_COLLECTIONS: CollectionItem[] = [
     id: 'rajwada-collection',
     name: 'Rajwada Royal Collection',
     marathiName: 'राजवाडा संग्रह',
-    image: 'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=1200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=crop',
     subtitle: 'High-Opulence Polki, Antique Gold & Precious Rubies',
     marathiSubtitle: 'भव्य पोल्की, अँटिक सोने आणि माणिकमोत्यांचा थाट',
     description: 'Imposing regal necklaces, heavy kangan sets, and jhumkas designed for palace weddings and imperial banquets.',
@@ -330,7 +330,7 @@ export const PRODUCTS: Product[] = [
     originalPrice: 95000,
     images: [
       'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=1000&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop'
     ],
     description: 'Graceful contemporary diamond mangalsutra pendant crafted with sparkling micro-prong set brilliant cut diamonds and delicate black bead chain.',
     marathiDescription: 'आधुनिक शैलीतील नाजूक व मोहक डायमंड मंगळसूत्र. दैनंदिन आणि विशेष प्रसंगी परिधान करण्यासाठी उत्कृष्ट शोभा.',
@@ -372,7 +372,7 @@ export const PRODUCTS: Product[] = [
     images: [
       'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=1000&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop'
     ],
     description: 'The iconic Maharashtrian neckpiece. Handcrafted with tightly woven gold beads, centered with an auspicious red kemp stone centerpiece and adjustable zari dori for the royal bride.',
     marathiDescription: 'महाराष्ट्राचा मानबिंदू असलेली अस्सल पेशवाई ठुशी. बारीक सुवर्णमणी, मधोमध लाल माणिक आणि रेशमी गोंड्याची कलात्मक गुंफण. वधूच्या गळ्यातील अमूल्य भूषण.',
@@ -501,7 +501,7 @@ export const PRODUCTS: Product[] = [
     price: 432000,
     originalPrice: 450000,
     images: [
-      'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop'
     ],
     description: 'Dramatic crescent-link 3-strand royal necklace featuring traditional Chandrahar chain weave joined by an imperial hand-embossed Mahalaxmi gold medallion.',
@@ -542,7 +542,7 @@ export const PRODUCTS: Product[] = [
     originalPrice: 258000,
     images: [
       'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=1000&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop'
     ],
     description: 'Sacred Maharashtrian two golden hollow vatis representing Shiva and Shakti, strung with auspicious multi-strand black beads and pure 22K gold rings for eternal harmony.',
     marathiDescription: 'शिव आणि शक्तीचे प्रतीक असणाऱ्या दोन सोन्याच्या वाट्या, शुभ काळे मणी आणि सुवर्ण मण्यांची दुहेरी गुंफण. अखंड सौभाग्याचे सर्वात पवित्र लेणे.',
@@ -581,7 +581,7 @@ export const PRODUCTS: Product[] = [
     price: 479000,
     originalPrice: 498000,
     images: [
-      'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop'
     ],
     description: 'Grand embossed broad gold bangles known as Patlya in Maharashtra, paired with classical carved Laxmi Tode studs. Heavy solid construction with timeless antique polish.',
@@ -862,7 +862,7 @@ export const PRODUCTS: Product[] = [
     price: 398000,
     originalPrice: 415000,
     images: [
-      'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=1000&auto=format&fit=crop'
     ],
     description: 'Authentic Maratha Shindeshahi tode featuring bold spiked dome motifs with screw clasp. Essential for royal bridal splendour.',
@@ -903,7 +903,7 @@ export const PRODUCTS: Product[] = [
     originalPrice: 372000,
     images: [
       'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=1000&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop'
     ],
     description: 'Intricately chased wheat-grain pattern gold tode representing harvest abundance and marital auspiciousness.',
     marathiDescription: 'गव्हाच्या दाण्यासारखी नाजूक व मजबूत कलाकुसर असणारे पारंपरिक गहू तोडे. समृद्धीचे प्रतीक.',
@@ -941,7 +941,7 @@ export const PRODUCTS: Product[] = [
     price: 284000,
     originalPrice: 298000,
     images: [
-      'https://images.unsplash.com/photo-1611591476140-5e36ca47a16b?q=80&w=1000&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop'
     ],
     description: 'Slender, raised bead border gold pichhodi bangles traditionally worn on either side of green chuda bangles.',
     marathiDescription: 'हिरव्या चुड्याच्या पुढे आणि मागे शोभून दिसणारी नाजूक मोत्यांच्या कडांची पारंपरिक सुवर्ण पिच्छोडी.',
@@ -979,7 +979,7 @@ export const PRODUCTS: Product[] = [
     price: 189000,
     originalPrice: 199000,
     images: [
-      'https://images.unsplash.com/photo-1611591475819-79b8b73ff2f3?q=80&w=1000&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop'
     ],
     description: 'Long traditional double-strand black beads woven with hand-turned solid gold mani beads and golden ghungroo pendant.',
     marathiDescription: 'दोन पदरी अस्सल काळे मणी आणि सोन्याचे मणी गुंफलेली दीर्घायुष्यी मंगळसूत्र माळ. अखंड सौभाग्याचे प्रतीक.',

@@ -2,21 +2,28 @@
 
 @layer base {
   :root {
-    /* ── WAFGAONKAR LAXMI JEWELLERS — FINAL COLOUR SYSTEM ── */
-    --ivory:          #F3F0EA;   /* Warm Ivory — main canvas (60%) */
-    --ivory-light:    #FAF8F4;   /* Near-white ivory — card surfaces */
-    --plum:           #3F1C46;   /* Deep Plum — CTA, footer, dark moments (15%) */
-    --plum-mid:       #4A2252;   /* Mid-plum — hover/active tones */
-    --mauve:          #BDA9C4;   /* Soft Mauve — category section accent (12%) */
-    --lilac:          #D8C9D8;   /* Soft Lilac — secondary bg (8%) */
-    --gold:           #D7B95F;   /* Champagne Gold — thin accents (5%) */
-    --text-primary:   #45234B;   /* Deep Plum Text — headings, product names */
-    --text-secondary: #766B73;   /* Muted — descriptions, metadata */
+    /* ── WAFGAONKAR LAXMI JEWELLERS — FINAL COLOUR SYSTEM (Velvet Maroon, Cream & Golden) ── */
+    --ivory:          #F3F0EA;   /* Warm Ivory — main canvas */
+    --ivory-light:    #FAF8F4;   /* Near-white cream — card surfaces */
+    --velvet:         #3C0015;   /* Royal Velvet Maroon — CTA, accents, dark moments */
+    --velvet-mid:     #500018;   /* Mid velvet maroon — hover/active tones */
+    --cream:          #FAF8F4;   /* Warm cream */
+    --cream-soft:     #F3F0EA;   /* Soft cream */
+    --gold:           #D7B95F;   /* Champagne Gold — thin accents */
+    --gold-bright:    #E5CCA0;   /* Bright Champagne Gold */
+    --text-primary:   #29231F;   /* Warm Noir Text — headings, product names */
+    --text-secondary: #766A61;   /* Warm Muted — descriptions, metadata */
+
+    /* Backward compatibility aliases */
+    --plum:           #3C0015;
+    --plum-mid:       #500018;
+    --mauve:          #D7B95F;
+    --lilac:          #F3F0EA;
   }
 
   body {
     background-color: #F3F0EA;
-    color: #45234B;
+    color: #29231F;
     font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
   }
@@ -50,7 +57,7 @@
 
 /* Minimal calm shadows */
 .minimal-shadow {
-  box-shadow: 0 4px 14px -2px rgba(63, 28, 70, 0.04);
+  box-shadow: 0 4px 14px -2px rgba(60, 0, 21, 0.05);
 }
 
 .minimal-shadow-hover {
@@ -59,7 +66,7 @@
 
 .minimal-shadow-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -4px rgba(63, 28, 70, 0.08);
+  box-shadow: 0 8px 24px -4px rgba(60, 0, 21, 0.10);
 }
 
 /* Custom subtle scrollbar */
@@ -75,27 +82,145 @@
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3F1C46;
+  background: #3C0015;
+}
+
+/* ── VELVET FABRIC BACKGROUND — Pure CSS, no image ── */
+/* Simulates real velvet's characteristic light-catching sheen, depth, and pile direction */
+.velvet-bg {
+  background-color: #3C0015;
+  background-image:
+    /* Top-center soft luster / sheen of velvet pile */
+    radial-gradient(ellipse 90% 50% at 50% 15%, rgba(160, 25, 60, 0.45) 0%, transparent 65%),
+    /* Mid luster light-bounce */
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(130, 20, 50, 0.70) 0%, transparent 70%),
+    /* Left-edge drape shadow */
+    radial-gradient(ellipse 30% 90% at 0% 50%, rgba(18, 0, 7, 0.85) 0%, transparent 75%),
+    /* Right-edge drape shadow */
+    radial-gradient(ellipse 30% 90% at 100% 50%, rgba(18, 0, 7, 0.85) 0%, transparent 75%),
+    /* Bottom subtle shadow */
+    radial-gradient(ellipse 70% 35% at 50% 100%, rgba(15, 0, 6, 0.75) 0%, transparent 70%),
+    /* Micro-velvet diagonal pile lines */
+    repeating-linear-gradient(
+      115deg,
+      rgba(215, 185, 95, 0.02) 0px,
+      rgba(215, 185, 95, 0.02) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    /* Horizontal velvet pile sheen bands */
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    /* Base deep royal maroon diagonal gradient */
+    linear-gradient(145deg, #24000C 0%, #4D001A 30%, #3C0015 55%, #1F000A 85%, #350013 100%);
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.12), inset 0 -4px 24px rgba(0, 0, 0, 0.55);
+}
+
+.velvet-bg-light {
+  background-color: #4A0018;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(140, 30, 60, 0.70) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 80% at 0% 50%, rgba(30, 5, 15, 0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 80% at 100% 50%, rgba(30, 5, 15, 0.55) 0%, transparent 70%),
+    linear-gradient(135deg, #3A0012 0%, #640020 35%, #4A0016 55%, #6E0022 80%, #3A0012 100%);
+}
+
+/* ── VELVET PLUM BACKGROUND — Pure CSS velvet maroon/burgundy fallback ── */
+.velvet-plum-bg {
+  background-color: #3C0015;
+  background-image:
+    /* Top-center soft luster */
+    radial-gradient(ellipse 90% 50% at 50% 15%, rgba(180, 40, 75, 0.45) 0%, transparent 65%),
+    /* Mid luster light-bounce */
+    radial-gradient(ellipse 80% 60% at 50% 55%, rgba(130, 20, 50, 0.65) 0%, transparent 70%),
+    /* Left-edge drape shadow */
+    radial-gradient(ellipse 30% 90% at 0% 50%, rgba(35, 2, 10, 0.85) 0%, transparent 75%),
+    /* Right-edge drape shadow */
+    radial-gradient(ellipse 30% 90% at 100% 50%, rgba(35, 2, 10, 0.85) 0%, transparent 75%),
+    /* Bottom subtle shadow */
+    radial-gradient(ellipse 70% 35% at 50% 100%, rgba(25, 2, 8, 0.70) 0%, transparent 70%),
+    /* Velvet pile micro-weave lines */
+    repeating-linear-gradient(
+      115deg,
+      rgba(215, 185, 95, 0.02) 0px,
+      rgba(215, 185, 95, 0.02) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    /* Rich velvet maroon base gradient */
+    linear-gradient(145deg, #2C0010 0%, #500018 30%, #3C0015 55%, #22000B 85%, #420014 100%);
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.12), inset 0 -4px 24px rgba(0, 0, 0, 0.5);
 }
 
 /* Animations & Keyframes */
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes gold-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes velvet-glow-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 1; }
 }
 
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 38s linear infinite;
 }
 
-.animate-marquee:hover {
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 32s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
   animation-play-state: paused;
+}
+
+/* Gold shimmer text effect */
+.gold-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #D7B95F 0%,
+    #F5E6A3 30%,
+    #D7B95F 50%,
+    #B8922A 70%,
+    #D7B95F 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gold-shimmer 4s linear infinite;
+}
+
+.velvet-glow-line {
+  animation: velvet-glow-pulse 2.5s ease-in-out infinite;
 }
 
 /* Soft continuous visual breathing effect for category circles */
