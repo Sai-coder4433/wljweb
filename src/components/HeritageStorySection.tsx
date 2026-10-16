@@ -59,17 +59,35 @@ export const HeritageStorySection: React.FC<HeritageStorySectionProps> = ({
           {/* Left Column: Heritage Archival Style Visual */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden border-2 border-[#D7B95F]/40 shadow-xl bg-white p-2">
-              <div className="rounded-xl overflow-hidden aspect-[4/5] relative">
-                <img
-                  src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=1200&auto=format&fit=crop"
-                  alt="Wafgaonkar Laxmi Jewellers Heritage 1951"
-                  loading="lazy"
-                  className="w-full h-full object-cover filter sepia-[0.12] contrast-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#26000D]/85 via-transparent to-transparent" />
+              <div className="rounded-xl overflow-hidden aspect-[4/5] relative bg-[#3C0015] velvet-bg flex flex-col items-center justify-between p-6 text-center">
                 
+                {/* Decorative filigree corners */}
+                <div className="w-full flex justify-between items-center text-[#D7B95F]/60 text-xs font-cinzel">
+                  <span>✦ WLJ ✦</span>
+                  <span>EST. 1951</span>
+                </div>
+
+                {/* Center Announcement: Showroom photo will be uploaded soon */}
+                <div className="my-auto flex flex-col items-center justify-center space-y-3 px-2">
+                  <div className="w-16 h-16 rounded-full bg-[#20000B]/80 border-2 border-[#D7B95F]/60 flex items-center justify-center text-[#D7B95F] shadow-lg">
+                    <History className="w-8 h-8 text-[#D7B95F]" />
+                  </div>
+                  
+                  <div className="space-y-1.5">
+                    <span className="inline-block px-3 py-1 rounded-full bg-[#D7B95F]/15 border border-[#D7B95F]/40 text-[#D7B95F] text-[10px] font-cinzel uppercase tracking-widest font-bold">
+                      ARCHIVAL SHOWROOM
+                    </span>
+                    <h4 className="font-marathi-display text-lg sm:text-xl font-bold text-[#FAF8F4] leading-snug">
+                      {isMr ? 'दालनाचे छायाचित्र लवकरच उपलब्ध होईल' : 'Showroom Photo Will Be Uploaded Soon'}
+                    </h4>
+                    <p className="font-marathi-serif text-xs text-[#FAF8F4]/80">
+                      {isMr ? 'चाकण येथील ऐतिहासिक मुख्य दालन' : 'Historic Chakan Flagship Showroom'}
+                    </p>
+                  </div>
+                </div>
+
                 {/* Archival Badge */}
-                <div className="absolute bottom-4 inset-x-4 p-3.5 bg-[#FAF8F4]/95 backdrop-blur-md rounded-xl border border-[#D7B95F]/40 text-center shadow-md">
+                <div className="w-full p-3.5 bg-[#FAF8F4]/95 backdrop-blur-md rounded-xl border border-[#D7B95F]/40 text-center shadow-md">
                   <div className="font-cinzel text-xs font-bold text-[#D7B95F] uppercase tracking-widest">
                     FOUNDED IN CHAKAN
                   </div>

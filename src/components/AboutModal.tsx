@@ -50,18 +50,16 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, current
           
           {/* Section 1: Origin */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-5 rounded-2xl border border-[#D7B95F]/40 bg-[#F3F0EA] aspect-[4/3] md:aspect-square overflow-hidden shadow-xs relative group">
-              <img
-                src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop"
-                alt="Goldsmith Craftsmanship"
-                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3C0015]/80 via-transparent to-transparent"></div>
-              <div className="absolute bottom-3 left-3 right-3 text-[#F3F0EA]">
-                <p className="text-xs font-marathi-serif text-[#D7B95F] font-bold">
-                  {isMr ? 'पिढीजात कारागिरीचे अधिष्ठान' : 'Generations of Fine Craftsmanship'}
-                </p>
+            <div className="md:col-span-5 rounded-2xl border border-[#D7B95F]/40 bg-[#3C0015] velvet-bg aspect-[4/5] overflow-hidden shadow-xs relative flex flex-col items-center justify-center p-6 text-center">
+              <div className="w-14 h-14 rounded-full bg-[#20000B]/80 border border-[#D7B95F]/60 flex items-center justify-center text-[#D7B95F] mb-3 shadow-md">
+                <Store className="w-7 h-7 text-[#D7B95F]" />
               </div>
+              <h4 className="font-marathi-display text-base font-bold text-[#FAF8F4] leading-snug">
+                {isMr ? 'दालनाचे छायाचित्र लवकरच उपलब्ध होईल' : 'Showroom Photo Will Be Uploaded Soon'}
+              </h4>
+              <p className="text-xs font-marathi-serif text-[#D7B95F] font-bold mt-2">
+                {isMr ? 'पिढीजात कारागिरीचे अधिष्ठान • चाकण' : 'Generations of Fine Craftsmanship • Chakan'}
+              </p>
             </div>
             <div className="md:col-span-7 space-y-3">
               <h3 className="font-marathi-display text-2xl font-bold text-[#3C0015]">
