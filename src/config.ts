@@ -6,10 +6,12 @@ export const BRAND_CONFIG = {
   taglineMarathi: "१९५१ पासून विश्वासाची परंपरा.",
   taglineEnglish: "Tradition of Trust Since 1951.",
   
-  // Single configurable WhatsApp contact number (international format without +)
-  WHATSAPP_NUMBER: "910000000000",
-  PHONE_NUMBER: "0000000000",
-  MOBILE_NUMBER: "0000000000",
+  // Configurable WhatsApp contact numbers (international format without +)
+  WHATSAPP_NUMBER: "918888179999",
+  WHATSAPP_NUMBER_2: "918888027999",
+  PHONE_NUMBER: "8888179999",
+  PHONE_NUMBER_2: "8888027999",
+  MOBILE_NUMBER: "8888179999",
   EMAIL: "contact@wafgaonkarjewellers.com",
   
   // Store Location & Timings (2 Branches in Chakan)
@@ -23,7 +25,8 @@ export const BRAND_CONFIG = {
       titleEnglish: "Branch No. 1: Juni Bazarpeth, Chakan",
       addressMarathi: "जुनी बाजारपेठ, चाकण, ता. खेड, जि. पुणे - ४१०५०१",
       addressEnglish: "Juni Bazarpeth, Chakan, Tal. Khed, Dist. Pune - 410501",
-      phone: "0000000000",
+      phone: "8888179999",
+      whatsapp: "918888179999",
       hoursMarathi: "सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)",
       hoursEnglish: "10:00 AM to 8:30 PM (All 7 Days)",
       googleMapsUrl: "https://maps.google.com/?q=Wafgaonkar+Laxmi+Jewellers+Juni+Bazarpeth+Chakan+Pune",
@@ -34,7 +37,8 @@ export const BRAND_CONFIG = {
       titleEnglish: "Branch No. 2: Manik Chowk, Opp. Siddhi Arcade, Chakan",
       addressMarathi: "माणिक चौक, सिद्धी आर्केड समोर, चाकण, ता. खेड, जि. पुणे - ४१०५०१",
       addressEnglish: "Manik Chowk, Opp. Siddhi Arcade, Chakan, Tal. Khed, Dist. Pune - 410501",
-      phone: "0000000000",
+      phone: "8888027999",
+      whatsapp: "918888027999",
       hoursMarathi: "सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)",
       hoursEnglish: "10:00 AM to 8:30 PM (All 7 Days)",
       googleMapsUrl: "https://maps.google.com/?q=Manik+Chowk+Opp+Siddhi+Arcade+Chakan+Pune",

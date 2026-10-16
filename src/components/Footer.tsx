@@ -277,12 +277,22 @@ export const Footer: React.FC<FooterProps> = ({
                 </p>
               </div>
 
-              <p className="pt-0.5 flex items-center space-x-2">
-                <Phone className="w-3.5 h-3.5 text-[#D7B95F]" />
-                <a href={`tel:${BRAND_CONFIG.PHONE_NUMBER}`} className="hover:text-[#FAF8F4] transition-colors font-cinzel font-bold text-[#FAF8F4]">
-                  {BRAND_CONFIG.PHONE_NUMBER}
-                </a>
-              </p>
+              <div className="pt-0.5 space-y-1.5">
+                <p className="flex items-center space-x-2">
+                  <Phone className="w-3.5 h-3.5 text-[#D7B95F]" />
+                  <span className="text-[#FAF8F4]/80 text-[11px]">{isMr ? 'शाखा १:' : 'Branch 1:'}</span>
+                  <a href={`tel:${BRAND_CONFIG.store.branch1.phone}`} className="hover:text-[#FAF8F4] transition-colors font-cinzel font-bold text-[#FAF8F4]">
+                    {BRAND_CONFIG.store.branch1.phone}
+                  </a>
+                </p>
+                <p className="flex items-center space-x-2">
+                  <Phone className="w-3.5 h-3.5 text-[#D7B95F]" />
+                  <span className="text-[#FAF8F4]/80 text-[11px]">{isMr ? 'शाखा २:' : 'Branch 2:'}</span>
+                  <a href={`tel:${BRAND_CONFIG.store.branch2.phone}`} className="hover:text-[#FAF8F4] transition-colors font-cinzel font-bold text-[#FAF8F4]">
+                    {BRAND_CONFIG.store.branch2.phone}
+                  </a>
+                </p>
+              </div>
               <p className="text-[#FAF8F4]/80 leading-normal flex items-start space-x-2">
                 <Clock className="w-3.5 h-3.5 text-[#D7B95F] flex-shrink-0 mt-0.5" />
                 <span>{isMr ? BRAND_CONFIG.store.hoursMarathi : BRAND_CONFIG.store.hoursEnglish}</span>

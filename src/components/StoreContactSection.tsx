@@ -12,14 +12,14 @@ export const StoreContactSection: React.FC<StoreContactSectionProps> = ({ curren
   const store = {
     brandNameMr: 'वाफगावकर लक्ष्मी ज्वेलर्स',
     brandNameEn: 'Wafgaonkar Laxmi Jewellers',
-    addressMr: 'लक्ष्मी हेरिटेज भवन, एम. जी. रोड, कॅम्प, पुणे - ४११००१',
-    addressEn: 'Laxmi Heritage Bhavan, M.G. Road, Camp, Pune - 411001',
-    phone: '0000000000',
-    phoneDisplay: '0000000000',
-    whatsapp: '910000000000',
-    timingMr: 'सकाळी १०:३० ते रात्री ८:३० (दररोज सुरू)',
-    timingEn: '10:30 AM to 8:30 PM (Open All 7 Days)',
-    mapsUrl: 'https://maps.google.com/?q=Laxmi+Road+Camp+Pune',
+    addressMr: 'शाखा क्र. १: जुनी बाजारपेठ, चाकण, ता. खेड, जि. पुणे - ४१०५०१',
+    addressEn: 'Branch No. 1: Juni Bazarpeth, Chakan, Tal. Khed, Dist. Pune - 410501',
+    phone: '8888179999',
+    phoneDisplay: '8888179999',
+    whatsapp: '918888179999',
+    timingMr: 'सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)',
+    timingEn: '10:00 AM to 8:30 PM (Open All 7 Days)',
+    mapsUrl: 'https://maps.google.com/?q=Wafgaonkar+Laxmi+Jewellers+Juni+Bazarpeth+Chakan+Pune',
   };
 
   return (

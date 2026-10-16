@@ -12,13 +12,14 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
   const isMr = currentLang === 'mr';
   const [activeTab, setActiveTab] = useState<'all' | 'branch-1' | 'branch-2'>('all');
 
-  const handleWhatsAppBranch = (branchNumber: number, branchName: string) => {
+  const handleWhatsAppBranch = (branchNumber: number, branchName: string, waNumber?: string) => {
     const text = encodeURIComponent(
       isMr
         ? `नमस्कार वाफगावकर लक्ष्मी ज्वेलर्स, मला आपल्या शाखा क्र. ${branchNumber} (${branchName}) ला भेट देण्याविषयी आणि दागिन्यांची माहिती हवी आहे.`
         : `Hello Wafgaonkar Laxmi Jewellers, I would like to inquire about visiting Branch No. ${branchNumber} (${branchName}) and viewing your jewellery collections.`
     );
-    window.open(`https://wa.me/${BRAND_CONFIG.WHATSAPP_NUMBER}?text=${text}`, '_blank');
+    const targetWa = waNumber || (branchNumber === 2 ? BRAND_CONFIG.WHATSAPP_NUMBER_2 : BRAND_CONFIG.WHATSAPP_NUMBER);
+    window.open(`https://wa.me/${targetWa}?text=${text}`, '_blank');
   };
 
   const branches = [
@@ -34,7 +35,8 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
       addressEn: 'Juni Bazarpeth, Chakan, Tal. Khed, Dist. Pune - 410501',
       timingsMr: 'सोमवार ते रविवार: सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)',
       timingsEn: 'Monday to Sunday: 10:00 AM to 8:30 PM (All 7 Days)',
-      phone: BRAND_CONFIG.PHONE_NUMBER,
+      phone: BRAND_CONFIG.store.branch1.phone,
+      whatsapp: BRAND_CONFIG.store.branch1.whatsapp,
       mapsUrl: BRAND_CONFIG.store.branch1.googleMapsUrl,
     },
     {
@@ -49,7 +51,8 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
       addressEn: 'Manik Chowk, Opp. Siddhi Arcade, Chakan, Tal. Khed, Dist. Pune - 410501',
       timingsMr: 'सोमवार ते रविवार: सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)',
       timingsEn: 'Monday to Sunday: 10:00 AM to 8:30 PM (All 7 Days)',
-      phone: BRAND_CONFIG.PHONE_NUMBER,
+      phone: BRAND_CONFIG.store.branch2.phone,
+      whatsapp: BRAND_CONFIG.store.branch2.whatsapp,
       mapsUrl: BRAND_CONFIG.store.branch2.googleMapsUrl,
     },
   ];
@@ -223,7 +226,7 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
                 </a>
 
                 <button
-                  onClick={() => handleWhatsAppBranch(branch.number, isMr ? branch.nameMr : branch.nameEn)}
+                  onClick={() => handleWhatsAppBranch(branch.number, isMr ? branch.nameMr : branch.nameEn, branch.whatsapp)}
                   className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-full bg-[#3C0015]/10 hover:bg-[#3C0015] text-[#3C0015] hover:text-[#F3F0EA] text-xs font-marathi-serif font-semibold transition-colors shadow-xs w-full sm:w-auto border border-[#D7B95F]/40"
                 >
                   <MessageCircle className="w-3.5 h-3.5 text-[#D7B95F]" />
