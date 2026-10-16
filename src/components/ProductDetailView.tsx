@@ -75,7 +75,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
         
         {/* LEFT: High-resolution Product Image Gallery */}
         <div className="lg:col-span-6 space-y-4">
-          <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white border border-[#D7B95F]/25 p-6 flex items-center justify-center shadow-xs">
+          <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-white border border-[#D7B95F]/25 p-4 sm:p-6 flex items-center justify-center shadow-md">
             <img
               src={product.images[selectedImageIndex] || product.images[0]}
               alt={product.name}
@@ -111,14 +111,14 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
             </button>
           </div>
 
-          {/* Thumbnails below */}
+          {/* Thumbnails below in 4:5 ratio */}
           {product.images.length > 1 && (
             <div className="flex items-center space-x-3 overflow-x-auto pb-2">
               {product.images.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setSelectedImageIndex(idx)}
-                  className={`w-20 h-20 rounded-xl overflow-hidden p-1 border-2 transition-all flex-shrink-0 bg-white ${
+                  className={`w-16 sm:w-20 aspect-[4/5] rounded-xl overflow-hidden p-1 border-2 transition-all flex-shrink-0 bg-white ${
                     selectedImageIndex === idx
                       ? 'border-[#3C0015] shadow-xs'
                       : 'border-[#D7B95F]/30 hover:border-[#D7B95F]'

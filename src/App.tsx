@@ -119,30 +119,30 @@ export default function App() {
       {isLoading && <BrandLoader onComplete={() => setIsLoading(false)} />}
       <CustomCursor />
 
-      {/* 01. HEADER: Slim, elegant, spacious, minimal */}
-      <Header
-        currentLang={currentLang}
-        onToggleLang={handleToggleLang}
-        wishlistCount={wishlistIds.length}
-        onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenWishlist={() => setIsWishlistOpen(true)}
-        onOpenStoreLocator={handleScrollToStore}
-        onSelectCategory={handleSelectCategory}
-        onNavigate={(view) => {
-          if (view === 'about') {
-            setIsAboutOpen(true);
-          } else if (view === 'stores' || view === 'contact') {
-            handleScrollToStore();
-          } else {
-            setCurrentView(view);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }
-        }}
-        currentView={currentView}
-      />
-
-      {/* 01B. TODAY'S LIVE GOLD & SILVER RATES TICKER (Crimson Velvet & Golden Cream) */}
-      <TodayRateTickerBar currentLang={currentLang} />
+      {/* 01. UNIFIED STICKY HEADER & LIVE RATE TICKER (Steady on scroll directly beneath Logo & Header) */}
+      <div className="sticky top-0 z-50 w-full bg-[#F3F0EA]">
+        <Header
+          currentLang={currentLang}
+          onToggleLang={handleToggleLang}
+          wishlistCount={wishlistIds.length}
+          onOpenSearch={() => setIsSearchOpen(true)}
+          onOpenWishlist={() => setIsWishlistOpen(true)}
+          onOpenStoreLocator={handleScrollToStore}
+          onSelectCategory={handleSelectCategory}
+          onNavigate={(view) => {
+            if (view === 'about') {
+              setIsAboutOpen(true);
+            } else if (view === 'stores' || view === 'contact') {
+              handleScrollToStore();
+            } else {
+              setCurrentView(view);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+          currentView={currentView}
+        />
+        <TodayRateTickerBar currentLang={currentLang} />
+      </div>
 
       {/* MAIN VIEWPORT */}
       <main className="flex-grow">
