@@ -1,4 +1,5 @@
 import React from 'react';
+import { Instagram, Facebook, MessageCircle, MapPin, Phone, Clock, Navigation } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import { BRAND_CONFIG } from '../config';
 import { Language } from '../types';
@@ -22,14 +23,23 @@ export const Footer: React.FC<FooterProps> = ({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleGeneralWhatsApp = () => {
+    const text = encodeURIComponent(
+      isMr
+        ? 'नमस्कार वाफगावकर लक्ष्मी ज्वेलर्स, मला दागिन्यांची माहिती व आजचे सोन्याचे दर हवे आहेत.'
+        : 'Hello Wafgaonkar Laxmi Jewellers, I would like to inquire about your jewellery catalogue and current gold rates.'
+    );
+    window.open(`https://wa.me/${BRAND_CONFIG.WHATSAPP_NUMBER}?text=${text}`, '_blank');
+  };
+
   return (
-    <footer className="velvet-bg text-[#F3F0EA] pt-14 pb-10 border-t border-[#D7B95F]/35 text-left">
+    <footer id="contact-section" className="velvet-bg text-[#F3F0EA] pt-14 pb-10 border-t border-[#D7B95F]/35 text-left scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
         {/* 4 COLUMNS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-[#D7B95F]/25">
           
-          {/* COL 1: Official logo + Short heritage line + Since 1951 (lg:col-span-4) */}
+          {/* COL 1: Official logo + Short heritage line + Since 1951 + Social (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-4">
             <BrandLogo variant="light" size="md" showSubtitle={true} />
             <p className="font-marathi-serif text-sm text-[#FAF8F4]/80 leading-relaxed max-w-sm pt-1">
@@ -37,6 +47,35 @@ export const Footer: React.FC<FooterProps> = ({
                 ? '“१९५१ पासून विश्वासाची परंपरा — शुद्ध सुवर्ण, अस्सल कारागिरी आणि अखंड कौटुंबिक स्नेह.”' 
                 : '“A tradition of trust since 1951 — authentic craftsmanship, pure gold, and enduring family bond.”'}
             </p>
+
+            {/* Social Media & WhatsApp Links */}
+            <div className="pt-2 flex items-center space-x-3">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-9 h-9 rounded-full bg-[#500018] border border-[#D7B95F]/40 flex items-center justify-center text-[#D7B95F] hover:bg-[#D7B95F] hover:text-[#3C0015] transition-all"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-9 h-9 rounded-full bg-[#500018] border border-[#D7B95F]/40 flex items-center justify-center text-[#D7B95F] hover:bg-[#D7B95F] hover:text-[#3C0015] transition-all"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <button
+                onClick={handleGeneralWhatsApp}
+                aria-label="WhatsApp"
+                className="w-9 h-9 rounded-full bg-[#500018] border border-[#D7B95F]/40 flex items-center justify-center text-[#D7B95F] hover:bg-[#25D366] hover:text-white transition-all"
+              >
+                <MessageCircle className="w-4 h-4" />
+              </button>
+            </div>
           </div>
 
           {/* COL 2: Quick Links (lg:col-span-2) */}
@@ -65,44 +104,45 @@ export const Footer: React.FC<FooterProps> = ({
                   }}
                   className="hover:text-[#D7B95F] transition-colors"
                 >
-                  {isMr ? 'दागिने' : 'Jewellery'}
+                  {isMr ? 'दागिने कॅटलॉग' : 'Jewellery Catalogue'}
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    onSelectCategory('all');
-                    onNavigate('catalogue');
-                    scrollToTop();
-                  }}
-                  className="hover:text-[#D7B95F] transition-colors"
+                <a
+                  href="#heritage-story-section"
+                  className="hover:text-[#D7B95F] transition-colors block"
                 >
-                  {isMr ? 'संग्रह' : 'Collections'}
-                </button>
+                  {isMr ? 'वारसा (Since 1951)' : 'Our Legacy'}
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    onNavigate('about');
-                    scrollToTop();
-                  }}
-                  className="hover:text-[#D7B95F] transition-colors"
+                <a
+                  href="#gallery-section"
+                  className="hover:text-[#D7B95F] transition-colors block"
                 >
-                  {isMr ? 'आमच्याविषयी' : 'About Us'}
-                </button>
+                  {isMr ? 'दागिने गॅलरी' : 'Gallery'}
+                </a>
               </li>
               <li>
-                <button
-                  onClick={onOpenStoreLocator}
-                  className="hover:text-[#D7B95F] transition-colors"
+                <a
+                  href="#testimonials-section"
+                  className="hover:text-[#D7B95F] transition-colors block"
                 >
-                  {isMr ? 'संपर्क' : 'Contact'}
-                </button>
+                  {isMr ? 'ग्राहकांचे अनुभव' : 'Testimonials'}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#visit-store-section"
+                  className="hover:text-[#D7B95F] transition-colors block"
+                >
+                  {isMr ? 'दालन दर्शन' : 'Visit Showroom'}
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* COL 3: 8 Mandated Jewellery Categories (lg:col-span-3) */}
+          {/* COL 3: Mandated Jewellery Categories (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-marathi-display text-sm font-bold text-[#D7B95F] tracking-wider uppercase">
               {isMr ? 'दागिने श्रेणी' : 'Categories'}
@@ -111,25 +151,13 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => {
-                    onSelectCategory('gold');
+                    onSelectCategory('necklaces');
                     onNavigate('catalogue');
                     scrollToTop();
                   }}
                   className="hover:text-[#FAF8F4] transition-colors"
                 >
-                  {isMr ? 'सोन्याचे दागिने' : 'Gold Jewellery'}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    onSelectCategory('diamond');
-                    onNavigate('catalogue');
-                    scrollToTop();
-                  }}
-                  className="hover:text-[#FAF8F4] transition-colors"
-                >
-                  {isMr ? 'हिऱ्यांचे दागिने' : 'Diamond Jewellery'}
+                  {isMr ? 'हार व चोकर (Haar)' : 'Necklaces (Haar)'}
                 </button>
               </li>
               <li>
@@ -141,19 +169,7 @@ export const Footer: React.FC<FooterProps> = ({
                   }}
                   className="hover:text-[#FAF8F4] transition-colors"
                 >
-                  {isMr ? 'मंगळसूत्र' : 'Mangalsutra'}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    onSelectCategory('necklaces');
-                    onNavigate('catalogue');
-                    scrollToTop();
-                  }}
-                  className="hover:text-[#FAF8F4] transition-colors"
-                >
-                  {isMr ? 'हार' : 'Haar'}
+                  {isMr ? 'मंगळसूत्र (Mangalsutra)' : 'Mangalsutra'}
                 </button>
               </li>
               <li>
@@ -165,7 +181,7 @@ export const Footer: React.FC<FooterProps> = ({
                   }}
                   className="hover:text-[#FAF8F4] transition-colors"
                 >
-                  {isMr ? 'कर्णफुले' : 'Karnaphule'}
+                  {isMr ? 'कर्णफुले व झुमके (Butti)' : 'Earrings (Butti)'}
                 </button>
               </li>
               <li>
@@ -177,7 +193,7 @@ export const Footer: React.FC<FooterProps> = ({
                   }}
                   className="hover:text-[#FAF8F4] transition-colors"
                 >
-                  {isMr ? 'बांगड्या' : 'Bangles'}
+                  {isMr ? 'पाटल्या व तोडे (Valya)' : 'Bangles (Valya)'}
                 </button>
               </li>
               <li>
@@ -189,7 +205,19 @@ export const Footer: React.FC<FooterProps> = ({
                   }}
                   className="hover:text-[#FAF8F4] transition-colors"
                 >
-                  {isMr ? 'अंगठ्या' : 'Rings'}
+                  {isMr ? 'सुवर्ण मुद्रिका (Angathi)' : 'Rings (Angathi)'}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    onSelectCategory('nath');
+                    onNavigate('catalogue');
+                    scrollToTop();
+                  }}
+                  className="hover:text-[#FAF8F4] transition-colors"
+                >
+                  {isMr ? 'ब्राह्मणी नथ (Nath)' : 'Nose Pins (Nath)'}
                 </button>
               </li>
               <li>
@@ -201,7 +229,7 @@ export const Footer: React.FC<FooterProps> = ({
                   }}
                   className="hover:text-[#FAF8F4] transition-colors"
                 >
-                  {isMr ? 'चांदीचे दागिने' : 'Silver Jewellery'}
+                  {isMr ? 'चांदीचे दागिने (Chandi)' : 'Silver Articles'}
                 </button>
               </li>
             </ul>
@@ -212,30 +240,52 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className="font-marathi-display text-sm font-bold text-[#D7B95F] tracking-wider uppercase">
               {isMr ? 'दालन व संपर्क (चाकण)' : 'Showrooms & Contact'}
             </h4>
-            <div className="space-y-2.5 text-xs font-marathi-serif text-[#FAF8F4]/80">
-              <div className="pb-1 border-b border-[#D7B95F]/20">
-                <span className="text-[#D7B95F] font-bold block">{isMr ? 'शाखा क्र. १ (मुख्य पेढी):' : 'Branch 1 (Main Pedhi):'}</span>
-                <p className="text-[#F3F0EA] mt-0.5">
+            <div className="space-y-3 text-xs font-marathi-serif text-[#FAF8F4]/80">
+              <div className="pb-1.5 border-b border-[#D7B95F]/20">
+                <div className="flex items-start justify-between">
+                  <span className="text-[#D7B95F] font-bold block">{isMr ? 'शाखा क्र. १ (जुनी बाजारपेठ):' : 'Branch 1 (Juni Bazarpeth):'}</span>
+                  <a
+                    href={BRAND_CONFIG.store.branch1.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#D7B95F] hover:text-[#FAF8F4] inline-flex items-center space-x-1 text-[11px]"
+                  >
+                    <Navigation className="w-3 h-3" />
+                    <span>{isMr ? 'दिशा' : 'Map'}</span>
+                  </a>
+                </div>
+                <p className="text-[#F3F0EA] mt-0.5 leading-relaxed">
                   {isMr ? BRAND_CONFIG.store.branch1.addressMarathi : BRAND_CONFIG.store.branch1.addressEnglish}
                 </p>
               </div>
 
-              <div className="pb-1 border-b border-[#D7B95F]/20">
-                <span className="text-[#D7B95F] font-bold block">{isMr ? 'शाखा क्र. २ (माणिक चौक):' : 'Branch 2 (Manik Chowk):'}</span>
-                <p className="text-[#F3F0EA] mt-0.5">
+              <div className="pb-1.5 border-b border-[#D7B95F]/20">
+                <div className="flex items-start justify-between">
+                  <span className="text-[#D7B95F] font-bold block">{isMr ? 'शाखा क्र. २ (माणिक चौक):' : 'Branch 2 (Manik Chowk):'}</span>
+                  <a
+                    href={BRAND_CONFIG.store.branch2.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#D7B95F] hover:text-[#FAF8F4] inline-flex items-center space-x-1 text-[11px]"
+                  >
+                    <Navigation className="w-3 h-3" />
+                    <span>{isMr ? 'दिशा' : 'Map'}</span>
+                  </a>
+                </div>
+                <p className="text-[#F3F0EA] mt-0.5 leading-relaxed">
                   {isMr ? BRAND_CONFIG.store.branch2.addressMarathi : BRAND_CONFIG.store.branch2.addressEnglish}
                 </p>
               </div>
 
-              <p className="pt-0.5">
-                <span className="text-[#D7B95F] font-semibold">{isMr ? 'फोन / व्हॉट्सॲप:' : 'Phone / WhatsApp:'}</span>{' '}
+              <p className="pt-0.5 flex items-center space-x-2">
+                <Phone className="w-3.5 h-3.5 text-[#D7B95F]" />
                 <a href={`tel:${BRAND_CONFIG.PHONE_NUMBER}`} className="hover:text-[#FAF8F4] transition-colors font-cinzel font-bold text-[#FAF8F4]">
                   {BRAND_CONFIG.PHONE_NUMBER}
                 </a>
               </p>
-              <p className="text-[#FAF8F4]/80 leading-normal">
-                <span className="text-[#D7B95F] block font-semibold">{isMr ? 'दालनाची वेळ:' : 'Hours:'}</span>
-                {isMr ? BRAND_CONFIG.store.hoursMarathi : BRAND_CONFIG.store.hoursEnglish}
+              <p className="text-[#FAF8F4]/80 leading-normal flex items-start space-x-2">
+                <Clock className="w-3.5 h-3.5 text-[#D7B95F] flex-shrink-0 mt-0.5" />
+                <span>{isMr ? BRAND_CONFIG.store.hoursMarathi : BRAND_CONFIG.store.hoursEnglish}</span>
               </p>
             </div>
           </div>
@@ -251,8 +301,8 @@ export const Footer: React.FC<FooterProps> = ({
           </p>
 
           <div className="flex items-center space-x-4">
-            <span className="text-[11px] font-cinzel text-[#D7B95F]/80 tracking-widest uppercase">
-              SINCE 1951 • PURE TRADITION
+            <span className="text-[11px] font-cinzel text-[#D7B95F] tracking-widest uppercase font-semibold">
+              SINCE 1951 • शुद्ध सुवर्ण परंपरा
             </span>
           </div>
         </div>
@@ -261,3 +311,4 @@ export const Footer: React.FC<FooterProps> = ({
     </footer>
   );
 };
+

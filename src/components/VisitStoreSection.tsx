@@ -29,12 +29,13 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
       nameEn: 'Branch No. 1: Juni Bazarpeth, Chakan',
       tagMr: 'मुख्य वारसा शाखा',
       tagEn: 'Heritage Main Branch',
+      image: 'https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=1000&auto=format&fit=crop',
       addressMr: 'जुनी बाजारपेठ, चाकण, ता. खेड, जि. पुणे - ४१०५०१',
       addressEn: 'Juni Bazarpeth, Chakan, Tal. Khed, Dist. Pune - 410501',
       timingsMr: 'सोमवार ते रविवार: सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)',
       timingsEn: 'Monday to Sunday: 10:00 AM to 8:30 PM (All 7 Days)',
-      phone: '0000000000',
-      mapsUrl: 'https://maps.google.com/?q=Wafgaonkar+Laxmi+Jewellers+Juni+Bazarpeth+Chakan+Pune',
+      phone: BRAND_CONFIG.PHONE_NUMBER,
+      mapsUrl: BRAND_CONFIG.store.branch1.googleMapsUrl,
     },
     {
       id: 'branch-2',
@@ -43,12 +44,13 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
       nameEn: 'Branch No. 2: Manik Chowk, Opp. Siddhi Arcade, Chakan',
       tagMr: 'सुवर्ण व वधू दालन',
       tagEn: 'Gold & Bridal Studio',
+      image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=1000&auto=format&fit=crop',
       addressMr: 'माणिक चौक, सिद्धी आर्केड समोर, चाकण, ता. खेड, जि. पुणे - ४१०५०१',
       addressEn: 'Manik Chowk, Opp. Siddhi Arcade, Chakan, Tal. Khed, Dist. Pune - 410501',
       timingsMr: 'सोमवार ते रविवार: सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)',
       timingsEn: 'Monday to Sunday: 10:00 AM to 8:30 PM (All 7 Days)',
-      phone: '0000000000',
-      mapsUrl: 'https://maps.google.com/?q=Manik+Chowk+Opp+Siddhi+Arcade+Chakan+Pune',
+      phone: BRAND_CONFIG.PHONE_NUMBER,
+      mapsUrl: BRAND_CONFIG.store.branch2.googleMapsUrl,
     },
   ];
 
@@ -57,22 +59,22 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
     : branches.filter((b) => b.id === activeTab);
 
   return (
-    <section className="py-14 md:py-20 px-4 md:px-8 max-w-7xl mx-auto text-left rounded-3xl bg-[#FAF8F4] border border-[#D7B95F]/35 shadow-xs my-8">
+    <section id="visit-store-section" className="py-14 md:py-20 px-4 md:px-8 max-w-7xl mx-auto text-left rounded-3xl bg-[#FAF8F4] border border-[#D7B95F]/35 shadow-xs my-8 scroll-mt-24">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
         <div className="inline-flex items-center space-x-2 text-[#D7B95F] font-cinzel text-xs uppercase tracking-[0.25em] mb-2.5">
           <Store className="w-3.5 h-3.5 text-[#D7B95F]" />
-          <span>{isMr ? 'दालन दर्शन' : 'VISIT OUR SHOWROOMS'}</span>
+          <span>{isMr ? 'दालन दर्शन' : 'VISIT OUR SHOWROOM'}</span>
         </div>
         
         <h2 className="font-marathi-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#3C0015] tracking-tight mb-3">
-          {isMr ? 'आमच्या दालनाला भेट द्या' : 'Visit Our Showrooms in Chakan'}
+          {isMr ? 'आमच्या दालनाला भेट द्या' : 'Visit Our Showroom'}
         </h2>
         
         <p className="font-marathi-serif text-[#766A61] text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
           {isMr
             ? 'चाकण येथील आमच्या दोन्ही दालनात येऊन प्रत्यक्ष शुद्ध सोन्याच्या दागिन्यांची भव्यता, चमक आणि अस्सल कारागिरीचा सुखद अनुभव घ्या. आमचे तज्ज्ञ सुवर्ण सल्लागार आपल्या सेवेत सदैव तत्पर आहेत.'
-            : 'Step into our two signature showrooms in Chakan to experience the tactile brilliance, hallmarked purity, and heirloom craftsmanship of pure gold and silver jewellery.'}
+            : 'Step into our signature showrooms in Chakan to experience the tactile brilliance, hallmarked purity, and heirloom craftsmanship of pure gold and silver jewellery.'}
         </p>
 
         {/* Branch Filter Switcher */}
@@ -117,25 +119,28 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
             key={branch.id}
             className="bg-[#FAF8F4] rounded-2xl sm:rounded-3xl border border-[#D7B95F]/35 overflow-hidden shadow-xs hover:border-[#D7B95F] transition-all flex flex-col justify-between"
           >
-            {/* Top Area: Clean English "Shop Photo" Frame */}
-            <div className="relative velvet-bg text-[#F3F0EA] p-6 sm:p-8 flex flex-col items-center justify-center text-center overflow-hidden border-b border-[#D7B95F]/30">
-              {/* Subtle background decorative pattern */}
-              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#D7B95F_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            {/* Top Area: Real Showroom Photograph with Velvet Vignette */}
+            <div className="relative h-56 sm:h-64 overflow-hidden border-b border-[#D7B95F]/30 group">
+              <img
+                src={branch.image}
+                alt={isMr ? branch.nameMr : branch.nameEn}
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3C0015] via-[#3C0015]/40 to-transparent"></div>
               
               {/* Branch Badge */}
-              <div className="relative z-10 inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#500018] border border-[#D7B95F]/40 text-[#D7B95F] text-[11px] font-cinzel tracking-wider uppercase mb-2.5">
+              <div className="absolute top-4 left-4 z-10 inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#3C0015]/85 backdrop-blur-xs border border-[#D7B95F]/50 text-[#D7B95F] text-[11px] font-cinzel tracking-wider uppercase shadow-md">
                 <Award className="w-3.5 h-3.5 text-[#D7B95F]" />
                 <span>{isMr ? `शाखा क्र. ${branch.number}` : `Branch No. ${branch.number}`}</span>
               </div>
 
-              {/* Clean English "Shop Photo" Frame */}
-              <div className="relative z-10 w-full max-w-sm py-4 px-5 sm:py-5 sm:px-6 rounded-xl sm:rounded-2xl bg-[#2C0010]/80 border border-[#D7B95F]/40 backdrop-blur-xs text-center space-y-1 shadow-inner">
-                <Store className="w-7 h-7 sm:w-8 sm:h-8 text-[#D7B95F] mx-auto opacity-90" />
-                <div className="font-cinzel text-base sm:text-xl font-bold tracking-widest text-[#F3F0EA] uppercase">
-                  Shop Photo
-                </div>
-                <div className="font-marathi-serif text-xs text-[#D7B95F]/90">
-                  {isMr ? `${branch.nameMr.split(':')[1]} - दालन` : `${branch.nameEn.split(':')[1]}`}
+              {/* Showroom Title Overlay */}
+              <div className="absolute bottom-4 left-4 right-4 z-10">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#D7B95F] font-cinzel font-semibold block mb-0.5 drop-shadow-xs">
+                  {isMr ? branch.tagMr : branch.tagEn}
+                </span>
+                <div className="font-marathi-display text-lg sm:text-xl font-bold text-[#F3F0EA] drop-shadow-md">
+                  {isMr ? branch.nameMr : branch.nameEn}
                 </div>
               </div>
             </div>

@@ -6,7 +6,9 @@ import { MarqueeBanner } from './components/MarqueeBanner';
 import { FeaturedCollections } from './components/FeaturedCollections';
 import { MaroonEditorialMoment } from './components/MaroonEditorialMoment';
 import { FeaturedJewellerySection } from './components/FeaturedJewellerySection';
-import { AboutSection } from './components/AboutSection';
+import { HeritageStorySection } from './components/HeritageStorySection';
+import { JewelleryGallerySection } from './components/JewelleryGallerySection';
+import { TestimonialsSection } from './components/TestimonialsSection';
 import { VisitStoreSection } from './components/VisitStoreSection';
 import { Footer } from './components/Footer';
 
@@ -197,16 +199,20 @@ export default function App() {
               }}
             />
 
-            {/* 08. EDITORIAL ABOUT SECTION ('पिढ्यान्पिढ्या जपलेला विश्वास.', left image reveal, drawing gold line) */}
-            <AboutSection
+            {/* 08. BRAND LEGACY & TRUST SECTION (Since 1951 + BIS Hallmark Trust) */}
+            <HeritageStorySection
               currentLang={currentLang}
               onOpenAboutModal={() => setIsAboutOpen(true)}
             />
 
-            {/* 09. VISIT OUR STORE (Both Chakan branches with photo, address, timings, map & phone) */}
-            <div id="visit-store-section">
-              <VisitStoreSection currentLang={currentLang} />
-            </div>
+            {/* 09. JEWELLERY GALLERY (9:16 Portrait Showcase & WhatsApp Actions) */}
+            <JewelleryGallerySection currentLang={currentLang} />
+
+            {/* 10. TESTIMONIALS (Customer Reviews Carousel) */}
+            <TestimonialsSection currentLang={currentLang} />
+
+            {/* 11. VISIT OUR SHOWROOM (Both Chakan branches with showroom photo, timings, map & phone) */}
+            <VisitStoreSection currentLang={currentLang} />
           </>
         )}
 

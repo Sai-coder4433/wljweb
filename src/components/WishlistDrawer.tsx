@@ -27,7 +27,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
   const handleInquireAll = () => {
     if (wishlistProducts.length === 0) return;
     const itemsList = wishlistProducts
-      .map((p, i) => `${i + 1}. ${isMr ? p.marathiName : p.name} (${p.sku}) - ₹${p.price.toLocaleString('en-IN')}`)
+      .map((p, i) => `${i + 1}. ${isMr ? p.marathiName : p.name} (${p.sku} • ${p.purity} • ${p.weight})`)
       .join('\n');
 
     const msg = isMr
@@ -105,8 +105,8 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
                   <div className="text-[11px] text-[#766A61] font-cinzel">
                     {product.purity} • {product.weight}
                   </div>
-                  <div className="font-cinzel text-sm font-bold text-[#3C0015] mt-1">
-                    ₹ {product.price.toLocaleString('en-IN')}
+                  <div className="text-xs font-marathi-serif font-semibold text-[#D7B95F] mt-1 flex items-center space-x-1">
+                    <span>{isMr ? '१००% हॉलमार्क प्रमाणित' : 'BIS Hallmarked'}</span>
                   </div>
                 </div>
 

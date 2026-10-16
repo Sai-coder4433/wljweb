@@ -142,8 +142,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   </div>
 
                   <div className="flex items-center space-x-3">
-                    <span className="font-cinzel font-bold text-sm text-[#3C0015]">
-                      ₹ {product.price.toLocaleString('en-IN')}
+                    <span className="font-marathi-serif text-xs font-semibold text-[#3C0015] bg-[#D7B95F]/20 px-2.5 py-1 rounded-full">
+                      {isMr ? 'तपशील पहा' : 'View Piece'}
                     </span>
                     <ArrowRight className="w-4 h-4 text-[#B99A5A] opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>

@@ -27,7 +27,8 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
 
   const [selectedMainCatSlug, setSelectedMainCatSlug] = useState<string>(initialCategory);
   const [selectedSubCatSlug, setSelectedSubCatSlug] = useState<string>('all');
-  const [sortBy, setSortBy] = useState<'popular' | 'price-asc' | 'price-desc'>('popular');
+  const [selectedPurity, setSelectedPurity] = useState<string>('all');
+  const [sortBy, setSortBy] = useState<'popular' | 'weight-asc' | 'weight-desc'>('popular');
 
   // When initialCategory changes from outside
   useEffect(() => {
@@ -44,6 +45,13 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
   // Filtered products list
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
+      // Purity filter
+      if (selectedPurity !== 'all') {
+        if (!p.purity || !p.purity.toLowerCase().includes(selectedPurity.toLowerCase())) {
+          return false;
+        }
+      }
+
       // If a specific subcategory is selected
       if (selectedSubCatSlug !== 'all') {
         const query = selectedSubCatSlug.toLowerCase();
@@ -102,11 +110,13 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
 
       return true;
     }).sort((a, b) => {
-      if (sortBy === 'price-asc') return a.price - b.price;
-      if (sortBy === 'price-desc') return b.price - a.price;
-      return 0; // 'popular' preserves default order
+      const weightA = parseFloat(a.weight) || 0;
+      const weightB = parseFloat(b.weight) || 0;
+      if (sortBy === 'weight-asc') return weightA - weightB;
+      if (sortBy === 'weight-desc') return weightB - weightA;
+      return 0; // 'popular' preserves curated default order
     });
-  }, [products, selectedMainCatSlug, selectedSubCatSlug, sortBy]);
+  }, [products, selectedMainCatSlug, selectedSubCatSlug, selectedPurity, sortBy]);
 
   const pageTitle = currentMainCat 
     ? (isMr ? currentMainCat.marathiName : currentMainCat.name)
@@ -140,7 +150,7 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
         )}
       </div>
 
-      {/* Heading: सोन्याचे दागिने */}
+      {/* Heading & Controls */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-[#D7B95F]/25 gap-4">
         <div>
           <h1 className="font-marathi-display text-3xl sm:text-4xl font-bold text-[#3C0015] tracking-tight">
@@ -148,24 +158,49 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
           </h1>
           <p className="font-marathi-serif text-xs sm:text-sm text-[#766A61] mt-1">
             {isMr
-              ? `एकूण ${filteredProducts.length} अस्सल दागिने उपलब्ध`
-              : `${filteredProducts.length} authentic pieces available`}
+              ? `एकूण ${filteredProducts.length} अस्सल दागिने उपलब्ध • WhatsApp वर त्वरित दर व चौकशी`
+              : `${filteredProducts.length} authentic pieces available • Enquire on WhatsApp for live rates`}
           </p>
         </div>
 
-        {/* Sort selector */}
-        <div className="flex items-center space-x-2 text-xs font-marathi-serif">
-          <ArrowUpDown className="w-3.5 h-3.5 text-[#766A61]" />
-          <span className="text-[#766A61]">{isMr ? 'क्रम लावा:' : 'Sort By:'}</span>
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value as any)}
-            className="bg-[#FAF8F4] border border-[#D7B95F]/35 text-[#29231F] rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-[#3C0015]"
-          >
-            <option value="popular">{isMr ? 'निवडक / लोकप्रिय' : 'Curated'}</option>
-            <option value="price-asc">{isMr ? 'किंमत: कमी ते जास्त' : 'Price: Low to High'}</option>
-            <option value="price-desc">{isMr ? 'किंमत: जास्त ते कमी' : 'Price: High to Low'}</option>
-          </select>
+        {/* Purity & Sort selectors */}
+        <div className="flex items-center flex-wrap gap-2 text-xs font-marathi-serif">
+          {/* Purity filter pills */}
+          <div className="flex items-center space-x-1 bg-[#FAF8F4] p-1 rounded-lg border border-[#D7B95F]/35">
+            {[
+              { id: 'all', labelMr: 'सर्व शुद्धता', labelEn: 'All Purity' },
+              { id: '22K', labelMr: '२२ कॅरेट (916)', labelEn: '22K Hallmarked' },
+              { id: '24K', labelMr: '२४ कॅरेट (999)', labelEn: '24K Pure' },
+              { id: '18K', labelMr: '१८ कॅरेट', labelEn: '18K Diamond' },
+              { id: 'Silver', labelMr: 'चांदी (92.5)', labelEn: '925 Silver' },
+            ].map((p) => (
+              <button
+                key={p.id}
+                onClick={() => setSelectedPurity(p.id)}
+                className={`px-2.5 py-1 rounded text-[11px] font-semibold transition-all ${
+                  selectedPurity === p.id
+                    ? 'bg-[#3C0015] text-[#F3F0EA]'
+                    : 'text-[#29231F] hover:bg-[#F3F0EA]'
+                }`}
+              >
+                {isMr ? p.labelMr : p.labelEn}
+              </button>
+            ))}
+          </div>
+
+          {/* Sort selector */}
+          <div className="flex items-center space-x-1.5">
+            <ArrowUpDown className="w-3.5 h-3.5 text-[#766A61]" />
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as any)}
+              className="bg-[#FAF8F4] border border-[#D7B95F]/35 text-[#29231F] rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-[#3C0015] text-xs"
+            >
+              <option value="popular">{isMr ? 'निवडक / सर्व' : 'Curated'}</option>
+              <option value="weight-asc">{isMr ? 'वजन: कमी ते जास्त' : 'Gross Wt: Low to High'}</option>
+              <option value="weight-desc">{isMr ? 'वजन: जास्त ते कमी' : 'Gross Wt: High to Low'}</option>
+            </select>
+          </div>
         </div>
       </div>
 

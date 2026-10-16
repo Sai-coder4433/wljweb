@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Heart, Menu, X, ChevronDown } from 'lucide-react';
+import { Search, Heart, Menu, X, ChevronDown, Sparkles } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import { Language } from '../types';
 
@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [collectionsDropdownOpen, setCollectionsDropdownOpen] = useState(false);
 
   const isMr = currentLang === 'mr';
 
@@ -40,89 +40,111 @@ export const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const jewelleryCategories = [
-    { name: isMr ? 'सर्व दागिने' : 'All Jewellery', slug: 'all' },
-    { name: isMr ? 'सोन्याचे दागिने' : 'Gold Jewellery', slug: 'gold' },
-    { name: isMr ? 'मंगळसूत्र' : 'Mangalsutra', slug: 'mangalsutra' },
-    { name: isMr ? 'हार' : 'Necklaces & Haar', slug: 'necklaces' },
-    { name: isMr ? 'कर्णफुले' : 'Earrings & Jhumkas', slug: 'earrings' },
-    { name: isMr ? 'बांगड्या व पाटल्या' : 'Bangles & Patlya', slug: 'bangles' },
-    { name: isMr ? 'अंगठ्या' : 'Rings', slug: 'rings' },
-    { name: isMr ? 'चांदीचे दागिने' : 'Silver Jewellery', slug: 'silver' },
+  const collectionCategories = [
+    { name: isMr ? 'सर्व दागिने संग्रह' : 'All Collections', slug: 'all' },
+    { name: isMr ? 'शाही वधू संग्रह' : 'Bridal Collection', slug: 'gold' },
+    { name: isMr ? 'पारंपरिक महाराष्ट्रीयन साज' : 'Traditional Heritage', slug: 'necklaces' },
+    { name: isMr ? 'मंगळसूत्र संग्रह' : 'Mangalsutra Collection', slug: 'mangalsutra' },
+    { name: isMr ? 'बांगड्या व तोडे' : 'Bangles & Tode', slug: 'bangles' },
+    { name: isMr ? 'कर्णफुले व बुगडी' : 'Earrings & Jhumkas', slug: 'earrings' },
+    { name: isMr ? 'अंगठ्या व मुद्रिका' : 'Rings & Mudrika', slug: 'rings' },
+    { name: isMr ? 'शुद्ध चांदी संग्रह' : 'Silver Articles', slug: 'silver' },
   ];
+
+  const handleNavClick = (view: string, elementId?: string) => {
+    setMobileMenuOpen(false);
+    if (view === 'home' && !elementId) {
+      onNavigate('home');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (view === 'collections') {
+      onSelectCategory('all');
+      onNavigate('catalogue');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (elementId) {
+      // If currently not on home view, first navigate to home then scroll
+      if (currentView !== 'home') {
+        onNavigate('home');
+        setTimeout(() => {
+          const el = document.getElementById(elementId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      } else {
+        const el = document.getElementById(elementId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#F3F0EA] py-2.5 border-b border-[#D7B95F]/30 shadow-[0_2px_12px_rgba(63,28,70,0.06)]'
-          : 'bg-[#F3F0EA]/97 backdrop-blur-xs py-3.5 border-b border-[#D7B95F]/20'
+          ? 'bg-[#F3F0EA] py-2.5 border-b border-[#D7B95F]/35 shadow-sm'
+          : 'bg-[#F3F0EA]/98 backdrop-blur-xs py-3.5 border-b border-[#D7B95F]/20'
       }`}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 flex items-center justify-between gap-2">
         
-        {/* LEFT: Official Wafgaonkar Laxmi Jewellers logo + Since 1951 */}
+        {/* LEFT: Official Wafgaonkar Laxmi Jewellers Logo with accurate Marathi typography */}
         <div 
-          onClick={() => {
-            onNavigate('home');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }} 
+          onClick={() => handleNavClick('home')} 
           className="cursor-pointer flex items-center flex-shrink min-w-0"
         >
-          <BrandLogo variant="dark" size={isScrolled ? 'sm' : 'md'} />
+          <BrandLogo variant="dark" size={isScrolled ? 'sm' : 'md'} showSubtitle={true} />
         </div>
 
-        {/* CENTER: Marathi Navigation (Desktop) */}
-        <nav className="hidden lg:flex items-center space-x-7 xl:space-x-9 text-[14px] font-medium text-[#29231F]">
-          {/* मुख्यपृष्ठ */}
+        {/* CENTER: Exact Mandated Clean Navigation: Home, Collections, Our Legacy, Gallery, Testimonials, Visit Us, Contact */}
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-[13.5px] font-medium text-[#29231F]">
+          
+          {/* 1. Home (मुख्यपृष्ठ) */}
           <button
-            onClick={() => {
-              onNavigate('home');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className={`font-marathi-serif tracking-wide transition-colors py-1 relative ${
+            onClick={() => handleNavClick('home')}
+            className={`font-marathi-serif tracking-wide transition-colors py-1 relative cursor-pointer ${
               currentView === 'home' ? 'text-[#3C0015] font-bold' : 'hover:text-[#3C0015]'
             }`}
           >
             {isMr ? 'मुख्यपृष्ठ' : 'Home'}
             {currentView === 'home' && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#D7B95F]"></span>
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#D7B95F]" />
             )}
           </button>
 
-          {/* दागिने (Dropdown for categories) */}
+          {/* 2. Collections (संग्रह) - with quick dropdown */}
           <div 
             className="relative"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
+            onMouseEnter={() => setCollectionsDropdownOpen(true)}
+            onMouseLeave={() => setCollectionsDropdownOpen(false)}
           >
             <button
-              onClick={() => {
-                onSelectCategory('all');
-                onNavigate('catalogue');
-              }}
-              className={`flex items-center space-x-1 font-marathi-serif tracking-wide py-1 transition-colors relative ${
+              onClick={() => handleNavClick('collections')}
+              className={`flex items-center space-x-1 font-marathi-serif tracking-wide py-1 transition-colors relative cursor-pointer ${
                 currentView === 'catalogue' ? 'text-[#3C0015] font-bold' : 'hover:text-[#3C0015]'
               }`}
             >
-              <span>{isMr ? 'दागिने' : 'Jewellery'}</span>
+              <span>{isMr ? 'संग्रह' : 'Collections'}</span>
               <ChevronDown className="w-3.5 h-3.5 opacity-60" />
               {currentView === 'catalogue' && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#D7B95F]"></span>
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#D7B95F]" />
               )}
             </button>
 
-            {dropdownOpen && (
-              <div className="absolute top-full left-0 w-60 bg-[#FAF8F4] border border-[#D7B95F]/35 shadow-md rounded-xl py-2 z-50 animate-in fade-in duration-150 text-left">
-                {jewelleryCategories.map((item) => (
+            {collectionsDropdownOpen && (
+              <div className="absolute top-full left-0 w-64 bg-[#FAF8F4] border border-[#D7B95F]/35 shadow-lg rounded-2xl py-2.5 z-50 animate-in fade-in duration-150 text-left">
+                {collectionCategories.map((item) => (
                   <button
                     key={item.slug}
                     onClick={() => {
                       onSelectCategory(item.slug);
                       onNavigate('catalogue');
-                      setDropdownOpen(false);
+                      setCollectionsDropdownOpen(false);
                     }}
-                    className="w-full px-4 py-2 text-xs font-marathi-serif text-[#29231F] hover:bg-[#D7B95F]/15 hover:text-[#3C0015] transition-colors flex items-center justify-between"
+                    className="w-full px-4 py-2 text-xs font-marathi-serif text-[#29231F] hover:bg-[#D7B95F]/15 hover:text-[#3C0015] transition-colors flex items-center justify-between cursor-pointer"
                   >
                     <span>{item.name}</span>
                     <span className="text-[10px] text-[#D7B95F]">→</span>
@@ -132,57 +154,70 @@ export const Header: React.FC<HeaderProps> = ({
             )}
           </div>
 
-          {/* संग्रह */}
+          {/* 3. Our Legacy (वारसा व परंपरा) */}
           <button
-            onClick={() => {
-              onSelectCategory('all');
-              onNavigate('catalogue');
-            }}
-            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1"
+            onClick={() => handleNavClick('home', 'heritage-story-section')}
+            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1 cursor-pointer"
           >
-            {isMr ? 'संग्रह' : 'Collections'}
+            {isMr ? 'वारसा व परंपरा' : 'Our Legacy'}
           </button>
 
-          {/* आमच्याविषयी */}
+          {/* 4. Gallery (दालन व गॅलरी) */}
           <button
-            onClick={() => onNavigate('about')}
-            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1"
+            onClick={() => handleNavClick('home', 'gallery-section')}
+            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1 cursor-pointer"
           >
-            {isMr ? 'आमच्याविषयी' : 'About Us'}
+            {isMr ? 'दालन व गॅलरी' : 'Gallery'}
           </button>
 
-          {/* संपर्क */}
+          {/* 5. Testimonials (ग्राहकांचे अनुभव) */}
           <button
-            onClick={onOpenStoreLocator}
-            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1"
+            onClick={() => handleNavClick('home', 'testimonials-section')}
+            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1 cursor-pointer"
+          >
+            {isMr ? 'ग्राहकांचे अनुभव' : 'Testimonials'}
+          </button>
+
+          {/* 6. Visit Us (भेट द्या) */}
+          <button
+            onClick={() => handleNavClick('home', 'visit-store-section')}
+            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1 cursor-pointer"
+          >
+            {isMr ? 'भेट द्या' : 'Visit Us'}
+          </button>
+
+          {/* 7. Contact (संपर्क) */}
+          <button
+            onClick={() => handleNavClick('home', 'contact-section')}
+            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1 cursor-pointer"
           >
             {isMr ? 'संपर्क' : 'Contact'}
           </button>
         </nav>
 
         {/* RIGHT: Search, Wishlist, Language Switch */}
-        <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4 text-[#29231F] flex-shrink-0">
+        <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3 text-[#29231F] flex-shrink-0">
           
-          {/* Search */}
+          {/* Search Button */}
           <button
             onClick={onOpenSearch}
-            className="p-1.5 sm:p-2 rounded-full hover:bg-[#D7B95F]/15 text-[#29231F] hover:text-[#3C0015] transition-colors"
+            className="p-1.5 sm:p-2 rounded-full hover:bg-[#D7B95F]/15 text-[#29231F] hover:text-[#3C0015] transition-colors cursor-pointer"
             aria-label="Search jewellery"
             title={isMr ? 'दागिने शोधा' : 'Search catalogue'}
           >
             <Search className="w-4 h-4 md:w-4.5 md:h-4.5" />
           </button>
 
-          {/* Wishlist */}
+          {/* Wishlist Button */}
           <button
             onClick={onOpenWishlist}
-            className="p-1.5 sm:p-2 rounded-full hover:bg-[#D7B95F]/15 text-[#29231F] hover:text-[#3C0015] transition-colors relative"
+            className="p-1.5 sm:p-2 rounded-full hover:bg-[#D7B95F]/15 text-[#29231F] hover:text-[#3C0015] transition-colors relative cursor-pointer"
             aria-label="Wishlist"
             title={isMr ? 'पसंतीचे दागिने' : 'Wishlist'}
           >
             <Heart className="w-4 h-4 md:w-4.5 md:h-4.5" />
             {wishlistCount > 0 && (
-              <span className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#3C0015] text-[#F3F0EA] text-[9px] sm:text-[10px] font-bold flex items-center justify-center">
+              <span className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#3C0015] text-[#FAF8F4] text-[9px] sm:text-[10px] font-bold flex items-center justify-center">
                 {wishlistCount}
               </span>
             )}
@@ -191,7 +226,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Language Switch: मराठी | English */}
           <button
             onClick={onToggleLang}
-            className="hidden sm:flex items-center px-2.5 py-1 rounded-full text-xs font-marathi-serif text-[#766A61] hover:text-[#3C0015] border border-[#D7B95F]/35 transition-colors ml-1"
+            className="hidden sm:flex items-center px-2.5 py-1 rounded-full text-xs font-marathi-serif text-[#766A61] hover:text-[#3C0015] border border-[#D7B95F]/35 transition-colors ml-1 cursor-pointer bg-white"
           >
             <span className={isMr ? 'font-bold text-[#3C0015]' : ''}>मराठी</span>
             <span className="mx-1 text-[#D7B95F]/60">|</span>
@@ -201,7 +236,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 sm:p-2 rounded-lg text-[#29231F] hover:bg-[#D7B95F]/15 ml-0.5"
+            className="lg:hidden p-1.5 sm:p-2 rounded-lg text-[#29231F] hover:bg-[#D7B95F]/15 ml-0.5 cursor-pointer"
             aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -210,79 +245,64 @@ export const Header: React.FC<HeaderProps> = ({
 
       </div>
 
-      {/* MOBILE MENU ACCORDION */}
+      {/* MOBILE MENU DRAWER */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#FAF8F4] border-t border-[#D7B95F]/30 px-6 py-5 shadow-lg animate-in slide-in-from-top-2 duration-200 text-left font-marathi-serif">
-          <div className="space-y-3">
+        <div className="lg:hidden bg-[#FAF8F4] border-t border-[#D7B95F]/30 px-6 py-5 shadow-xl animate-in slide-in-from-top-2 duration-200 text-left font-marathi-serif">
+          <div className="space-y-3.5">
             <button
-              onClick={() => {
-                onNavigate('home');
-                setMobileMenuOpen(false);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="block w-full text-left py-2 text-sm font-semibold text-[#3C0015] border-b border-[#D7B95F]/15"
+              onClick={() => handleNavClick('home')}
+              className="block w-full text-left py-1.5 text-base font-bold text-[#3C0015] border-b border-[#D7B95F]/20"
             >
               {isMr ? 'मुख्यपृष्ठ' : 'Home'}
             </button>
 
-            <div className="py-1">
-              <span className="block text-xs uppercase tracking-wider text-[#766A61] mb-2 font-bold">
-                {isMr ? 'दागिने श्रेणी' : 'Jewellery Categories'}
-              </span>
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                {jewelleryCategories.map((item) => (
-                  <button
-                    key={item.slug}
-                    onClick={() => {
-                      onSelectCategory(item.slug);
-                      onNavigate('catalogue');
-                      setMobileMenuOpen(false);
-                    }}
-                    className="text-left py-1.5 px-2 rounded-md hover:bg-[#D7B95F]/15 text-[#29231F]"
-                  >
-                    {item.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-
             <button
-              onClick={() => {
-                onSelectCategory('all');
-                onNavigate('catalogue');
-                setMobileMenuOpen(false);
-              }}
-              className="block w-full text-left py-2 text-sm text-[#29231F] border-b border-[#D7B95F]/15"
+              onClick={() => handleNavClick('collections')}
+              className="block w-full text-left py-1.5 text-sm font-semibold text-[#29231F] hover:text-[#3C0015]"
             >
-              {isMr ? 'सर्व संग्रह' : 'All Collections'}
+              {isMr ? 'दागिने संग्रह (कॅटलॉग)' : 'Collections Catalogue'}
             </button>
 
             <button
-              onClick={() => {
-                onNavigate('about');
-                setMobileMenuOpen(false);
-              }}
-              className="block w-full text-left py-2 text-sm text-[#29231F] border-b border-[#D7B95F]/15"
+              onClick={() => handleNavClick('home', 'heritage-story-section')}
+              className="block w-full text-left py-1.5 text-sm font-semibold text-[#29231F] hover:text-[#3C0015]"
             >
-              {isMr ? 'आमच्याविषयी' : 'About Us'}
+              {isMr ? 'वारसा व परंपरा (Since 1951)' : 'Our Legacy (Since 1951)'}
             </button>
 
             <button
-              onClick={() => {
-                onOpenStoreLocator();
-                setMobileMenuOpen(false);
-              }}
-              className="block w-full text-left py-2 text-sm text-[#29231F] border-b border-[#D7B95F]/15"
+              onClick={() => handleNavClick('home', 'gallery-section')}
+              className="block w-full text-left py-1.5 text-sm font-semibold text-[#29231F] hover:text-[#3C0015]"
             >
-              {isMr ? 'संपर्क व दालन' : 'Store & Contact'}
+              {isMr ? 'दागिने दालन व गॅलरी' : 'Jewellery Gallery'}
             </button>
 
-            {/* Mobile Language switch */}
-            <div className="pt-2 flex items-center justify-between text-xs">
-              <span className="text-[#766A61]">{isMr ? 'भाषा बदला:' : 'Change Language:'}</span>
+            <button
+              onClick={() => handleNavClick('home', 'testimonials-section')}
+              className="block w-full text-left py-1.5 text-sm font-semibold text-[#29231F] hover:text-[#3C0015]"
+            >
+              {isMr ? 'ग्राहकांचे मनोगत (Testimonials)' : 'Customer Testimonials'}
+            </button>
+
+            <button
+              onClick={() => handleNavClick('home', 'visit-store-section')}
+              className="block w-full text-left py-1.5 text-sm font-semibold text-[#29231F] hover:text-[#3C0015]"
+            >
+              {isMr ? 'दालनाला भेट द्या (चाकण)' : 'Visit Our Showroom (Chakan)'}
+            </button>
+
+            <button
+              onClick={() => handleNavClick('home', 'contact-section')}
+              className="block w-full text-left py-1.5 text-sm font-semibold text-[#29231F] hover:text-[#3C0015]"
+            >
+              {isMr ? 'संपर्क व फोन' : 'Contact Us'}
+            </button>
+
+            <div className="pt-3 border-t border-[#D7B95F]/20 flex items-center justify-between">
+              <span className="text-xs text-[#766A61]">{isMr ? 'भाषा बदला:' : 'Change Language:'}</span>
               <button
                 onClick={onToggleLang}
-                className="px-3 py-1 rounded-full border border-[#D7B95F]/40 text-[#3C0015] font-semibold"
+                className="px-3 py-1 rounded-full text-xs font-bold bg-white border border-[#D7B95F]/40 text-[#3C0015]"
               >
                 {isMr ? 'English मध्ये पहा' : 'मराठी मध्ये पहा'}
               </button>

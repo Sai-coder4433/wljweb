@@ -43,14 +43,10 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
     .filter((p) => p.id !== product.id && (p.category === product.category || p.metal === product.metal))
     .slice(0, 4);
 
-  // Exact pre-filled WhatsApp enquiry message format
-  const formattedPrice = product.price > 0 
-    ? `₹ ${product.price.toLocaleString('en-IN')}` 
-    : (isMr ? 'किंमतीसाठी चौकशी करा' : 'Inquire for Price');
-
+  // Exact pre-filled WhatsApp enquiry message format (Strictly no prices)
   const enquiryMessage = isMr
-    ? `नमस्कार, मला या दागिन्याबद्दल अधिक माहिती हवी आहे:\nउत्पादन: ${product.marathiName}\nप्रकार: ${product.marathiCategory} (${product.marathiSubcategory})\nवजन: ${product.weight}\nअंदाजे किंमत: ${formattedPrice}\nउत्पादन कोड: ${product.sku}\nकृपया उपलब्धता आणि अधिक माहिती सांगा.`
-    : `Hello, I would like to inquire about this jewellery piece:\nProduct: ${product.name}\nCategory: ${product.category} (${product.subcategory})\nWeight: ${product.weight}\nEstimated Price: ${formattedPrice}\nProduct Code: ${product.sku}\nPlease share availability and further details.`;
+    ? `नमस्कार वाफगावकर लक्ष्मी ज्वेलर्स, मला या दागिन्याबद्दल सविस्तर माहिती हवी आहे:\n\nदागिना: ${product.marathiName} (${product.name})\nप्रकार: ${product.marathiCategory} (${product.marathiSubcategory})\nशुद्धता: ${product.purity}\nअंदाजे वजन: ${product.weight}\nउत्पादन कोड (SKU): ${product.sku}\n\nकृपया आजचा सुवर्ण दर, उपलब्ध तारीख आणि डिझाइनविषयी अधिक माहिती सांगा.`
+    : `Hello Wafgaonkar Laxmi Jewellers, I would like to inquire about this jewellery piece:\n\nProduct: ${product.name}\nCategory: ${product.category} (${product.subcategory})\nPurity: ${product.purity}\nGross Weight: ${product.weight}\nProduct Code (SKU): ${product.sku}\n\nPlease share today's gold rate and availability.`;
 
   const whatsappUrl = `https://wa.me/${BRAND_CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(enquiryMessage)}`;
 
@@ -153,22 +149,22 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
             </p>
           </div>
 
-          {/* Price Box */}
-          <div className="py-4 px-5 rounded-2xl bg-[#FAF8F4] border border-[#D7B95F]/30 flex items-center justify-between">
+          {/* Purity & Weight Hallmark Trust Box (No Prices) */}
+          <div className="py-4 px-5 rounded-2xl bg-[#FAF8F4] border border-[#D7B95F]/35 flex items-center justify-between shadow-xs">
             <div>
               <span className="text-[11px] text-[#766A61] font-marathi-serif block">
-                {isMr ? 'अंदाजे किंमत (सर्व कर समाविष्ट)' : 'Estimated Price (Taxes Included)'}
+                {isMr ? 'हॉलमार्क शुद्धता' : 'Hallmark & Purity'}
               </span>
-              <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#3C0015]">
-                {formattedPrice}
+              <span className="font-cinzel text-lg sm:text-xl font-bold text-[#3C0015]">
+                {product.purity}
               </span>
             </div>
 
             <div className="text-right">
               <span className="text-[11px] text-[#766A61] font-marathi-serif block">
-                {isMr ? 'वजन' : 'Weight'}
+                {isMr ? 'अंदाजे एकूण वजन' : 'Gross Weight'}
               </span>
-              <span className="font-cinzel text-base font-semibold text-[#29231F]">
+              <span className="font-cinzel text-base sm:text-lg font-bold text-[#29231F]">
                 {product.weight}
               </span>
             </div>

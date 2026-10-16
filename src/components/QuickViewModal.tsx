@@ -27,110 +27,110 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
   const whatsappMessage = encodeURIComponent(
     isMr
-      ? `नमस्कार वाफगावकर लक्ष्मी ज्वेलर्स, मला या दागिन्याबद्दल माहिती हवी आहे: ${product.marathiName} (किंमत: ₹${product.price.toLocaleString('en-IN')})`
-      : `Hello Wafgaonkar Laxmi Jewellers, I would like information about: ${product.name} (Price: ₹${product.price.toLocaleString('en-IN')})`
+      ? `नमस्कार वाफगावकर लक्ष्मी ज्वेलर्स, मला या दागिन्याबद्दल माहिती व आजचे दर हवे आहेत: ${product.marathiName} (SKU: ${product.sku}, शुद्धता: ${product.purity})`
+      : `Hello Wafgaonkar Laxmi Jewellers, I would like information and gold rates for: ${product.name} (SKU: ${product.sku}, Purity: ${product.purity})`
   );
 
   return (
     <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-[#F3F0EA] rounded-2xl max-w-3xl w-full overflow-hidden border border-[#B8903C]/40 luxury-shadow relative animate-in zoom-in-95 duration-200">
+      <div className="bg-[#FAF8F4] rounded-2xl max-w-2xl w-full overflow-hidden border border-[#D7B95F]/40 shadow-2xl relative animate-in zoom-in-95 duration-200">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-white/80 text-[#3A2922] hover:bg-[#5A1720] hover:text-[#F3F0EA] transition-colors flex items-center justify-center"
+          className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-white/90 text-[#3C0015] hover:bg-[#3C0015] hover:text-[#F3F0EA] transition-colors flex items-center justify-center shadow-xs"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Image Stage */}
-          <div className="relative aspect-square bg-white flex items-center justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          {/* Image Stage: 9:16 Portrait Ratio */}
+          <div className="relative aspect-[9/16] bg-[#F3F0EA] overflow-hidden flex items-center justify-center">
             <img
               src={product.images[0]}
               alt={product.name}
               className="w-full h-full object-cover"
             />
-            <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#5A1720]/90 text-[#D4B56A] text-[11px] font-cinzel font-semibold flex items-center space-x-1">
+            <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#3C0015]/90 text-[#D7B95F] text-[11px] font-cinzel font-semibold flex items-center space-x-1 shadow-xs">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>{product.purity}</span>
             </div>
           </div>
 
           {/* Details */}
-          <div className="p-6 md:p-8 flex flex-col justify-between text-left space-y-4 font-marathi-serif">
+          <div className="p-6 flex flex-col justify-between text-left space-y-4 font-marathi-serif">
             <div>
-              <div className="text-[11px] text-[#9D7A35] font-cinzel uppercase tracking-wider mb-1">
+              <div className="text-[11px] text-[#D7B95F] font-cinzel uppercase tracking-wider mb-1 font-semibold">
                 {isMr ? product.marathiCategory : product.category} • {product.weight}
               </div>
 
-              <h3 className="font-marathi-display text-xl md:text-2xl font-bold text-[#5A1720] mb-2 leading-tight">
+              <h3 className="font-marathi-display text-xl font-bold text-[#3C0015] mb-2 leading-tight">
                 {isMr ? product.marathiName : product.name}
               </h3>
 
-              <div className="flex items-baseline space-x-2 mb-3">
-                <span className="font-marathi-display text-2xl font-bold text-[#2B211D]">
-                  ₹{product.price.toLocaleString('en-IN')}
+              {/* Hallmarked Purity Badge Notice replacing price */}
+              <div className="py-2.5 px-3 rounded-xl bg-[#F3F0EA] border border-[#D7B95F]/35 mb-3">
+                <span className="text-[11px] text-[#766A61] block font-marathi-serif">
+                  {isMr ? 'सोन्याचे दर व चौकशी:' : 'Gold Rate & Enquiry:'}
                 </span>
-                {product.originalPrice && (
-                  <span className="text-xs text-[#3A2922]/50 line-through">
-                    ₹{product.originalPrice.toLocaleString('en-IN')}
-                  </span>
-                )}
+                <span className="font-marathi-serif text-xs font-bold text-[#3C0015]">
+                  {isMr ? 'हॉलमार्क प्रमाणित • थेट WhatsApp वर संपर्क' : 'BIS Hallmarked • Enquire on WhatsApp'}
+                </span>
               </div>
 
-              <p className="text-xs text-[#3A2922]/80 line-clamp-3 leading-relaxed mb-4">
+              <p className="text-xs text-[#766A61] line-clamp-3 leading-relaxed mb-4">
                 {isMr ? product.marathiDescription : product.description}
               </p>
 
-              <div className="space-y-1 text-[11px] text-[#3A2922]/70 pb-3 border-b border-[#B8903C]/20">
+              <div className="space-y-1.5 text-[11px] text-[#766A61] pb-3 border-b border-[#D7B95F]/20">
                 <div>• १००% बीआयएस (BIS 916) सरकारी हॉलमार्क</div>
-                <div>• सुरक्षित आणि मोफत विमायुक्त डिलिव्हरी</div>
-                <div>• आयुष्यभराचा एक्सचेंज व बायबॅक सपोर्ट</div>
+                <div>• अस्सल पारंपरिक महाराष्ट्रीयन कारागिरी</div>
+                <div>• पारदर्शक वजन व आयुष्यभराचा बायबॅक सपोर्ट</div>
               </div>
             </div>
 
             {/* Action Buttons */}
             <div className="space-y-2 pt-2">
-              <button
-                onClick={() => {
-                  onAddToCart(product);
-                  onClose();
-                }}
-                className="w-full py-2.5 px-4 rounded-full bg-[#5A1720] text-[#F3F0EA] hover:bg-[#3D1017] hover:text-[#D4B56A] text-xs font-bold transition-all flex items-center justify-center space-x-1.5 shadow"
+              <a
+                href={`https://wa.me/${BRAND_CONFIG.WHATSAPP_NUMBER}?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 rounded-full bg-[#3C0015] text-[#F3F0EA] hover:bg-[#500018] text-xs font-bold transition-all flex items-center justify-center space-x-1.5 shadow-sm border border-[#D7B95F]/40"
               >
-                <ShoppingBag className="w-4 h-4 text-[#D4B56A]" />
-                <span>{isMr ? 'बॅगमध्ये जोडा' : 'Add to Bag'}</span>
-              </button>
+                <MessageCircle className="w-4 h-4 text-[#D7B95F]" />
+                <span>{isMr ? 'WhatsApp वर चौकशी करा' : 'Enquire on WhatsApp'}</span>
+              </a>
 
               <div className="grid grid-cols-2 gap-2">
-                <a
-                  href={`https://wa.me/${BRAND_CONFIG.WHATSAPP_NUMBER}?text=${whatsappMessage}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="py-2 px-3 rounded-full bg-[#25D366] text-white hover:bg-[#1EBE5B] text-[11px] font-bold transition-all flex items-center justify-center space-x-1"
+                <button
+                  onClick={() => onToggleWishlist(product)}
+                  className={`py-2 px-3 rounded-full text-xs font-medium border flex items-center justify-center space-x-1 transition-colors ${
+                    isWishlisted
+                      ? 'border-[#3C0015] bg-[#3C0015] text-[#F3F0EA]'
+                      : 'border-[#D7B95F]/35 bg-white text-[#29231F] hover:bg-[#F3F0EA]'
+                  }`}
                 >
-                  <MessageSquare className="w-3.5 h-3.5" />
-                  <span>{isMr ? 'चौकशी करा' : 'WhatsApp'}</span>
-                </a>
+                  <Heart className={`w-3.5 h-3.5 ${isWishlisted ? 'fill-current text-[#D7B95F]' : ''}`} />
+                  <span>{isMr ? (isWishlisted ? 'पसंतीत जोडले' : 'पसंती') : (isWishlisted ? 'Saved' : 'Wishlist')}</span>
+                </button>
 
                 <button
                   onClick={() => {
                     onViewDetails(product);
                     onClose();
                   }}
-                  className="py-2 px-3 rounded-full border border-[#5A1720] text-[#5A1720] hover:bg-[#5A1720] hover:text-[#F3F0EA] text-[11px] font-bold transition-all flex items-center justify-center space-x-1"
+                  className="py-2 px-3 rounded-full text-xs font-medium border border-[#D7B95F]/35 bg-white hover:bg-[#F3F0EA] text-[#29231F] transition-colors flex items-center justify-center space-x-1"
                 >
-                  <span>{isMr ? 'संपूर्ण तपशील' : 'Full Details'}</span>
-                  <ArrowRight className="w-3 h-3" />
+                  <Eye className="w-3.5 h-3.5 text-[#3C0015]" />
+                  <span>{isMr ? 'सविस्तर पहा' : 'View Details'}</span>
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   );
 };
+
