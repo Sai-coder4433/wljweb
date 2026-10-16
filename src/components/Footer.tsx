@@ -115,22 +115,7 @@ export const Footer: React.FC<FooterProps> = ({
                   {isMr ? 'वारसा (Since 1951)' : 'Our Legacy'}
                 </a>
               </li>
-              <li>
-                <a
-                  href="#hallmark-section"
-                  className="hover:text-[#D7B95F] transition-colors block"
-                >
-                  {isMr ? 'हॉलमार्क शुद्धता (BIS HUID)' : 'BIS Hallmark Guide'}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#gallery-section"
-                  className="hover:text-[#D7B95F] transition-colors block"
-                >
-                  {isMr ? 'दागिने गॅलरी' : 'Gallery'}
-                </a>
-              </li>
+
               <li>
                 <a
                   href="#testimonials-section"

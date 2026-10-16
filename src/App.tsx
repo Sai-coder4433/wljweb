@@ -7,8 +7,6 @@ import { FeaturedCollections } from './components/FeaturedCollections';
 import { MaroonEditorialMoment } from './components/MaroonEditorialMoment';
 import { FeaturedJewellerySection } from './components/FeaturedJewellerySection';
 import { HeritageStorySection } from './components/HeritageStorySection';
-import { HallmarkGuideSection } from './components/HallmarkGuideSection';
-import { JewelleryGallerySection } from './components/JewelleryGallerySection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { VisitStoreSection } from './components/VisitStoreSection';
 import { Footer } from './components/Footer';
@@ -207,16 +205,10 @@ export default function App() {
               onOpenAboutModal={() => setIsAboutOpen(true)}
             />
 
-            {/* 09. BIS HALLMARK ANALYSIS & VERIFICATION GUIDE */}
-            <HallmarkGuideSection currentLang={currentLang} />
-
-            {/* 10. JEWELLERY GALLERY (9:16 Portrait Showcase & WhatsApp Actions) */}
-            <JewelleryGallerySection currentLang={currentLang} />
-
-            {/* 10. TESTIMONIALS (Customer Reviews Carousel) */}
+            {/* 09. TESTIMONIALS (Customer Reviews Carousel) */}
             <TestimonialsSection currentLang={currentLang} />
 
-            {/* 11. VISIT OUR SHOWROOM (Both Chakan branches with showroom photo, timings, map & phone) */}
+            {/* 10. VISIT OUR SHOWROOM (Both Chakan branches with showroom photo, timings, map & phone) */}
             <VisitStoreSection currentLang={currentLang} />
           </>
         )}

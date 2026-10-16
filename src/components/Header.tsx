@@ -162,13 +162,7 @@ export const Header: React.FC<HeaderProps> = ({
             {isMr ? 'वारसा व परंपरा' : 'Our Legacy'}
           </button>
 
-          {/* 4. Gallery (दालन व गॅलरी) */}
-          <button
-            onClick={() => handleNavClick('home', 'gallery-section')}
-            className="font-marathi-serif tracking-wide hover:text-[#3C0015] transition-colors py-1 cursor-pointer"
-          >
-            {isMr ? 'दालन व गॅलरी' : 'Gallery'}
-          </button>
+
 
           {/* 5. Testimonials (ग्राहकांचे अनुभव) */}
           <button
@@ -270,12 +264,7 @@ export const Header: React.FC<HeaderProps> = ({
               {isMr ? 'वारसा व परंपरा (Since 1951)' : 'Our Legacy (Since 1951)'}
             </button>
 
-            <button
-              onClick={() => handleNavClick('home', 'gallery-section')}
-              className="block w-full text-left py-1.5 text-sm font-semibold text-[#29231F] hover:text-[#3C0015]"
-            >
-              {isMr ? 'दागिने दालन व गॅलरी' : 'Jewellery Gallery'}
-            </button>
+
 
             <button
               onClick={() => handleNavClick('home', 'testimonials-section')}
