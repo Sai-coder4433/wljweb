@@ -117,6 +117,14 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a
+                  href="#hallmark-section"
+                  className="hover:text-[#D7B95F] transition-colors block"
+                >
+                  {isMr ? 'हॉलमार्क शुद्धता (BIS HUID)' : 'BIS Hallmark Guide'}
+                </a>
+              </li>
+              <li>
+                <a
                   href="#gallery-section"
                   className="hover:text-[#D7B95F] transition-colors block"
                 >

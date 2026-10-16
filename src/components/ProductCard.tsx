@@ -74,7 +74,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <div className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full bg-[#FAF8F4]/95 backdrop-blur-xs border border-[#D7B95F]/40 shadow-xs pointer-events-auto">
             <ShieldCheck className="w-3 h-3 text-[#D7B95F]" />
             <span className="font-cinzel text-[9px] uppercase tracking-wider font-bold text-[#3C0015]">
-              {product.purity.includes('22K') ? '22K 916' : product.purity.includes('24K') ? '24K PURE' : product.purity.includes('18K') ? '18K GOLD' : 'HALLMARK'}
+              {product.purity.includes('22K') ? 'BIS 916' : product.purity.includes('24K') ? 'BIS 999' : product.purity.includes('18K') ? 'BIS 750' : 'BIS 925'}
             </span>
           </div>
 

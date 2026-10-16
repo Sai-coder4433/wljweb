@@ -115,15 +115,44 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
             </div>
           )}
 
-          {/* Authentic BIS Hallmark Assurance badge */}
-          <div className="bg-[#FAF8F4] rounded-xl p-3.5 border border-[#D7B95F]/30 flex items-center space-x-3">
-            <ShieldCheck className="w-5 h-5 text-[#D7B95F] flex-shrink-0" />
-            <div className="text-xs font-marathi-serif text-[#29231F]">
-              <span className="font-bold text-[#3C0015]">१००% BIS हॉलमार्क प्रमाणित:</span>{' '}
-              {isMr 
-                ? 'प्रत्येक दागिना सरकारी हॉलमार्क आणि शुद्धतेच्या खात्रीसह उपलब्ध आहे.' 
-                : 'Every ornament comes with authentic BIS Hallmark purity certification.'}
+          {/* Authentic BIS 3-Point Hallmark Stamp Strip */}
+          <div className="bg-[#FAF8F4] rounded-2xl p-4 border border-[#D7B95F]/40 shadow-xs space-y-3">
+            <div className="flex items-center justify-between pb-2 border-b border-[#D7B95F]/20">
+              <div className="flex items-center space-x-2 text-xs font-marathi-serif font-bold text-[#3C0015]">
+                <ShieldCheck className="w-4 h-4 text-[#D7B95F]" />
+                <span>{isMr ? '१००% बीआयएस हॉलमार्क प्रमाणित' : '100% BIS Hallmarked'}</span>
+              </div>
+              <span className="font-cinzel text-[10px] text-[#D7B95F] font-bold uppercase tracking-wider">
+                HUID VERIFIED
+              </span>
             </div>
+
+            {/* Visual 3-mark strip */}
+            <div className="grid grid-cols-3 gap-2 text-center">
+              <div className="bg-white p-2 rounded-xl border border-[#D7B95F]/30 flex flex-col items-center justify-center">
+                <svg viewBox="0 0 100 90" className="w-5 h-5 text-[#D7B95F] mb-1" fill="currentColor">
+                  <polygon points="50,10 90,80 10,80" fill="none" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
+                  <text x="50" y="65" textAnchor="middle" fill="currentColor" fontSize="20" fontFamily="Cinzel, serif" fontWeight="bold">BIS</text>
+                </svg>
+                <span className="text-[10px] font-marathi-serif font-bold text-[#3C0015]">{isMr ? 'त्रिकोणी BIS' : 'BIS Mark'}</span>
+              </div>
+
+              <div className="bg-white p-2 rounded-xl border border-[#D7B95F]/30 flex flex-col items-center justify-center">
+                <span className="font-cinzel text-xs font-black text-[#3C0015]">22K 916</span>
+                <span className="text-[10px] font-marathi-serif font-bold text-[#766A61] mt-0.5">{isMr ? 'कॅरेट शुद्धता' : 'Purity Grade'}</span>
+              </div>
+
+              <div className="bg-white p-2 rounded-xl border border-[#D7B95F]/30 flex flex-col items-center justify-center">
+                <span className="font-mono text-[11px] font-bold text-[#3C0015] tracking-wider">HUID</span>
+                <span className="text-[10px] font-marathi-serif font-bold text-[#766A61] mt-0.5">{isMr ? '६-अंकी कोड' : 'Unique ID'}</span>
+              </div>
+            </div>
+
+            <p className="text-[11px] font-marathi-serif text-[#766A61] leading-relaxed">
+              {isMr
+                ? 'या दागिन्यावर भारत सरकारच्या अधिकृत BIS नियमांनुसार HUID लेझर-अंकित केलेला आहे, जो BIS Care App द्वारे पडताळता येतो.'
+                : 'Laser-inscribed with official Govt. BIS hallmark and HUID traceable on the BIS Care App.'}
+            </p>
           </div>
         </div>
 
