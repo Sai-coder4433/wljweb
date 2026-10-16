@@ -498,8 +498,8 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                     onClick={() => onSelectProduct && onSelectProduct(p)}
                     className="group bg-[#FAF8F4] rounded-2xl border border-[#D7B95F]/35 hover:border-[#D7B95F] transition-all duration-500 overflow-hidden flex flex-col shadow-md hover:shadow-2xl cursor-pointer text-left transform hover:-translate-y-1.5"
                   >
-                    {/* Consistent 9:16 Portrait Image Ratio */}
-                    <div className="relative aspect-[9/16] w-full overflow-hidden bg-white flex items-center justify-center border-b border-[#D7B95F]/20">
+                    {/* Consistent 4:5 Portrait Image Ratio */}
+                    <div className="relative aspect-[4/5] w-full overflow-hidden bg-white flex items-center justify-center border-b border-[#D7B95F]/20">
                       <img
                         src={p.images[0]}
                         alt={p.marathiName}
@@ -528,10 +528,16 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                         </button>
                       )}
 
-                      {/* Hallmark Badge on Image */}
-                      <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded-sm bg-[#3C0015]/95 text-[#FAF8F4] text-[9px] font-cinzel font-bold tracking-wider border border-[#D7B95F]/40 shadow-xs">
-                        {p.purity.includes('22K') ? '22K 916' : p.purity.includes('24K') ? '24K' : p.metal === 'Diamond' ? 'IGI CERT.' : '92.5 SILVER'}
-                      </span>
+                      {/* Official BIS Hallmark Triangular Logo Seal */}
+                      <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-[#FAF8F4]/95 backdrop-blur-xs border border-[#D7B95F]/70 shadow-xs flex items-center space-x-1">
+                        <svg className="w-3 h-3 text-[#3C0015]" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12,2 22,20 2,20" stroke="#3C0015" strokeWidth="1.5" fill="none" />
+                          <polygon points="12,6 19,19 5,19" fill="#3C0015" />
+                        </svg>
+                        <span className="font-cinzel text-[9px] font-bold text-[#3C0015] tracking-tight">
+                          {p.purity.includes('22K') ? 'BIS 916' : p.purity.includes('24K') ? 'BIS 999' : p.metal === 'Diamond' ? 'IGI CERT' : 'BIS 925'}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Content (No Price, Direct WhatsApp CTA) */}

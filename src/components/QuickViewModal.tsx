@@ -45,8 +45,8 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
         </button>
 
         <div className="grid grid-cols-1 sm:grid-cols-2">
-          {/* Image Stage: 9:16 Portrait Ratio */}
-          <div className="relative aspect-[9/16] bg-[#F3F0EA] overflow-hidden flex items-center justify-center">
+          {/* Image Stage: 4:5 Portrait Ratio */}
+          <div className="relative aspect-[4/5] bg-[#F3F0EA] overflow-hidden flex items-center justify-center">
             <img
               src={product.images[0]}
               alt={product.name}

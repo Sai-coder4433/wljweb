@@ -145,8 +145,8 @@ export const JewelleryGallerySection: React.FC<JewelleryGallerySectionProps> = (
               key={piece.id}
               className="group relative rounded-2xl overflow-hidden bg-white border border-[#D7B95F]/30 hover:border-[#D7B95F] shadow-xs hover:shadow-xl transition-all duration-500 flex flex-col transform hover:-translate-y-1.5"
             >
-              {/* 9:16 Portrait Image Container */}
-              <div className="relative aspect-[9/16] w-full overflow-hidden bg-white">
+              {/* 4:5 Portrait Image Container */}
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-white">
                 <img
                   src={piece.image}
                   alt={isMr ? piece.nameMr : piece.nameEn}

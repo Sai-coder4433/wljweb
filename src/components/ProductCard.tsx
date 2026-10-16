@@ -41,8 +41,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* 9:16 Portrait Image Ratio Stage */}
-      <div className="relative aspect-[9/16] w-full overflow-hidden bg-white flex items-center justify-center border-b border-[#D7B95F]/15">
+      {/* 4:5 Portrait Image Ratio Stage */}
+      <div className="relative aspect-[4/5] w-full overflow-hidden bg-white flex items-center justify-center border-b border-[#D7B95F]/15">
         {/* Primary Image */}
         <img
           src={primaryImage}
