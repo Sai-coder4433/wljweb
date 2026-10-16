@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Star, ChevronLeft, ChevronRight, Quote, ShieldCheck } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Star, ChevronLeft, ChevronRight, Quote, ShieldCheck, Play, Pause } from 'lucide-react';
 import { Language } from '../types';
 
 interface Testimonial {
@@ -23,7 +23,7 @@ const TESTIMONIALS: Testimonial[] = [
     nameEn: 'Mrs. Anagha Deshpande',
     locationMr: 'चाकण, पुणे',
     locationEn: 'Chakan, Pune',
-    reviewMr: 'आमच्या तिन्ही पिढ्या वाफगावकर लक्ष्मी ज्वेलर्सकडूनच सोन्याचे दागिने खरेदी करत आहेत. मुलीच्या लग्नासाठी पेशवाई ठुशी आणि कोल्हापुरी साज बनवून घेतला. कारागिरी अतिशय रेखीव आणि अस्सल ९१६ हॉलमार्कची खात्री.',
+    reviewMr: 'आमच्या तिन्ही पिढ्या वाफगांवकर लक्ष्मी ज्वेलर्सकडूनच सोन्याचे दागिने खरेदी करत आहेत. मुलीच्या लग्नासाठी पेशवाई ठुशी आणि कोल्हापुरी साज बनवून घेतला. कारागिरी अतिशय रेखीव आणि अस्सल ९१६ हॉलमार्कची खात्री.',
     reviewEn: 'Our family has trusted Wafgaonkar Laxmi Jewellers across three generations. We had a Peshwai Thushi and Kolhapuri Saaj made for our daughter’s wedding. The craftsmanship is breathtaking with guaranteed 916 BIS Hallmark purity.',
     occasionMr: 'लग्नसोहळा वधू साज',
     occasionEn: 'Bridal Wedding Set',
@@ -62,12 +62,25 @@ const TESTIMONIALS: Testimonial[] = [
     nameEn: 'Mr. Sachin Borkar',
     locationMr: 'चाकण औद्योगिक क्षेत्र',
     locationEn: 'Chakan MIDC',
-    reviewMr: '१९५१ पासूनची परंपरा त्यांच्या बोलण्यातून आणि दागिन्यांच्या गुणवत्तेतून जाणवते. दररोजच्या वापरासाठी नाजूक मंगळसूत्र आणि अंगठी घेतली. उत्कृष्ट ग्राहक सेवा!',
+    reviewMr: '१९५१ पासूनची परंपरा त्यांच्या बोलण्यातून आणि दागिन्यांच्या गुणवत्तेतून जाणवते. दररोजच्या वापरासाठी नाजूक मंगळसूत्र आणि अंगठी घेतली. उत्कृष्ट ग्राहक सेवा व प्रामाणिकपणा!',
     reviewEn: 'The legacy since 1951 is palpable in their courteous guidance and gold perfection. Purchased an everyday mangalsutra and ring—delightful customer experience.',
     occasionMr: 'दैनंदिन सुवर्ण खरेदी',
     occasionEn: 'Daily Wear Jewellery',
     rating: 5,
     date: 'एप्रिल २०२६',
+  },
+  {
+    id: 5,
+    nameMr: 'सौ. स्वाती कुलकर्णी',
+    nameEn: 'Mrs. Swati Kulkarni',
+    locationMr: 'तळेगाव दाभाडे',
+    locationEn: 'Talegaon Dabhade',
+    reviewMr: 'दिवाळीच्या मुहूर्तावर घेतलेला चंद्रहार आणि कर्णफुले अप्रतिम आहेत. बीआयएस हॉलमार्कचे सर्व नियम तंतोतंत पाळले जातात, त्यामुळे खरेदी करताना निर्धास्त वाटले.',
+    reviewEn: 'The Chandrahar and Kudya purchased for Diwali are magnificent. Strict adherence to BIS hallmark guidelines gives total peace of mind.',
+    occasionMr: 'सण-उत्सव सुवर्ण खरेदी',
+    occasionEn: 'Festive Gold Purchase',
+    rating: 5,
+    date: 'नोव्हेंबर २०२५',
   },
 ];
 
@@ -77,14 +90,25 @@ interface TestimonialsSectionProps {
 
 export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ currentLang }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
   const isMr = currentLang === 'mr';
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Auto-run carousel every 4.5 seconds
   useEffect(() => {
-    const timer = setInterval(() => {
+    if (!isPlaying) {
+      if (timerRef.current) clearInterval(timerRef.current);
+      return;
+    }
+
+    timerRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
-    }, 6500);
-    return () => clearInterval(timer);
-  }, []);
+    }, 4500);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isPlaying, currentIndex]);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? TESTIMONIALS.length - 1 : prev - 1));
@@ -97,7 +121,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ curren
   const current = TESTIMONIALS[currentIndex];
 
   return (
-    <section id="testimonials-section" className="py-14 md:py-22 px-4 md:px-8 max-w-7xl mx-auto text-left">
+    <section id="testimonials-section" className="py-14 md:py-24 px-4 md:px-8 max-w-7xl mx-auto text-left scroll-mt-24">
       {/* Heading */}
       <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
         <div className="inline-flex items-center space-x-2 text-[#D7B95F] font-cinzel text-xs uppercase tracking-[0.25em] mb-2 font-semibold">
@@ -115,32 +139,59 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ curren
         </p>
       </div>
 
-      {/* Main Testimonial Carousel Card */}
-      <div className="relative max-w-4xl mx-auto bg-[#FAF8F4] rounded-3xl border border-[#D7B95F]/35 p-6 sm:p-10 md:p-12 shadow-sm relative overflow-hidden">
+      {/* Main Auto-Running Testimonial Card */}
+      <div 
+        onMouseEnter={() => setIsPlaying(false)}
+        onMouseLeave={() => setIsPlaying(true)}
+        className="relative max-w-4xl mx-auto bg-[#FAF8F4] rounded-3xl border border-[#D7B95F]/35 p-6 sm:p-10 md:p-12 shadow-md relative overflow-hidden mb-10 transition-all"
+      >
         {/* Soft Background Accent Watermark */}
         <div className="absolute right-6 -bottom-6 text-[#D7B95F]/08 select-none pointer-events-none">
           <Quote className="w-48 h-48" />
         </div>
 
+        {/* Live Running Progress Line */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#D7B95F]/20 overflow-hidden">
+          <div 
+            key={currentIndex}
+            className={`h-full bg-gradient-to-r from-[#D7B95F] to-[#3C0015] ${isPlaying ? 'animate-progress' : 'w-full'}`}
+            style={{ animationDuration: '4500ms' }}
+          />
+        </div>
+
         <div className="relative z-10 flex flex-col justify-between space-y-6">
-          {/* Top Row: Stars + Hallmark Assurance */}
+          {/* Top Row: Stars + Hallmark Assurance + Live Status */}
           <div className="flex items-center justify-between flex-wrap gap-2">
             <div className="flex items-center space-x-1">
               {[...Array(current.rating)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-[#D7B95F] text-[#D7B95F]" />
               ))}
+              <span className="font-cinzel text-xs font-bold text-[#3C0015] ml-1.5">5.0 / 5.0</span>
             </div>
 
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#3C0015]/10 border border-[#D7B95F]/40 text-[#3C0015] text-[10px] sm:text-xs font-marathi-serif font-bold">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#D7B95F]" />
-              <span>{isMr ? current.occasionMr : current.occasionEn}</span>
+            <div className="flex items-center space-x-2">
+              <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#3C0015]/10 border border-[#D7B95F]/40 text-[#3C0015] text-[10px] sm:text-xs font-marathi-serif font-bold">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#D7B95F]" />
+                <span>{isMr ? current.occasionMr : current.occasionEn}</span>
+              </div>
+
+              {/* Pause/Play Toggle Button */}
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                className="w-7 h-7 rounded-full bg-white border border-[#D7B95F]/40 flex items-center justify-center text-[#3C0015] hover:bg-[#3C0015] hover:text-[#FAF8F4] transition-colors"
+                title={isPlaying ? 'Pause auto-play' : 'Resume auto-play'}
+              >
+                {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3 ml-0.5" />}
+              </button>
             </div>
           </div>
 
-          {/* Review Text */}
-          <blockquote className="font-marathi-serif text-base sm:text-xl md:text-2xl text-[#29231F] leading-relaxed italic">
-            “{isMr ? current.reviewMr : current.reviewEn}”
-          </blockquote>
+          {/* Review Text with Keyed Smooth Fade */}
+          <div key={current.id} className="animate-in fade-in zoom-in-95 duration-500">
+            <blockquote className="font-marathi-serif text-base sm:text-xl md:text-2xl text-[#29231F] leading-relaxed italic min-h-[90px] flex items-center">
+              “{isMr ? current.reviewMr : current.reviewEn}”
+            </blockquote>
+          </div>
 
           {/* Reviewer Details + Controls */}
           <div className="pt-4 border-t border-[#D7B95F]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -153,7 +204,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ curren
               </p>
             </div>
 
-            {/* Arrows & Dots */}
+            {/* Arrows & Progress Dots */}
             <div className="flex items-center space-x-3 self-end sm:self-auto">
               <div className="flex space-x-1.5 mr-2">
                 {TESTIMONIALS.map((_, idx) => (
@@ -187,6 +238,42 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ curren
           </div>
         </div>
       </div>
+
+      {/* CONTINUOUS AUTO-RUNNING REVIEWS MARQUEE CARDS (Running non-stop horizontally) */}
+      <div className="relative w-full overflow-hidden py-2 mask-linear">
+        <div className="flex space-x-4 animate-marquee whitespace-nowrap hover:[animation-play-state:paused]">
+          {[...TESTIMONIALS, ...TESTIMONIALS].map((item, idx) => (
+            <div
+              key={`${item.id}-${idx}`}
+              onClick={() => setCurrentIndex(item.id - 1)}
+              className="inline-block w-72 sm:w-80 p-4 rounded-2xl bg-[#FAF8F4] border border-[#D7B95F]/35 shadow-xs whitespace-normal text-left cursor-pointer hover:border-[#3C0015] transition-all flex-shrink-0"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex text-[#D7B95F]">
+                  {[...Array(item.rating)].map((_, i) => (
+                    <Star key={i} className="w-3 h-3 fill-current" />
+                  ))}
+                </div>
+                <span className="text-[10px] font-marathi-serif font-semibold text-[#D7B95F]">
+                  {isMr ? item.occasionMr : item.occasionEn}
+                </span>
+              </div>
+              <p className="font-marathi-serif text-xs text-[#29231F] line-clamp-2 italic leading-relaxed">
+                “{isMr ? item.reviewMr : item.reviewEn}”
+              </p>
+              <div className="mt-2.5 pt-2 border-t border-[#D7B95F]/20 flex items-center justify-between text-[11px]">
+                <span className="font-marathi-display font-bold text-[#3C0015]">
+                  {isMr ? item.nameMr : item.nameEn}
+                </span>
+                <span className="text-[#766A61] font-marathi-serif text-[10px]">
+                  {isMr ? item.locationMr : item.locationEn}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </section>
   );
 };

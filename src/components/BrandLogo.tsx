@@ -30,7 +30,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
             isDark ? 'text-[#3C0015]' : 'text-[#F3F0EA]'
           }`}
         >
-          वाफगावकर लक्ष्मी ज्वेलर्स
+          वाफगांवकर लक्ष्मी ज्वेलर्स
         </span>
 
         {/* Subtitle - Sleek on mobile, full on tablet/desktop */}

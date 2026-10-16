@@ -1,6 +1,6 @@
 // Central Configuration for Wafgaonkar Laxmi Jewellers Digital Catalogue
 export const BRAND_CONFIG = {
-  name: "वाफगावकर लक्ष्मी ज्वेलर्स",
+  name: "वाफगांवकर लक्ष्मी ज्वेलर्स",
   englishName: "Wafgaonkar Laxmi Jewellers",
   heritageYear: 1951,
   taglineMarathi: "१९५१ पासून विश्वासाची परंपरा.",
@@ -16,7 +16,7 @@ export const BRAND_CONFIG = {
   
   // Store Location & Timings (2 Branches in Chakan)
   store: {
-    name: "वाफगावकर लक्ष्मी ज्वेलर्स",
+    name: "वाफगांवकर लक्ष्मी ज्वेलर्स",
     hoursMarathi: "सोमवार ते रविवार: सकाळी १०:०० ते रात्री ८:३०",
     hoursEnglish: "Monday to Sunday: 10:00 AM to 8:30 PM",
     branch1: {

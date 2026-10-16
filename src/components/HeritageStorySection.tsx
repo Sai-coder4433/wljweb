@@ -117,7 +117,7 @@ export const HeritageStorySection: React.FC<HeritageStorySectionProps> = ({
 
               <p className="text-sm sm:text-base text-[#29231F]/90 leading-relaxed">
                 {isMr ? (
-                  '१९५१ मध्ये चाकणच्या ऐतिहासिक भूमीत सुरू झालेली वाफगावकर लक्ष्मी ज्वेलर्सची सुवर्ण परंपरा आज तीन पिढ्यांचा विश्वास बनली आहे. प्रत्येक दागिन्यामध्ये १००% सरकारी बीआयएस हॉलमार्क, अस्सल कारागिरी आणि कौटुंबिक स्नेह जपत आम्ही आपल्या शुभ क्षणांना अधिक मंगलमय करतो.'
+                  '१९५१ मध्ये चाकणच्या ऐतिहासिक भूमीत सुरू झालेली वाफगांवकर लक्ष्मी ज्वेलर्सची सुवर्ण परंपरा आज तीन पिढ्यांचा विश्वास बनली आहे. प्रत्येक दागिन्यामध्ये १००% सरकारी बीआयएस हॉलमार्क, अस्सल कारागिरी आणि कौटुंबिक स्नेह जपत आम्ही आपल्या शुभ क्षणांना अधिक मंगलमय करतो.'
                 ) : (
                   'Founded in 1951 in the historic town of Chakan, Wafgaonkar Laxmi Jewellers has preserved an unbroken legacy of purity, artisan fidelity, and familial trust across more than seven decades.'
                 )}

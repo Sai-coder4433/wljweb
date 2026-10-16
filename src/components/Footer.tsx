@@ -26,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({
   const handleGeneralWhatsApp = () => {
     const text = encodeURIComponent(
       isMr
-        ? 'नमस्कार वाफगावकर लक्ष्मी ज्वेलर्स, मला दागिन्यांची माहिती व आजचे सोन्याचे दर हवे आहेत.'
+        ? 'नमस्कार वाफगांवकर लक्ष्मी ज्वेलर्स, मला दागिन्यांची माहिती व आजचे सोन्याचे दर हवे आहेत.'
         : 'Hello Wafgaonkar Laxmi Jewellers, I would like to inquire about your jewellery catalogue and current gold rates.'
     );
     window.open(`https://wa.me/${BRAND_CONFIG.WHATSAPP_NUMBER}?text=${text}`, '_blank');
@@ -314,7 +314,7 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#FAF8F4]/80 font-marathi-serif gap-3">
           <p>
             {isMr
-              ? '© २०२६ वाफगावकर लक्ष्मी ज्वेलर्स. सर्व हक्क सुरक्षित.'
+              ? '© २०२६ वाफगांवकर लक्ष्मी ज्वेलर्स. सर्व हक्क सुरक्षित.'
               : '© 2026 Wafgaonkar Laxmi Jewellers. All rights reserved.'}
           </p>
 

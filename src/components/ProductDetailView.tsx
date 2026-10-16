@@ -82,6 +82,21 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
               className="w-full h-full object-contain object-center"
             />
 
+            {/* Official BIS Hallmark Triangular Logo Seal */}
+            <div 
+              className="absolute top-4 left-4 z-20 inline-flex items-center space-x-1.5 px-2.5 py-1.5 rounded-xl bg-[#FAF8F4]/95 backdrop-blur-xs border border-[#D7B95F]/70 shadow-sm"
+              title="BIS Hallmark Certified"
+            >
+              <svg viewBox="0 0 100 85" className="w-5 h-4 text-[#3C0015]" fill="currentColor">
+                <polygon points="50,4 96,78 4,78" fill="none" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
+                <polygon points="50,22 78,70 22,70" fill="currentColor" opacity="0.3" />
+                <text x="50" y="64" textAnchor="middle" fill="currentColor" fontSize="22" fontFamily="Cinzel, serif" fontWeight="900">BIS</text>
+              </svg>
+              <span className="font-cinzel text-xs font-black tracking-wider text-[#3C0015]">
+                {product.purity.includes('22K') ? '916' : product.purity.includes('24K') ? '999' : product.purity.includes('18K') ? '750' : '925'}
+              </span>
+            </div>
+
             {/* Wishlist Button inside image frame */}
             <button
               onClick={() => onToggleWishlist(product)}
