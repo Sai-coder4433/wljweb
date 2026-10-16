@@ -11,6 +11,7 @@ import { TestimonialsSection } from './components/TestimonialsSection';
 import { VisitStoreSection } from './components/VisitStoreSection';
 import { Footer } from './components/Footer';
 import { FloatingMarketingWidget } from './components/FloatingMarketingWidget';
+import { TodayRateTickerBar } from './components/TodayRateTickerBar';
 
 // Luxury Polish Enhancements
 import { BrandLoader } from './components/BrandLoader';
@@ -139,6 +140,9 @@ export default function App() {
         }}
         currentView={currentView}
       />
+
+      {/* 01B. TODAY'S LIVE GOLD & SILVER RATES TICKER (Crimson Velvet & Golden Cream) */}
+      <TodayRateTickerBar currentLang={currentLang} />
 
       {/* MAIN VIEWPORT */}
       <main className="flex-grow">
