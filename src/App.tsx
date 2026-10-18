@@ -24,12 +24,23 @@ import { WishlistDrawer } from './components/WishlistDrawer';
 import { SearchModal } from './components/SearchModal';
 import { AboutModal } from './components/AboutModal';
 
-// Data, Types & Config
-import { PRODUCTS } from './data/jewelleryData';
-import { Product, Language } from './types';
+// Admin Panel & Authentication
+import { AdminDashboard } from './components/admin/AdminDashboard';
+import { AdminLogin } from './components/admin/AdminLogin';
+
+// Data, Types, Config & Firebase Realtime Service
+import { PRODUCTS, CATEGORIES } from './data/jewelleryData';
+import { DEFAULT_HERO_SLIDES, DEFAULT_TESTIMONIALS, DEFAULT_RATES } from './data/initialData';
+import { Product, HeroSlide, Testimonial, DailyRates, CategoryItem, Language } from './types';
 import { BRAND_CONFIG } from './config';
-
-
+import {
+  subscribeProducts,
+  subscribeCategories,
+  subscribeHeroSlides,
+  subscribeTestimonials,
+  subscribeRates,
+  subscribeAuthPassword,
+} from './services/firestoreDataService';
 
 export default function App() {
   // Brand Loading Screen (< 1s)
@@ -38,10 +49,41 @@ export default function App() {
   // Default Marathi language as mandated
   const [currentLang, setCurrentLang] = useState<Language>('mr');
   
-  // View Router: 'home' | 'catalogue' | 'product-detail'
-  const [currentView, setCurrentView] = useState<string>('home');
+  // Realtime Cloud Firestore synced states
+  const [realtimeProducts, setRealtimeProducts] = useState<Product[]>(PRODUCTS);
+  const [realtimeCategories, setRealtimeCategories] = useState<CategoryItem[]>(CATEGORIES);
+  const [realtimeHeroSlides, setRealtimeHeroSlides] = useState<HeroSlide[]>(DEFAULT_HERO_SLIDES);
+  const [realtimeTestimonials, setRealtimeTestimonials] = useState<Testimonial[]>(DEFAULT_TESTIMONIALS);
+  const [realtimeRates, setRealtimeRates] = useState<DailyRates>(DEFAULT_RATES);
+  const [cloudPassword, setCloudPassword] = useState<string>('19511951');
+  const [isFirebaseLive, setIsFirebaseLive] = useState(true);
+
+  // Check URL pathname or hash for /admin route
+  const checkIsAdminRoute = () => {
+    if (typeof window === 'undefined') return false;
+    const path = window.location.pathname;
+    const hash = window.location.hash;
+    const search = new URLSearchParams(window.location.search).get('view');
+    return path.startsWith('/admin') || hash === '#/admin' || hash === '#admin' || search === 'admin';
+  };
+
+  // View Router: 'home' | 'catalogue' | 'product-detail' | 'admin'
+  const [currentView, setCurrentView] = useState<string>(() => {
+    return checkIsAdminRoute() ? 'admin' : 'home';
+  });
+
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [catalogueInitialCategory, setCatalogueInitialCategory] = useState<string>('all');
+
+  // Admin Authentication Session - Prompt for password when accessing /admin
+  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState<boolean>(() => {
+    try {
+      localStorage.removeItem('wlj_admin_session_token');
+      return !!sessionStorage.getItem('wlj_admin_session_token');
+    } catch {
+      return false;
+    }
+  });
 
   // Modals & Drawers
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -57,6 +99,91 @@ export default function App() {
       return ['prod-1', 'prod-3'];
     }
   });
+
+  // 1. Subscribe to Realtime Cloud Firestore on mount
+  useEffect(() => {
+    const unsubProducts = subscribeProducts(
+      (items) => {
+        if (items && items.length > 0) {
+          setRealtimeProducts(items);
+        }
+      },
+      () => setIsFirebaseLive(false)
+    );
+
+    const unsubHero = subscribeHeroSlides(
+      (slides) => {
+        if (slides && slides.length > 0) {
+          setRealtimeHeroSlides(slides);
+        }
+      },
+      () => setIsFirebaseLive(false)
+    );
+
+    const unsubTesti = subscribeTestimonials(
+      (testimonials) => {
+        if (testimonials && testimonials.length > 0) {
+          setRealtimeTestimonials(testimonials);
+        }
+      },
+      () => setIsFirebaseLive(false)
+    );
+
+    const unsubCategories = subscribeCategories(
+      (items) => {
+        if (items && items.length > 0) {
+          setRealtimeCategories(items);
+        }
+      },
+      () => setIsFirebaseLive(false)
+    );
+
+    const unsubRates = subscribeRates(
+      (rates) => {
+        if (rates) {
+          setRealtimeRates(rates);
+        }
+      },
+      () => setIsFirebaseLive(false)
+    );
+
+    const unsubSecurity = subscribeAuthPassword(
+      (pass) => {
+        if (pass) {
+          setCloudPassword(pass);
+          localStorage.setItem('wlj_admin_master_password', pass);
+        }
+      },
+      () => {}
+    );
+
+    return () => {
+      unsubProducts();
+      unsubCategories();
+      unsubHero();
+      unsubTesti();
+      unsubRates();
+      unsubSecurity();
+    };
+  }, []);
+
+  // 2. Browser history & URL routing listener
+  useEffect(() => {
+    const handleUrlChange = () => {
+      if (checkIsAdminRoute()) {
+        setCurrentView('admin');
+      } else if (currentView === 'admin') {
+        setCurrentView('home');
+      }
+    };
+
+    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('hashchange', handleUrlChange);
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('hashchange', handleUrlChange);
+    };
+  }, [currentView]);
 
   useEffect(() => {
     try {
@@ -94,6 +221,35 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleNavigateToAdmin = () => {
+    try {
+      window.history.pushState(null, '', '/admin');
+    } catch {
+      window.location.hash = '#/admin';
+    }
+    setCurrentView('admin');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleExitAdmin = () => {
+    try {
+      window.history.pushState(null, '', '/');
+    } catch {
+      window.location.hash = '';
+    }
+    sessionStorage.removeItem('wlj_admin_session_token');
+    localStorage.removeItem('wlj_admin_session_token');
+    setIsAdminAuthenticated(false);
+    setCurrentView('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLogoutAdmin = () => {
+    localStorage.removeItem('wlj_admin_session_token');
+    sessionStorage.removeItem('wlj_admin_session_token');
+    setIsAdminAuthenticated(false);
+  };
+
   const handleScrollToStore = () => {
     if (currentView !== 'home') {
       setCurrentView('home');
@@ -107,11 +263,42 @@ export default function App() {
     }
   };
 
-  // Resolve full wishlisted product objects
-  const wishlistedProducts = PRODUCTS.filter((p) => wishlistIds.includes(p.id));
+  // Resolve full wishlisted product objects from realtime products
+  const wishlistedProducts = realtimeProducts.filter((p) => wishlistIds.includes(p.id));
 
   const isMr = currentLang === 'mr';
 
+  // =========================================================================
+  // VIEW: ADMIN PORTAL (/admin)
+  // =========================================================================
+  if (currentView === 'admin') {
+    if (!isAdminAuthenticated) {
+      return (
+        <AdminLogin
+          onLoginSuccess={() => setIsAdminAuthenticated(true)}
+          onExit={handleExitAdmin}
+          cloudPassword={cloudPassword}
+        />
+      );
+    }
+
+    return (
+      <AdminDashboard
+        products={realtimeProducts}
+        categories={realtimeCategories}
+        heroSlides={realtimeHeroSlides}
+        testimonials={realtimeTestimonials}
+        rates={realtimeRates}
+        onExitToStore={handleExitAdmin}
+        onLogout={handleLogoutAdmin}
+        firebaseConnected={isFirebaseLive}
+      />
+    );
+  }
+
+  // =========================================================================
+  // VIEW: PUBLIC STOREFRONT
+  // =========================================================================
   return (
     <div className="min-h-screen flex flex-col bg-[#F3F0EA] text-[#29231F] selection:bg-[#3C0015] selection:text-[#F3F0EA] cursor-luxury">
       
@@ -119,7 +306,7 @@ export default function App() {
       {isLoading && <BrandLoader onComplete={() => setIsLoading(false)} />}
       <CustomCursor />
 
-      {/* 01. UNIFIED STICKY HEADER & LIVE RATE TICKER (Steady on scroll directly beneath Logo & Header) */}
+      {/* 01. UNIFIED STICKY HEADER & LIVE RATE TICKER */}
       <div className="sticky top-0 z-50 w-full bg-[#F3F0EA]">
         <Header
           currentLang={currentLang}
@@ -134,6 +321,8 @@ export default function App() {
               setIsAboutOpen(true);
             } else if (view === 'stores' || view === 'contact') {
               handleScrollToStore();
+            } else if (view === 'admin') {
+              handleNavigateToAdmin();
             } else {
               setCurrentView(view);
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -141,7 +330,7 @@ export default function App() {
           }}
           currentView={currentView}
         />
-        <TodayRateTickerBar currentLang={currentLang} />
+        <TodayRateTickerBar currentLang={currentLang} rates={realtimeRates} />
       </div>
 
       {/* MAIN VIEWPORT */}
@@ -150,9 +339,10 @@ export default function App() {
         {/* HOMEPAGE VIEW: EXACT EDITORIAL STORY RHYTHM */}
         {currentView === 'home' && (
           <>
-            {/* 02. WIDE HERO (3 slides max, slow image movement, minimal text) */}
+            {/* 02. WIDE HERO (Dynamic Slides from Cloud Firestore with gallery images) */}
             <HeroCarousel
               currentLang={currentLang}
+              slides={realtimeHeroSlides}
               onNavigate={(view) => {
                 setCurrentView(view);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -160,10 +350,11 @@ export default function App() {
               onSelectCategory={handleSelectCategory}
             />
 
-            {/* 03. SHOP BY CATEGORY (Dynamic colour shift + breathing circles + faint background typography) */}
+            {/* 03. SHOP BY CATEGORY (Dynamic colour shift + breathing circles) */}
             <MainCategoryCircles
               currentLang={currentLang}
-              products={PRODUCTS}
+              products={realtimeProducts}
+              categories={realtimeCategories}
               wishlistIds={wishlistIds}
               onToggleWishlist={handleToggleWishlist}
               onSelectProduct={handleSelectProduct}
@@ -174,10 +365,10 @@ export default function App() {
               }}
             />
 
-            {/* 04. ONE ELEGANT HORIZONTAL MARQUEE (Cream + Maroon + Gold) */}
+            {/* 04. ONE ELEGANT HORIZONTAL MARQUEE */}
             <MarqueeBanner currentLang={currentLang} variant="maroon" />
 
-            {/* 05. SELECTED COLLECTIONS (Asymmetric Editorial Composition) */}
+            {/* 05. SELECTED COLLECTIONS */}
             <FeaturedCollections
               currentLang={currentLang}
               onSelectCollection={(categoryFilter) => {
@@ -185,15 +376,15 @@ export default function App() {
               }}
             />
 
-            {/* 06. SECTION 14: STRONG MAROON EDITORIAL MOMENT (LIGHT → DARK MAROON → LIGHT Visual Pause) */}
+            {/* 06. SECTION 14: STRONG MAROON EDITORIAL MOMENT */}
             <MaroonEditorialMoment
               currentLang={currentLang}
               onExploreCollections={() => handleSelectCategory('all')}
             />
 
-            {/* 07. FEATURED JEWELLERY ('निवडक दागिने' + Gold Line + Generous Spacing) */}
+            {/* 07. FEATURED JEWELLERY ('निवडक दागिने' from Realtime Firestore) */}
             <FeaturedJewellerySection
-              products={PRODUCTS}
+              products={realtimeProducts}
               currentLang={currentLang}
               wishlistIds={wishlistIds}
               onToggleWishlist={handleToggleWishlist}
@@ -203,25 +394,28 @@ export default function App() {
               }}
             />
 
-            {/* 08. BRAND LEGACY & TRUST SECTION (Since 1951 + BIS Hallmark Trust) */}
+            {/* 08. BRAND LEGACY & TRUST SECTION */}
             <HeritageStorySection
               currentLang={currentLang}
               onOpenAboutModal={() => setIsAboutOpen(true)}
             />
 
-            {/* 09. TESTIMONIALS (Customer Reviews Carousel) */}
-            <TestimonialsSection currentLang={currentLang} />
+            {/* 09. TESTIMONIALS (Customer Reviews from Cloud Firestore) */}
+            <TestimonialsSection
+              currentLang={currentLang}
+              testimonials={realtimeTestimonials}
+            />
 
-            {/* 10. VISIT OUR SHOWROOM (Both Chakan branches with showroom photo, timings, map & phone) */}
+            {/* 10. VISIT OUR SHOWROOM */}
             <VisitStoreSection currentLang={currentLang} />
           </>
         )}
 
-        {/* FULL PRODUCT CATALOGUE VIEW (Smooth Animated Fade) */}
+        {/* FULL PRODUCT CATALOGUE VIEW (Realtime Products) */}
         {currentView === 'catalogue' && (
           <div className="animate-in fade-in duration-300">
             <CatalogueView
-              products={PRODUCTS}
+              products={realtimeProducts}
               currentLang={currentLang}
               wishlistIds={wishlistIds}
               initialCategory={catalogueInitialCategory}
@@ -235,12 +429,12 @@ export default function App() {
           </div>
         )}
 
-        {/* PRODUCT DETAIL PAGE (Smooth Animated Fade) */}
+        {/* PRODUCT DETAIL PAGE */}
         {currentView === 'product-detail' && selectedProduct && (
           <div className="animate-in fade-in duration-300">
             <ProductDetailView
               product={selectedProduct}
-              allProducts={PRODUCTS}
+              allProducts={realtimeProducts}
               currentLang={currentLang}
               isWishlisted={wishlistIds.includes(selectedProduct.id)}
               onToggleWishlist={handleToggleWishlist}
@@ -254,7 +448,7 @@ export default function App() {
 
       </main>
 
-      {/* 08. FOOTER: 4 columns, Maroon background, clean gold/cream typography */}
+      {/* 08. FOOTER WITH ADMIN PORTAL LINK */}
       <Footer
         currentLang={currentLang}
         onNavigate={(view) => {
@@ -262,6 +456,8 @@ export default function App() {
             setIsAboutOpen(true);
           } else if (view === 'stores' || view === 'contact') {
             handleScrollToStore();
+          } else if (view === 'admin') {
+            handleNavigateToAdmin();
           } else {
             setCurrentView(view);
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -269,12 +465,13 @@ export default function App() {
         }}
         onSelectCategory={handleSelectCategory}
         onOpenStoreLocator={handleScrollToStore}
+        onOpenAdmin={handleNavigateToAdmin}
       />
 
-      {/* FLOATING MARKETING BHONGA & 4-OPTIONS SOCIAL WIDGET (IG, FB, WP, Call) */}
+      {/* FLOATING MARKETING BHONGA & 4-OPTIONS SOCIAL WIDGET */}
       <FloatingMarketingWidget currentLang={currentLang} />
 
-      {/* WISHLIST DRAWER (Digital Catalogue Enquiry List) */}
+      {/* WISHLIST DRAWER */}
       <WishlistDrawer
         isOpen={isWishlistOpen}
         onClose={() => setIsWishlistOpen(false)}
@@ -288,7 +485,7 @@ export default function App() {
       <SearchModal
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
-        products={PRODUCTS}
+        products={realtimeProducts}
         currentLang={currentLang}
         onSelectProduct={handleSelectProduct}
         onSelectCategory={handleSelectCategory}

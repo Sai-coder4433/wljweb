@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, TrendingUp, RefreshCw, MessageCircle } from 'lucide-react';
+import { Sparkles, TrendingUp, RefreshCw, MessageCircle, Zap, Info } from 'lucide-react';
 import { Language } from '../types';
 import { BRAND_CONFIG } from '../config';
 
@@ -16,19 +16,20 @@ interface RatesData {
 
 interface TodayRateTickerBarProps {
   currentLang: Language;
+  rates?: RatesData;
 }
 
-export const TodayRateTickerBar: React.FC<TodayRateTickerBarProps> = ({ currentLang }) => {
+export const TodayRateTickerBar: React.FC<TodayRateTickerBarProps> = ({ currentLang, rates: propsRates }) => {
   const isMr = currentLang === 'mr';
 
   // State for live synced rates
   const [rates, setRates] = useState<RatesData>(() => {
+    if (propsRates) return propsRates;
     // Check localStorage cache first
     try {
       const cached = localStorage.getItem('wlj_daily_gold_rates');
       if (cached) {
         const parsed = JSON.parse(cached);
-        // If cached today, return it
         const todayStr = new Date().toDateString();
         if (parsed.dateStr === todayStr) {
           return parsed.rates;
@@ -38,7 +39,6 @@ export const TodayRateTickerBar: React.FC<TodayRateTickerBarProps> = ({ currentL
       // ignore
     }
 
-    // Default authentic baseline for Maharashtra bullion market
     const base24K = 76850;
     const base22K = Math.round(base24K * 0.916);
     const base18K = Math.round(base24K * 0.75);
@@ -55,6 +55,13 @@ export const TodayRateTickerBar: React.FC<TodayRateTickerBarProps> = ({ currentL
       source: 'sync',
     };
   });
+
+  useEffect(() => {
+    if (propsRates) {
+      setRates(propsRates);
+    }
+  }, [propsRates]);
+
 
   const [isRefreshing, setIsRefreshing] = useState(false);
 
@@ -173,7 +180,7 @@ export const TodayRateTickerBar: React.FC<TodayRateTickerBarProps> = ({ currentL
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D7B95F]" />
             </span>
             <span className="font-marathi-display font-bold text-[11px] sm:text-xs text-[#FAF8F4] tracking-wide flex items-center space-x-1">
-              <span className="text-[#D7B95F]">⚡</span>
+              <Zap className="w-3 h-3 text-[#D7B95F]" />
               <span className="hidden xs:inline">{isMr ? 'आजचे थेट दर' : "Today's Rates"}</span>
               <span className="xs:hidden">{isMr ? 'थेट दर' : 'Rates'}</span>
             </span>
@@ -247,7 +254,7 @@ export const TodayRateTickerBar: React.FC<TodayRateTickerBarProps> = ({ currentL
 
             {/* ITEM 6: Note & Transparency */}
             <div className="flex items-center space-x-1.5 text-[#FAF8F4]/80 text-[11px]">
-              <span>ℹ️</span>
+              <Info className="w-3 h-3 text-[#D7B95F]" />
               <span>
                 {isMr
                   ? 'सर्व दर जीएसटी व घडणावळ शिवाय • थेट सराफ बाजाराशी सुसंगत'

@@ -67,6 +67,7 @@ interface HeroCarouselProps {
   onNavigate: (view: string) => void;
   onSelectCategory: (category: string) => void;
   onOpenStoreLocator?: () => void;
+  slides?: HeroSlide[];
 }
 
 export const HeroCarousel: React.FC<HeroCarouselProps> = ({
@@ -74,7 +75,13 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
   onNavigate,
   onSelectCategory,
   onOpenStoreLocator,
+  slides,
 }) => {
+  const activeSlides = (slides && slides.length > 0)
+    ? slides.filter((s) => s.active !== false)
+    : HERO_SLIDES;
+  const currentSlides = activeSlides.length > 0 ? activeSlides : HERO_SLIDES;
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const isMr = currentLang === 'mr';
@@ -82,7 +89,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
   const resetTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+      setCurrentSlide((prev) => (prev + 1) % currentSlides.length);
     }, 7000);
   };
 
@@ -91,19 +98,20 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, []);
+  }, [currentSlides.length]);
 
   const handlePrev = () => {
-    setCurrentSlide((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1));
+    setCurrentSlide((prev) => (prev === 0 ? currentSlides.length - 1 : prev - 1));
     resetTimer();
   };
 
   const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    setCurrentSlide((prev) => (prev + 1) % currentSlides.length);
     resetTimer();
   };
 
-  const current = HERO_SLIDES[currentSlide];
+  const current = currentSlides[currentSlide] || currentSlides[0];
+
 
   const handleCtaClick = (slide: HeroSlide) => {
     if (slide.targetCategory === 'visit') {
@@ -123,7 +131,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
     <section id="hero-carousel" className="relative w-full overflow-hidden bg-[#2C0010] scroll-mt-20">
       {/* Wide 16:9 Ratio Banner with balanced desktop & mobile height */}
       <div className="relative w-full aspect-[16/9] min-h-[440px] sm:min-h-[500px] md:min-h-[560px] lg:min-h-[620px] max-h-[720px]">
-        {HERO_SLIDES.map((slide, index) => {
+        {currentSlides.map((slide, index) => {
           const isActive = index === currentSlide;
           return (
             <div
@@ -234,7 +242,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
 
         {/* Slide Indicators */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-2.5">
-          {HERO_SLIDES.map((_, idx) => (
+          {currentSlides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => {

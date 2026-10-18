@@ -48,11 +48,6 @@ export const HeritageStorySection: React.FC<HeritageStorySectionProps> = ({
     <section id="heritage-story-section" className="py-14 md:py-24 px-4 md:px-8 max-w-7xl mx-auto text-left">
       {/* 01. MAIN STORY CARD */}
       <div className="bg-[#FAF8F4] rounded-3xl p-6 sm:p-10 md:p-14 border border-[#D7B95F]/35 shadow-xs relative overflow-hidden mb-10">
-        
-        {/* Subtle decorative heritage watermark */}
-        <div className="absolute -right-12 -bottom-12 text-[#D7B95F]/08 font-cinzel text-[160px] md:text-[220px] font-bold select-none pointer-events-none">
-          1951
-        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           

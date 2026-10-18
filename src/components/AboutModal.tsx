@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Award, ShieldCheck, History, Heart } from 'lucide-react';
+import { X, Award, ShieldCheck, History, Heart, Store } from 'lucide-react';
 import { Language } from '../types';
 
 interface AboutModalProps {

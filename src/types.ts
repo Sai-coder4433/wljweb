@@ -81,7 +81,7 @@ export interface Product {
   marathiMetal: string;
   purity: string; // e.g. "22K (916)", "18K", "92.5 Sterling Silver"
   weight: string; // e.g. "24.50 gm"
-  price: number;
+  price?: number;
   originalPrice?: number;
   priceLabel?: string;
   images: string[];
@@ -113,3 +113,47 @@ export interface CartItem {
   product: Product;
   quantity: number;
 }
+
+export interface HeroSlide {
+  id: string | number;
+  image: string;
+  mobileImage?: string;
+  smallLabelMr: string;
+  smallLabelEn: string;
+  headlineMr: string;
+  headlineEn: string;
+  subtextMr: string;
+  subtextEn: string;
+  ctaMr: string;
+  ctaEn: string;
+  targetCategory?: string;
+  order?: number;
+  active?: boolean;
+}
+
+export interface Testimonial {
+  id: string | number;
+  nameMr: string;
+  nameEn: string;
+  locationMr: string;
+  locationEn: string;
+  reviewMr: string;
+  reviewEn: string;
+  occasionMr: string;
+  occasionEn: string;
+  rating: number;
+  date: string;
+  active?: boolean;
+}
+
+export interface DailyRates {
+  gold24K_10g: number;
+  gold22K_10g: number;
+  gold18K_10g: number;
+  silver1kg: number;
+  gold22K_1g: number;
+  silver1g: number;
+  lastUpdated: string;
+  source?: 'live' | 'sync' | 'manual';
+}
+

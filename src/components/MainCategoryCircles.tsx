@@ -1,6 +1,6 @@
 import React, { useState, useRef, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight, Heart, MessageCircle, ShieldCheck } from 'lucide-react';
-import { Language, Product } from '../types';
+import { Language, Product, CategoryItem } from '../types';
 import { PRODUCTS } from '../data/jewelleryData';
 import { BRAND_CONFIG } from '../config';
 
@@ -126,6 +126,7 @@ interface MainCategoryCirclesProps {
   onSelectCategory: (categorySlug: string) => void;
   onNavigateCatalogue: () => void;
   products?: Product[];
+  categories?: CategoryItem[];
   wishlistIds?: string[];
   onToggleWishlist?: (product: Product) => void;
   onSelectProduct?: (product: Product) => void;
@@ -136,15 +137,60 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
   onSelectCategory,
   onNavigateCatalogue,
   products = PRODUCTS,
+  categories,
   wishlistIds = [],
   onToggleWishlist,
   onSelectProduct,
 }) => {
-  const [activeMainCat, setActiveMainCat] = useState<MainCategory>(MAIN_CATEGORIES[0]);
+  const mergedCategories: MainCategory[] = useMemo(() => {
+    if (categories && categories.length > 0) {
+      return categories.map((cat) => {
+        const defaultMatch = MAIN_CATEGORIES.find(
+          (m) => m.slug === cat.slug || m.id === cat.id
+        );
+        const subs: SubCategoryItem[] = (cat.subcategories || []).map((s) => ({
+          id: s.id,
+          marathiName: s.marathiName,
+          name: s.name,
+          image: s.image,
+          slug: s.slug,
+        }));
+
+        return {
+          id: cat.slug || cat.id,
+          slug: cat.slug || cat.id,
+          marathiName: cat.marathiName,
+          name: cat.name,
+          bgToken: defaultMatch?.bgToken || 'bg-[#FAF8F4] border-[#D7B95F]/40',
+          image: cat.image || defaultMatch?.image || 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=600',
+          subcategories: subs.length > 0 ? subs : (defaultMatch?.subcategories || []),
+        };
+      });
+    }
+    return MAIN_CATEGORIES;
+  }, [categories]);
+
+  const [activeMainCat, setActiveMainCat] = useState<MainCategory>(
+    mergedCategories[0] || MAIN_CATEGORIES[0]
+  );
   const [hoveredCatId, setHoveredCatId] = useState<string | null>(null);
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>(
-    MAIN_CATEGORIES[0].subcategories[0]?.slug || 'necklaces'
+    mergedCategories[0]?.subcategories[0]?.slug || 'necklaces'
   );
+
+  // Keep active category synced if categories list changes from Firestore
+  React.useEffect(() => {
+    if (mergedCategories.length > 0) {
+      const match = mergedCategories.find(
+        (c) => c.id === activeMainCat.id || c.slug === activeMainCat.slug
+      );
+      if (match) {
+        setActiveMainCat(match);
+      } else {
+        setActiveMainCat(mergedCategories[0]);
+      }
+    }
+  }, [mergedCategories]);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -330,7 +376,7 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
           className="flex overflow-x-auto scrollbar-none scroll-smooth space-x-4 sm:space-x-6 py-3 px-1 snap-x focus:outline-hidden"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
-          {MAIN_CATEGORIES.map((cat, index) => {
+          {mergedCategories.map((cat, index) => {
             const isSelected = activeMainCat.id === cat.id;
 
             return (
@@ -439,12 +485,19 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
               <button
                 key={sub.id}
                 onClick={() => setSelectedSubCategory(sub.slug)}
-                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-marathi-serif font-semibold transition-all duration-300 shadow-xs cursor-pointer flex items-center space-x-1.5 ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-marathi-serif font-semibold transition-all duration-300 shadow-xs cursor-pointer flex items-center space-x-2 ${
                   isSubSelected
                     ? 'bg-gradient-to-r from-[#D7B95F] via-[#E5CCA0] to-[#D7B95F] text-[#3C0015] font-bold shadow-md border border-[#D7B95F] scale-[1.02]'
                     : 'bg-[#22000B]/85 text-[#FAF8F4] hover:bg-[#3C0015] hover:text-[#E5CCA0] border border-[#D7B95F]/35'
                 }`}
               >
+                {sub.image && (
+                  <img
+                    src={sub.image}
+                    alt={sub.marathiName}
+                    className="w-4 h-4 rounded-full object-cover border border-[#D7B95F]/80 flex-shrink-0"
+                  />
+                )}
                 <span>{isMr ? sub.marathiName : sub.name}</span>
               </button>
             );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Facebook, MessageCircle, MapPin, Phone, Clock, Navigation } from 'lucide-react';
+import { Instagram, Facebook, MessageCircle, MapPin, Phone, Clock, Navigation, ShieldCheck } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import { BRAND_CONFIG } from '../config';
 import { Language } from '../types';
@@ -9,6 +9,7 @@ interface FooterProps {
   onNavigate: (view: string) => void;
   onSelectCategory: (categorySlug: string) => void;
   onOpenStoreLocator: () => void;
+  onOpenAdmin?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
@@ -16,6 +17,7 @@ export const Footer: React.FC<FooterProps> = ({
   onNavigate,
   onSelectCategory,
   onOpenStoreLocator,
+  onOpenAdmin,
 }) => {
   const isMr = currentLang === 'mr';
 
@@ -307,6 +309,18 @@ export const Footer: React.FC<FooterProps> = ({
             <span className="text-[11px] font-cinzel text-[#D7B95F] tracking-widest uppercase font-semibold">
               SINCE 1951 • शुद्ध सुवर्ण परंपरा
             </span>
+            {onOpenAdmin && (
+              <>
+                <span className="text-[#D7B95F]/40">•</span>
+                <button
+                  onClick={onOpenAdmin}
+                  className="text-[11px] text-[#D7B95F]/70 hover:text-[#D7B95F] flex items-center gap-1 transition-colors cursor-pointer"
+                >
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>{isMr ? 'प्रशासक पोर्टल' : 'Admin Portal'}</span>
+                </button>
+              </>
+            )}
           </div>
         </div>
 

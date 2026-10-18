@@ -37,7 +37,6 @@ export const FloatingMarketingWidget: React.FC<FloatingMarketingWidgetProps> = (
     {
       id: 'instagram',
       name: 'Instagram (IG)',
-      emoji: '📸',
       icon: Instagram,
       bgClass: 'bg-gradient-to-tr from-[#f09433] via-[#e6683c] via-[#dc2743] via-[#cc2366] to-[#bc1888] text-white hover:brightness-110 shadow-md',
       labelMr: 'इन्स्टाग्रामवर फॉलो करा',
@@ -48,7 +47,6 @@ export const FloatingMarketingWidget: React.FC<FloatingMarketingWidgetProps> = (
     {
       id: 'facebook',
       name: 'Facebook (FB)',
-      emoji: '👤',
       icon: Facebook,
       bgClass: 'bg-[#1877F2] text-white hover:bg-[#166fe5] shadow-md',
       labelMr: 'फेसबुकवर भेट द्या',
@@ -59,7 +57,6 @@ export const FloatingMarketingWidget: React.FC<FloatingMarketingWidgetProps> = (
     {
       id: 'whatsapp',
       name: 'WhatsApp (WP)',
-      emoji: '💬',
       icon: MessageCircle,
       bgClass: 'bg-[#25D366] text-white hover:bg-[#20ba59] shadow-md',
       labelMr: 'व्हॉट्सॲपवर चॅट करा',
@@ -70,7 +67,6 @@ export const FloatingMarketingWidget: React.FC<FloatingMarketingWidgetProps> = (
     {
       id: 'call',
       name: 'Call (कॉल)',
-      emoji: '📞',
       icon: Phone,
       bgClass: 'bg-[#3C0015] border border-[#D7B95F] text-[#D7B95F] hover:bg-[#500018] shadow-md',
       labelMr: 'थेट कॉल करा (8888179999)',
@@ -89,7 +85,7 @@ export const FloatingMarketingWidget: React.FC<FloatingMarketingWidgetProps> = (
           
           {/* Mini header badge */}
           <div className="px-3 py-1 rounded-full bg-[#3C0015]/95 text-[#D7B95F] border border-[#D7B95F]/50 text-[11px] font-marathi-serif font-bold tracking-wide shadow-lg backdrop-blur-xs flex items-center space-x-1.5 select-none">
-            <span>📢</span>
+            <Megaphone className="w-3.5 h-3.5 text-[#D7B95F]" />
             <span>{isMr ? 'सोशल मीडिया व थेट संपर्क' : 'Connect & Enquire'}</span>
           </div>
 

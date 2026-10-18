@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Heart, ShoppingBag, MessageSquare, ArrowRight, ShieldCheck } from 'lucide-react';
+import { X, Heart, ShoppingBag, MessageSquare, ArrowRight, ShieldCheck, MessageCircle, Eye } from 'lucide-react';
 import { Product, Language } from '../types';
 import { BRAND_CONFIG } from '../config';
 

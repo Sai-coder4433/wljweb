@@ -86,9 +86,15 @@ const TESTIMONIALS: Testimonial[] = [
 
 interface TestimonialsSectionProps {
   currentLang: Language;
+  testimonials?: Testimonial[];
 }
 
-export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ currentLang }) => {
+export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ currentLang, testimonials }) => {
+  const activeList = (testimonials && testimonials.length > 0)
+    ? testimonials.filter((t) => t.active !== false)
+    : TESTIMONIALS;
+  const currentList = activeList.length > 0 ? activeList : TESTIMONIALS;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const isMr = currentLang === 'mr';
@@ -102,23 +108,24 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ curren
     }
 
     timerRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+      setCurrentIndex((prev) => (prev + 1) % currentList.length);
     }, 4500);
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPlaying, currentIndex]);
+  }, [isPlaying, currentIndex, currentList.length]);
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? TESTIMONIALS.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? currentList.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+    setCurrentIndex((prev) => (prev + 1) % currentList.length);
   };
 
-  const current = TESTIMONIALS[currentIndex];
+  const current = currentList[currentIndex] || currentList[0];
+
 
   return (
     <section id="testimonials-section" className="py-14 md:py-24 px-4 md:px-8 max-w-7xl mx-auto text-left scroll-mt-24">
@@ -145,11 +152,6 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ curren
         onMouseLeave={() => setIsPlaying(true)}
         className="relative max-w-4xl mx-auto bg-[#FAF8F4] rounded-3xl border border-[#D7B95F]/35 p-6 sm:p-10 md:p-12 shadow-md relative overflow-hidden mb-10 transition-all"
       >
-        {/* Soft Background Accent Watermark */}
-        <div className="absolute right-6 -bottom-6 text-[#D7B95F]/08 select-none pointer-events-none">
-          <Quote className="w-48 h-48" />
-        </div>
-
         {/* Live Running Progress Line */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-[#D7B95F]/20 overflow-hidden">
           <div 
@@ -242,10 +244,10 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ curren
       {/* CONTINUOUS AUTO-RUNNING REVIEWS MARQUEE CARDS (Running non-stop horizontally) */}
       <div className="relative w-full overflow-hidden py-2 mask-linear">
         <div className="flex space-x-4 animate-marquee whitespace-nowrap hover:[animation-play-state:paused]">
-          {[...TESTIMONIALS, ...TESTIMONIALS].map((item, idx) => (
+          {[...currentList, ...currentList].map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              onClick={() => setCurrentIndex(item.id - 1)}
+              onClick={() => setCurrentIndex(idx % currentList.length)}
               className="inline-block w-72 sm:w-80 p-4 rounded-2xl bg-[#FAF8F4] border border-[#D7B95F]/35 shadow-xs whitespace-normal text-left cursor-pointer hover:border-[#3C0015] transition-all flex-shrink-0"
             >
               <div className="flex items-center justify-between mb-2">
