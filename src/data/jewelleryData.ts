@@ -14,7 +14,7 @@ export const STORE_BRANCHES: StoreBranch[] = [
     email: 'contact@wafgaonkarjewellers.com',
     timing: '10:00 AM - 8:30 PM (All 7 Days)',
     marathiTiming: 'सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)',
-    image: '',
+    image: 'https://i.postimg.cc/zfN7fkkn/Elegant-Gold-Jewellery-Storefront.png',
     mapQuery: 'Wafgaonkar Laxmi Jewellers Juni Bazarpeth Chakan Pune',
     mapUrl: 'https://maps.google.com/?q=Wafgaonkar+Laxmi+Jewellers+Juni+Bazarpeth+Chakan+Pune',
   },
@@ -31,7 +31,7 @@ export const STORE_BRANCHES: StoreBranch[] = [
     email: 'contact@wafgaonkarjewellers.com',
     timing: '10:00 AM - 8:30 PM (All 7 Days)',
     marathiTiming: 'सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)',
-    image: '',
+    image: 'https://i.postimg.cc/W4BySjN2/Whats-App-Image-2026-10-19-at-14-19-25.jpg',
     mapQuery: 'Manik Chowk Opp Siddhi Arcade Chakan Pune',
     mapUrl: 'https://maps.google.com/?q=Manik+Chowk+Opp+Siddhi+Arcade+Chakan+Pune',
   }

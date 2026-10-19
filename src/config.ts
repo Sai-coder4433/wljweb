@@ -14,6 +14,12 @@ export const BRAND_CONFIG = {
   MOBILE_NUMBER: "8888179999",
   EMAIL: "contact@wafgaonkarjewellers.com",
   
+  // Official Social Media Links
+  social: {
+    instagram: "https://www.instagram.com/wafgaonkarlaxmijewellers?exln=dHVxZnBndTFoMjhq",
+    facebook: "https://www.facebook.com/share/1JB3pSixcP/",
+  },
+  
   // Store Location & Timings (2 Branches in Chakan)
   store: {
     name: "वाफगांवकर लक्ष्मी ज्वेलर्स",

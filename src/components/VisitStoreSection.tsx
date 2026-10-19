@@ -30,7 +30,7 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
       nameEn: 'Branch No. 1: Juni Bazarpeth, Chakan',
       tagMr: 'मुख्य वारसा शाखा',
       tagEn: 'Heritage Main Branch',
-      image: 'https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=1000&auto=format&fit=crop',
+      image: 'https://i.postimg.cc/zfN7fkkn/Elegant-Gold-Jewellery-Storefront.png',
       addressMr: 'जुनी बाजारपेठ, चाकण, ता. खेड, जि. पुणे - ४१०५०१',
       addressEn: 'Juni Bazarpeth, Chakan, Tal. Khed, Dist. Pune - 410501',
       timingsMr: 'सोमवार ते रविवार: सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)',
@@ -46,7 +46,7 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
       nameEn: 'Branch No. 2: Manik Chowk, Opp. Siddhi Arcade, Chakan',
       tagMr: 'सुवर्ण व वधू दालन',
       tagEn: 'Gold & Bridal Studio',
-      image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=1000&auto=format&fit=crop',
+      image: 'https://i.postimg.cc/W4BySjN2/Whats-App-Image-2026-10-19-at-14-19-25.jpg',
       addressMr: 'माणिक चौक, सिद्धी आर्केड समोर, चाकण, ता. खेड, जि. पुणे - ४१०५०१',
       addressEn: 'Manik Chowk, Opp. Siddhi Arcade, Chakan, Tal. Khed, Dist. Pune - 410501',
       timingsMr: 'सोमवार ते रविवार: सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)',
@@ -122,44 +122,56 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
             key={branch.id}
             className="bg-[#FAF8F4] rounded-2xl sm:rounded-3xl border border-[#D7B95F]/35 overflow-hidden shadow-xs hover:border-[#D7B95F] transition-all flex flex-col justify-between"
           >
-            {/* Top Area: Showroom Photo Announcement Card in Velvet Crimson */}
-            <div className="relative h-56 sm:h-64 overflow-hidden border-b border-[#D7B95F]/35 bg-[#3C0015] velvet-bg flex flex-col justify-between p-5 text-left">
-              
-              {/* Top Row: Branch Badge & Filigree */}
-              <div className="flex items-center justify-between z-10">
-                <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#20000B]/85 backdrop-blur-xs border border-[#D7B95F]/60 text-[#D7B95F] text-[11px] font-cinzel tracking-wider uppercase shadow-md">
+            {/* Top Area: Showroom Photo in 9:16 Aspect Box with Full Storefront Visibility */}
+            <div className="relative aspect-[9/16] max-h-[520px] sm:max-h-[580px] w-full overflow-hidden border-b border-[#D7B95F]/35 bg-[#1F000A] velvet-bg flex flex-col justify-between p-3.5 sm:p-4 text-left group">
+              {branch.image ? (
+                <>
+                  {/* Subtle ambient blur behind to fill full 9:16 container gracefully */}
+                  <img
+                    src={branch.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover blur-lg opacity-30 scale-110 pointer-events-none"
+                  />
+                  {/* Sharp, fully-visible storefront photo with NO cutoffs */}
+                  <img
+                    src={branch.image}
+                    alt={isMr ? branch.nameMr : branch.nameEn}
+                    className="relative z-1 w-full h-full object-contain p-1 sm:p-2 drop-shadow-2xl transform transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  />
+                  {/* Subtle border vignette */}
+                  <div className="absolute inset-0 border border-[#D7B95F]/20 rounded-t-2xl sm:rounded-t-3xl pointer-events-none z-2" />
+                </>
+              ) : (
+                /* Center Announcement: Showroom photo will be uploaded soon */
+                <div className="my-auto flex flex-col items-center justify-center text-center space-y-2 py-4 z-1">
+                  <div className="w-14 h-14 rounded-full bg-[#20000B]/90 border border-[#D7B95F]/60 flex items-center justify-center text-[#D7B95F] shadow-lg">
+                    <Store className="w-7 h-7 text-[#D7B95F]" />
+                  </div>
+                  <div>
+                    <h4 className="font-marathi-display text-base sm:text-lg font-bold text-[#FAF8F4] leading-snug">
+                      {isMr ? 'दालनाचे छायाचित्र लवकरच उपलब्ध होईल' : 'Showroom Photo Will Be Uploaded Soon'}
+                    </h4>
+                    <p className="font-marathi-serif text-xs text-[#FAF8F4]/75 mt-0.5">
+                      {isMr ? 'चाकण सुवर्ण दालन' : 'Chakan Showroom'}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Top Row: Floating Branch Badge & WLJ Pill */}
+              <div className="flex items-center justify-between z-10 w-full">
+                <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#20000B]/90 backdrop-blur-xs border border-[#D7B95F]/70 text-[#D7B95F] text-[11px] font-cinzel tracking-wider uppercase shadow-md">
                   <Award className="w-3.5 h-3.5 text-[#D7B95F]" />
                   <span>{isMr ? `शाखा क्र. ${branch.number}` : `Branch No. ${branch.number}`}</span>
                 </div>
-                <span className="text-[10px] font-cinzel text-[#D7B95F]/70 uppercase tracking-widest">
+                <span className="text-[10px] font-cinzel text-[#D7B95F] uppercase tracking-widest bg-[#20000B]/80 px-2.5 py-0.5 rounded-full border border-[#D7B95F]/50 backdrop-blur-xs shadow-md">
                   WLJ • CHAKAN
                 </span>
               </div>
 
-              {/* Center Announcement: Showroom photo will be uploaded soon */}
-              <div className="my-auto flex flex-col items-center justify-center text-center space-y-2 py-2">
-                <div className="w-12 h-12 rounded-full bg-[#20000B]/80 border border-[#D7B95F]/60 flex items-center justify-center text-[#D7B95F] shadow-sm">
-                  <Store className="w-6 h-6 text-[#D7B95F]" />
-                </div>
-                <div>
-                  <h4 className="font-marathi-display text-base sm:text-lg font-bold text-[#FAF8F4] leading-snug">
-                    {isMr ? 'दालनाचे छायाचित्र लवकरच उपलब्ध होईल' : 'Showroom Photo Will Be Uploaded Soon'}
-                  </h4>
-                  <p className="font-marathi-serif text-[11px] text-[#FAF8F4]/75 mt-0.5">
-                    {isMr ? 'चाकण सुवर्ण दालन' : 'Chakan Showroom'}
-                  </p>
-                </div>
-              </div>
-
-              {/* Showroom Title Overlay */}
-              <div className="z-10 pt-2 border-t border-[#D7B95F]/20">
-                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#D7B95F] font-cinzel font-semibold block mb-0.5">
-                  {isMr ? branch.tagMr : branch.tagEn}
-                </span>
-                <div className="font-marathi-display text-base sm:text-lg font-bold text-[#FAF8F4]">
-                  {isMr ? branch.nameMr : branch.nameEn}
-                </div>
-              </div>
+              {/* Bottom transparent spacer so top photo breathes without duplicate overlay text */}
+              <div className="z-10" />
             </div>
 
             {/* Bottom Details */}

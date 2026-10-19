@@ -169,7 +169,7 @@ export const TodayRateTickerBar: React.FC<TodayRateTickerBarProps> = ({ currentL
   const whatsappUrl = `https://wa.me/${BRAND_CONFIG.WHATSAPP_NUMBER}?text=${whatsappMessage}`;
 
   return (
-    <div className="w-full bg-[#3C0015] velvet-bg border-y border-[#D7B95F]/35 shadow-md relative z-40 select-none overflow-hidden">
+    <div className="w-full bg-[#3C0015] velvet-bg border-y border-[#D7B95F]/35 shadow-md relative z-10 select-none overflow-hidden">
       <div className="flex items-center h-10 md:h-11">
         
         {/* FIXED LEFT BADGE: Crimson Velvet & Champagne Gold Pill */}

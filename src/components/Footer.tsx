@@ -53,7 +53,7 @@ export const Footer: React.FC<FooterProps> = ({
             {/* Social Media & WhatsApp Links */}
             <div className="pt-2 flex items-center space-x-3">
               <a
-                href="https://instagram.com"
+                href={BRAND_CONFIG.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -62,7 +62,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://facebook.com"
+                href={BRAND_CONFIG.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"

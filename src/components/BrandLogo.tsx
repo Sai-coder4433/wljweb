@@ -33,41 +33,41 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           वाफगांवकर लक्ष्मी ज्वेलर्स
         </span>
 
-        {/* Subtitle - Sleek on mobile, full on tablet/desktop */}
+        {/* Subtitle - Bold, clearly visible and prominent */}
         {showSubtitle && (
           <div className="mt-0.5 min-w-0">
-            {/* Mobile View: Concise, elegant, perfectly proportioned */}
+            {/* Mobile View: Concise, elegant, bold */}
             <div className="flex items-center space-x-1.5 sm:hidden">
               <span
-                className={`font-cinzel tracking-[0.14em] uppercase text-[8px] font-semibold truncate ${
-                  isDark ? 'text-[#766A61]' : 'text-[#D7B95F]'
+                className={`font-cinzel tracking-[0.14em] uppercase text-[9px] font-bold truncate ${
+                  isDark ? 'text-[#3C0015]' : 'text-[#FAF8F4]'
                 }`}
               >
                 Wafgaonkar
               </span>
-              <span className="w-1 h-1 rounded-full bg-[#D7B95F] flex-shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8B2131] flex-shrink-0" />
               <span
-                className={`font-cinzel tracking-wider text-[8px] font-medium flex-shrink-0 ${
-                  isDark ? 'text-[#D7B95F]' : 'text-[#D7B95F]'
+                className={`font-cinzel tracking-wider text-[9px] font-bold flex-shrink-0 ${
+                  isDark ? 'text-[#8B2131]' : 'text-[#E0C068]'
                 }`}
               >
                 Since 1951
               </span>
             </div>
 
-            {/* Desktop View: Full subtitle */}
+            {/* Desktop View: Full subtitle - bold & clearly visible */}
             <div className="hidden sm:flex items-center space-x-2">
               <span
-                className={`font-cinzel tracking-[0.16em] uppercase text-[9px] md:text-[10px] font-medium ${
-                  isDark ? 'text-[#766A61]' : 'text-[#D7B95F]'
+                className={`font-cinzel tracking-[0.16em] uppercase text-[10.5px] md:text-[11.5px] font-bold ${
+                  isDark ? 'text-[#3C0015]' : 'text-[#FAF8F4]'
                 }`}
               >
                 Wafgaonkar Laxmi Jewellers
               </span>
-              <span className="w-1 h-1 rounded-full bg-[#D7B95F]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8B2131] flex-shrink-0" />
               <span
-                className={`font-cinzel tracking-wider text-[9px] md:text-[10px] ${
-                  isDark ? 'text-[#766A61]' : 'text-[#D7B95F]'
+                className={`font-cinzel tracking-widest text-[10.5px] md:text-[11.5px] font-bold ${
+                  isDark ? 'text-[#8B2131]' : 'text-[#E0C068]'
                 }`}
               >
                 Since 1951

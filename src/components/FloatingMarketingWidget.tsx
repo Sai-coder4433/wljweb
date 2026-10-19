@@ -41,7 +41,7 @@ export const FloatingMarketingWidget: React.FC<FloatingMarketingWidgetProps> = (
       bgClass: 'bg-gradient-to-tr from-[#f09433] via-[#e6683c] via-[#dc2743] via-[#cc2366] to-[#bc1888] text-white hover:brightness-110 shadow-md',
       labelMr: 'इन्स्टाग्रामवर फॉलो करा',
       labelEn: 'Follow on Instagram',
-      href: 'https://instagram.com',
+      href: BRAND_CONFIG.social.instagram,
       isExternal: true,
     },
     {
@@ -51,7 +51,7 @@ export const FloatingMarketingWidget: React.FC<FloatingMarketingWidgetProps> = (
       bgClass: 'bg-[#1877F2] text-white hover:bg-[#166fe5] shadow-md',
       labelMr: 'फेसबुकवर भेट द्या',
       labelEn: 'Visit on Facebook',
-      href: 'https://facebook.com',
+      href: BRAND_CONFIG.social.facebook,
       isExternal: true,
     },
     {

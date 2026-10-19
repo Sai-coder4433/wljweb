@@ -83,7 +83,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header
-      className={`w-full transition-all duration-300 ${
+      className={`w-full transition-all duration-300 relative z-50 ${
         isScrolled
           ? 'bg-[#F3F0EA] py-2.5 border-b border-[#D7B95F]/35 shadow-sm'
           : 'bg-[#F3F0EA]/98 backdrop-blur-xs py-3.5 border-b border-[#D7B95F]/20'
@@ -115,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({
             )}
           </button>
 
-          {/* 2. Collections (संग्रह) - with quick dropdown */}
+          {/* 2. Collections (संग्रह) - with prominent frontside dropdown */}
           <div 
             className="relative"
             onMouseEnter={() => setCollectionsDropdownOpen(true)}
@@ -123,33 +123,50 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <button
               onClick={() => handleNavClick('collections')}
-              className={`flex items-center space-x-1 font-marathi-serif tracking-wide py-1 transition-colors relative cursor-pointer ${
-                currentView === 'catalogue' ? 'text-[#3C0015] font-bold' : 'hover:text-[#3C0015]'
+              className={`flex items-center space-x-1 font-marathi-serif font-bold text-sm tracking-wide py-1 transition-colors relative cursor-pointer ${
+                currentView === 'catalogue' ? 'text-[#3C0015]' : 'text-[#29231F] hover:text-[#3C0015]'
               }`}
             >
               <span>{isMr ? 'संग्रह' : 'Collections'}</span>
-              <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+              <ChevronDown className="w-3.5 h-3.5 opacity-80" />
               {currentView === 'catalogue' && (
                 <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#D7B95F]" />
               )}
             </button>
 
             {collectionsDropdownOpen && (
-              <div className="absolute top-full left-0 w-64 bg-[#FAF8F4] border border-[#D7B95F]/35 shadow-lg rounded-2xl py-2.5 z-50 animate-in fade-in duration-150 text-left">
-                {collectionCategories.map((item) => (
-                  <button
-                    key={item.slug}
-                    onClick={() => {
-                      onSelectCategory(item.slug);
-                      onNavigate('catalogue');
-                      setCollectionsDropdownOpen(false);
-                    }}
-                    className="w-full px-4 py-2 text-xs font-marathi-serif text-[#29231F] hover:bg-[#D7B95F]/15 hover:text-[#3C0015] transition-colors flex items-center justify-between cursor-pointer"
-                  >
-                    <span>{item.name}</span>
-                    <span className="text-[10px] text-[#D7B95F]">→</span>
-                  </button>
-                ))}
+              <div className="absolute top-[calc(100%+6px)] left-0 w-68 bg-[#FAF8F4] border-2 border-[#D7B95F] shadow-2xl rounded-2xl z-[100] animate-in fade-in zoom-in-95 duration-150 text-left overflow-hidden">
+                <div className="px-4 py-2 border-b border-[#D7B95F]/30 bg-[#FAF0D8]/70 flex items-center justify-between">
+                  <span className="text-[11px] font-serif font-bold text-[#3C0015] uppercase tracking-wider flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-[#A37B30]" />
+                    {isMr ? 'दागिने संग्रह' : 'Jewellery Collections'}
+                  </span>
+                  <span className="text-[10px] text-[#A37B30] font-cinzel font-bold">WLJ</span>
+                </div>
+                <div className="py-1">
+                  {collectionCategories.map((item, idx) => (
+                    <button
+                      key={item.slug}
+                      onClick={() => {
+                        onSelectCategory(item.slug);
+                        onNavigate('catalogue');
+                        setCollectionsDropdownOpen(false);
+                      }}
+                      className={`w-full px-4 py-2.5 text-xs font-marathi-serif transition-all flex items-center justify-between cursor-pointer group ${
+                        idx === 0
+                          ? 'font-bold text-[#3C0015] bg-[#FAF0D8]/40 hover:bg-[#3C0015] hover:text-[#E0C068]'
+                          : 'font-semibold text-[#29231F] hover:bg-[#3C0015] hover:text-[#E0C068]'
+                      }`}
+                    >
+                      <span className="group-hover:translate-x-1 transition-transform">
+                        {item.name}
+                      </span>
+                      <span className="text-[11px] text-[#A37B30] group-hover:text-[#E0C068] group-hover:translate-x-1 transition-all">
+                        →
+                      </span>
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
           </div>
