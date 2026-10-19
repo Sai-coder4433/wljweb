@@ -13,28 +13,28 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 }) => {
   const isDark = variant === 'dark'; // for cream backgrounds (Header, Pages)
 
-  // Emblem image sizing: prominent height to match the brand typography perfectly
+  // Emblem image sizing: refined, elegant luxury scale
   const emblemClasses =
     size === 'sm'
-      ? 'h-9 sm:h-10 md:h-11 w-auto max-w-[55px]'
+      ? 'h-7 sm:h-8 md:h-8.5 w-auto max-w-[42px]'
       : size === 'lg'
-      ? 'h-16 sm:h-20 md:h-24 w-auto'
-      : 'h-11 sm:h-13 md:h-[58px] lg:h-[64px] w-auto max-w-[80px]';
+      ? 'h-13 sm:h-16 md:h-18 w-auto'
+      : 'h-8 xs:h-8.5 sm:h-9.5 md:h-11 lg:h-[46px] w-auto max-w-[60px]';
 
-  // Responsive font sizes tailored for luxury balance: clean, tight, royal typography
+  // Responsive font sizes tailored for luxury balance: clean, refined, royal typography
   const titleSize =
     size === 'sm'
-      ? 'text-[13.5px] sm:text-base md:text-lg'
+      ? 'text-[12.5px] sm:text-sm md:text-base'
       : size === 'lg'
-      ? 'text-xl sm:text-2xl md:text-3xl'
-      : 'text-[15px] xs:text-[16px] sm:text-lg md:text-xl lg:text-[22px]';
+      ? 'text-lg sm:text-xl md:text-2xl'
+      : 'text-[13.5px] xs:text-[14.5px] sm:text-[16px] md:text-[18px] lg:text-[19.5px]';
 
   const subtitleSize =
     size === 'sm'
-      ? 'text-[8px] sm:text-[9px] md:text-[9.5px]'
+      ? 'text-[7.5px] sm:text-[8px] md:text-[8.5px]'
       : size === 'lg'
-      ? 'text-xs sm:text-sm'
-      : 'text-[8.5px] xs:text-[9px] sm:text-[10px] md:text-[11px]';
+      ? 'text-[10px] sm:text-[11px]'
+      : 'text-[8px] xs:text-[8.5px] sm:text-[9px] md:text-[10px]';
 
   return (
     <div className="flex items-center space-x-2 sm:space-x-2.5 select-none text-left min-w-0">
