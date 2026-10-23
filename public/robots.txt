@@ -1,0 +1,11 @@
+# Robots.txt for Wafgaonkar Laxmi Jewellers
+# Website: https://wafgaonkarlaxmijewellers.com/
+# Chakan, Maharashtra, India - Since 1951
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+
+# Sitemaps
+Sitemap: https://wafgaonkarlaxmijewellers.com/sitemap.xml

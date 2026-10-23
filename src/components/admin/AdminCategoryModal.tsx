@@ -254,6 +254,7 @@ export const AdminCategoryModal: React.FC<AdminCategoryModalProps> = ({
               hint="होमपेजवरील गोल आयकॉनसाठी स्पष्ट फोटो (WebP/JPG/PNG)"
               recommendedAspect="1:1 स्क्वेअर गुणोत्तर सर्वोत्तम"
               folder="categories"
+              showCirclePreview={true}
             />
           </div>
 

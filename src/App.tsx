@@ -23,6 +23,7 @@ import { ProductDetailView } from './components/ProductDetailView';
 import { WishlistDrawer } from './components/WishlistDrawer';
 import { SearchModal } from './components/SearchModal';
 import { AboutModal } from './components/AboutModal';
+import { SEOHead } from './components/SEOHead';
 
 // Admin Panel & Authentication
 import { AdminDashboard } from './components/admin/AdminDashboard';
@@ -274,25 +275,31 @@ export default function App() {
   if (currentView === 'admin') {
     if (!isAdminAuthenticated) {
       return (
-        <AdminLogin
-          onLoginSuccess={() => setIsAdminAuthenticated(true)}
-          onExit={handleExitAdmin}
-          cloudPassword={cloudPassword}
-        />
+        <>
+          <SEOHead currentView="admin" lang={currentLang} />
+          <AdminLogin
+            onLoginSuccess={() => setIsAdminAuthenticated(true)}
+            onExit={handleExitAdmin}
+            cloudPassword={cloudPassword}
+          />
+        </>
       );
     }
 
     return (
-      <AdminDashboard
-        products={realtimeProducts}
-        categories={realtimeCategories}
-        heroSlides={realtimeHeroSlides}
-        testimonials={realtimeTestimonials}
-        rates={realtimeRates}
-        onExitToStore={handleExitAdmin}
-        onLogout={handleLogoutAdmin}
-        firebaseConnected={isFirebaseLive}
-      />
+      <>
+        <SEOHead currentView="admin" lang={currentLang} />
+        <AdminDashboard
+          products={realtimeProducts}
+          categories={realtimeCategories}
+          heroSlides={realtimeHeroSlides}
+          testimonials={realtimeTestimonials}
+          rates={realtimeRates}
+          onExitToStore={handleExitAdmin}
+          onLogout={handleLogoutAdmin}
+          firebaseConnected={isFirebaseLive}
+        />
+      </>
     );
   }
 
@@ -301,6 +308,12 @@ export default function App() {
   // =========================================================================
   return (
     <div className="min-h-screen flex flex-col bg-[#F3F0EA] text-[#29231F] selection:bg-[#3C0015] selection:text-[#F3F0EA] cursor-luxury">
+      <SEOHead
+        currentView={currentView}
+        categoryFilter={catalogueInitialCategory}
+        product={selectedProduct}
+        lang={currentLang}
+      />
       
       {/* 00. BRAND LOADER (< 1s) & LUXURY CUSTOM CURSOR */}
       {isLoading && <BrandLoader onComplete={() => setIsLoading(false)} />}

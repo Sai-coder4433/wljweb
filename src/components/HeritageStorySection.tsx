@@ -83,11 +83,11 @@ export const HeritageStorySection: React.FC<HeritageStorySectionProps> = ({
 
                 {/* Archival Badge */}
                 <div className="w-full p-3.5 bg-[#FAF8F4]/95 backdrop-blur-md rounded-xl border border-[#D7B95F]/40 text-center shadow-md">
-                  <div className="font-cinzel text-xs font-bold text-[#D7B95F] uppercase tracking-widest">
-                    FOUNDED IN CHAKAN
+                  <div translate="no" className="notranslate font-cinzel text-xs font-bold text-[#D7B95F] uppercase tracking-widest">
+                    FOUNDED IN CHAKAN • SINCE 1951
                   </div>
-                  <div className="font-marathi-display text-xl sm:text-2xl font-bold text-[#3C0015]">
-                    इ. स. १९५१
+                  <div translate="no" className="notranslate font-marathi-display text-xl sm:text-2xl font-bold text-[#3C0015]">
+                    इ. स. १९५१ (Since 1951)
                   </div>
                   <div className="text-[11px] font-marathi-serif text-[#766A61] mt-0.5">
                     पुणे — महाराष्ट्राचा ७५ वर्षांचा गौरवशाली वारसा
@@ -104,7 +104,7 @@ export const HeritageStorySection: React.FC<HeritageStorySectionProps> = ({
               <span>{isMr ? 'आमचा गौरवशाली प्रवास' : 'Our Glorious Legacy'}</span>
             </div>
 
-            <h2 className="font-marathi-display text-2xl sm:text-4xl md:text-5xl font-bold text-[#3C0015] tracking-tight leading-snug">
+            <h2 translate="no" className="notranslate font-marathi-display text-2xl sm:text-4xl md:text-5xl font-bold text-[#3C0015] tracking-tight leading-snug">
               {isMr ? '१९५१ पासून जपलेला विश्वास' : 'A Sacred Trust Cherished Since 1951'}
             </h2>
 

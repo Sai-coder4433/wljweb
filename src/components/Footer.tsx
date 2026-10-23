@@ -43,7 +43,9 @@ export const Footer: React.FC<FooterProps> = ({
           
           {/* COL 1: Official logo + Short heritage line + Since 1951 + Social (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-4">
-            <BrandLogo variant="light" size="md" showSubtitle={true} />
+            <div translate="no" className="notranslate">
+              <BrandLogo variant="light" size="md" showSubtitle={true} />
+            </div>
             <p className="font-marathi-serif text-sm text-[#FAF8F4]/80 leading-relaxed max-w-sm pt-1">
               {isMr 
                 ? '“१९५१ पासून विश्वासाची परंपरा — शुद्ध सुवर्ण, अस्सल कारागिरी आणि अखंड कौटुंबिक स्नेह.”' 

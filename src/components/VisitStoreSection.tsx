@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { MapPin, Clock, Phone, Navigation, MessageCircle, Store, Award } from 'lucide-react';
+import { MapPin, Clock, Phone, Navigation, MessageCircle, Store, Award, Sparkles, CheckCircle2 } from 'lucide-react';
 import { BRAND_CONFIG } from '../config';
-import { STORE_BRANCHES } from '../data/jewelleryData';
 import { Language } from '../types';
 
 interface VisitStoreSectionProps {
@@ -15,7 +14,7 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
   const handleWhatsAppBranch = (branchNumber: number, branchName: string, waNumber?: string) => {
     const text = encodeURIComponent(
       isMr
-        ? `नमस्कार वाफगावकर लक्ष्मी ज्वेलर्स, मला आपल्या शाखा क्र. ${branchNumber} (${branchName}) ला भेट देण्याविषयी आणि दागिन्यांची माहिती हवी आहे.`
+        ? `नमस्कार वाफगांवकर लक्ष्मी ज्वेलर्स, मला आपल्या शाखा क्र. ${branchNumber} (${branchName}) ला भेट देण्याविषयी आणि दागिन्यांची माहिती हवी आहे.`
         : `Hello Wafgaonkar Laxmi Jewellers, I would like to inquire about visiting Branch No. ${branchNumber} (${branchName}) and viewing your jewellery collections.`
     );
     const targetWa = waNumber || (branchNumber === 2 ? BRAND_CONFIG.WHATSAPP_NUMBER_2 : BRAND_CONFIG.WHATSAPP_NUMBER);
@@ -28,9 +27,10 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
       number: 1,
       nameMr: 'शाखा क्र. १: जुनी बाजारपेठ, चाकण',
       nameEn: 'Branch No. 1: Juni Bazarpeth, Chakan',
-      tagMr: 'मुख्य वारसा शाखा',
-      tagEn: 'Heritage Main Branch',
-      image: 'https://i.postimg.cc/zfN7fkkn/Elegant-Gold-Jewellery-Storefront.png',
+      tagMr: 'मुख्य वारसा शाखा • चाकण (Since 1951)',
+      tagEn: 'Heritage Main Branch • Chakan (Since 1951)',
+      image: '/branch1_showroom.png',
+      fallbackImage: 'https://i.postimg.cc/zfN7fkkn/Elegant-Gold-Jewellery-Storefront.png',
       addressMr: 'जुनी बाजारपेठ, चाकण, ता. खेड, जि. पुणे - ४१०५०१',
       addressEn: 'Juni Bazarpeth, Chakan, Tal. Khed, Dist. Pune - 410501',
       timingsMr: 'सोमवार ते रविवार: सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)',
@@ -38,15 +38,17 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
       phone: BRAND_CONFIG.store.branch1.phone,
       whatsapp: BRAND_CONFIG.store.branch1.whatsapp,
       mapsUrl: BRAND_CONFIG.store.branch1.googleMapsUrl,
+      altText: 'Wafgaonkar Laxmi Jewellers Showroom Branch 1 Juni Bazarpeth Chakan',
     },
     {
       id: 'branch-2',
       number: 2,
       nameMr: 'शाखा क्र. २: माणिक चौक, सिद्धी आर्केड समोर, चाकण',
       nameEn: 'Branch No. 2: Manik Chowk, Opp. Siddhi Arcade, Chakan',
-      tagMr: 'सुवर्ण व वधू दालन',
-      tagEn: 'Gold & Bridal Studio',
-      image: 'https://i.postimg.cc/W4BySjN2/Whats-App-Image-2026-10-19-at-14-19-25.jpg',
+      tagMr: 'सुवर्ण व वधू दालन • चाकण',
+      tagEn: 'Gold & Bridal Studio • Chakan',
+      image: '/branch2_showroom.jpg',
+      fallbackImage: 'https://i.postimg.cc/W4BySjN2/Whats-App-Image-2026-10-19-at-14-19-25.jpg',
       addressMr: 'माणिक चौक, सिद्धी आर्केड समोर, चाकण, ता. खेड, जि. पुणे - ४१०५०१',
       addressEn: 'Manik Chowk, Opp. Siddhi Arcade, Chakan, Tal. Khed, Dist. Pune - 410501',
       timingsMr: 'सोमवार ते रविवार: सकाळी १०:०० ते रात्री ८:३० (दररोज सुरू)',
@@ -54,6 +56,7 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
       phone: BRAND_CONFIG.store.branch2.phone,
       whatsapp: BRAND_CONFIG.store.branch2.whatsapp,
       mapsUrl: BRAND_CONFIG.store.branch2.googleMapsUrl,
+      altText: 'Wafgaonkar Laxmi Jewellers Showroom Branch 2 Manik Chowk Chakan',
     },
   ];
 
@@ -67,34 +70,34 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
       <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
         <div className="inline-flex items-center space-x-2 text-[#D7B95F] font-cinzel text-xs uppercase tracking-[0.25em] mb-2.5">
           <Store className="w-3.5 h-3.5 text-[#D7B95F]" />
-          <span>{isMr ? 'दालन दर्शन' : 'VISIT OUR SHOWROOM'}</span>
+          <span>{isMr ? 'दालन दर्शन • चाकण' : 'VISIT OUR SHOWROOM • CHAKAN'}</span>
         </div>
         
         <h2 className="font-marathi-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#3C0015] tracking-tight mb-3">
-          {isMr ? 'आमच्या दालनाला भेट द्या' : 'Visit Our Showroom'}
+          {isMr ? 'चाकण येथील आमच्या दालनाला भेट द्या' : 'Visit Our Jewellery Showrooms in Chakan'}
         </h2>
         
         <p className="font-marathi-serif text-[#766A61] text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
           {isMr
-            ? 'चाकण येथील आमच्या दोन्ही दालनात येऊन प्रत्यक्ष शुद्ध सोन्याच्या दागिन्यांची भव्यता, चमक आणि अस्सल कारागिरीचा सुखद अनुभव घ्या. आमचे तज्ज्ञ सुवर्ण सल्लागार आपल्या सेवेत सदैव तत्पर आहेत.'
-            : 'Step into our signature showrooms in Chakan to experience the tactile brilliance, hallmarked purity, and heirloom craftsmanship of pure gold and silver jewellery.'}
+            ? 'चाकण (पुणे) येथील आमच्या दोन्ही सुवर्ण दालनात येऊन १००% बीआयएस हॉलमार्क शुद्ध सोने, पारंपरिक वधू साज आणि शुद्ध चांदीच्या दागिन्यांची प्रत्यक्ष भव्यता अनुभवा.'
+            : 'Step into our two signature jewellery showrooms in Chakan, Pune to experience 100% BIS Hallmarked pure gold, heirloom bridal jewellery, and pure silver craftsmanship.'}
         </p>
 
         {/* Branch Filter Switcher */}
         <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-5 sm:mt-6 flex-wrap">
           <button
             onClick={() => setActiveTab('all')}
-            className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-marathi-serif font-bold transition-all ${
+            className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-marathi-serif font-bold transition-all cursor-pointer ${
               activeTab === 'all'
                 ? 'bg-[#3C0015] text-[#F3F0EA] shadow-xs border border-[#D7B95F]'
                 : 'bg-[#FAF8F4] text-[#29231F] border border-[#D7B95F]/30 hover:bg-[#F3F0EA]'
             }`}
           >
-            {isMr ? 'दोन्ही शाखा' : 'Both Showrooms'}
+            {isMr ? 'दोन्ही दालने (चाकण)' : 'Both Showrooms (Chakan)'}
           </button>
           <button
             onClick={() => setActiveTab('branch-1')}
-            className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-marathi-serif font-bold transition-all ${
+            className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-marathi-serif font-bold transition-all cursor-pointer ${
               activeTab === 'branch-1'
                 ? 'bg-[#3C0015] text-[#F3F0EA] shadow-xs border border-[#D7B95F]'
                 : 'bg-[#FAF8F4] text-[#29231F] border border-[#D7B95F]/30 hover:bg-[#F3F0EA]'
@@ -104,7 +107,7 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
           </button>
           <button
             onClick={() => setActiveTab('branch-2')}
-            className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-marathi-serif font-bold transition-all ${
+            className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-marathi-serif font-bold transition-all cursor-pointer ${
               activeTab === 'branch-2'
                 ? 'bg-[#3C0015] text-[#F3F0EA] shadow-xs border border-[#D7B95F]'
                 : 'bg-[#FAF8F4] text-[#29231F] border border-[#D7B95F]/30 hover:bg-[#F3F0EA]'
@@ -122,42 +125,41 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
             key={branch.id}
             className="bg-[#FAF8F4] rounded-2xl sm:rounded-3xl border border-[#D7B95F]/35 overflow-hidden shadow-xs hover:border-[#D7B95F] transition-all flex flex-col justify-between"
           >
-            {/* Top Area: Showroom Photo in 9:16 Aspect Box with Full Storefront Visibility */}
-            <div className="relative aspect-[9/16] max-h-[520px] sm:max-h-[580px] w-full overflow-hidden border-b border-[#D7B95F]/35 bg-[#1F000A] velvet-bg flex flex-col justify-between p-3.5 sm:p-4 text-left group">
+            {/* Top Area: Showroom Photo with full Storefront Visibility */}
+            <div className="relative aspect-[9/16] max-h-[480px] sm:max-h-[540px] w-full overflow-hidden border-b border-[#D7B95F]/35 bg-[#1F000A] velvet-bg flex flex-col justify-between p-3.5 sm:p-4 text-left group">
               {branch.image ? (
                 <>
-                  {/* Subtle ambient blur behind to fill full 9:16 container gracefully */}
+                  {/* Subtle ambient blur behind */}
                   <img
                     src={branch.image}
+                    onError={(e) => {
+                      if (branch.fallbackImage) {
+                        e.currentTarget.src = branch.fallbackImage;
+                      }
+                    }}
                     alt=""
                     aria-hidden="true"
                     className="absolute inset-0 w-full h-full object-cover blur-lg opacity-30 scale-110 pointer-events-none"
+                    loading="lazy"
                   />
-                  {/* Sharp, fully-visible storefront photo with NO cutoffs */}
+                  {/* Sharp, fully-visible storefront photo with responsive sizing */}
                   <img
                     src={branch.image}
-                    alt={isMr ? branch.nameMr : branch.nameEn}
+                    onError={(e) => {
+                      if (branch.fallbackImage) {
+                        e.currentTarget.src = branch.fallbackImage;
+                      }
+                    }}
+                    alt={branch.altText}
+                    width={500}
+                    height={880}
                     className="relative z-1 w-full h-full object-contain p-1 sm:p-2 drop-shadow-2xl transform transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    loading="lazy"
                   />
                   {/* Subtle border vignette */}
                   <div className="absolute inset-0 border border-[#D7B95F]/20 rounded-t-2xl sm:rounded-t-3xl pointer-events-none z-2" />
                 </>
-              ) : (
-                /* Center Announcement: Showroom photo will be uploaded soon */
-                <div className="my-auto flex flex-col items-center justify-center text-center space-y-2 py-4 z-1">
-                  <div className="w-14 h-14 rounded-full bg-[#20000B]/90 border border-[#D7B95F]/60 flex items-center justify-center text-[#D7B95F] shadow-lg">
-                    <Store className="w-7 h-7 text-[#D7B95F]" />
-                  </div>
-                  <div>
-                    <h4 className="font-marathi-display text-base sm:text-lg font-bold text-[#FAF8F4] leading-snug">
-                      {isMr ? 'दालनाचे छायाचित्र लवकरच उपलब्ध होईल' : 'Showroom Photo Will Be Uploaded Soon'}
-                    </h4>
-                    <p className="font-marathi-serif text-xs text-[#FAF8F4]/75 mt-0.5">
-                      {isMr ? 'चाकण सुवर्ण दालन' : 'Chakan Showroom'}
-                    </p>
-                  </div>
-                </div>
-              )}
+              ) : null}
 
               {/* Top Row: Floating Branch Badge & WLJ Pill */}
               <div className="flex items-center justify-between z-10 w-full">
@@ -165,12 +167,11 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
                   <Award className="w-3.5 h-3.5 text-[#D7B95F]" />
                   <span>{isMr ? `शाखा क्र. ${branch.number}` : `Branch No. ${branch.number}`}</span>
                 </div>
-                <span className="text-[10px] font-cinzel text-[#D7B95F] uppercase tracking-widest bg-[#20000B]/80 px-2.5 py-0.5 rounded-full border border-[#D7B95F]/50 backdrop-blur-xs shadow-md">
+                <span translate="no" className="notranslate text-[10px] font-cinzel text-[#D7B95F] uppercase tracking-widest bg-[#20000B]/80 px-2.5 py-0.5 rounded-full border border-[#D7B95F]/50 backdrop-blur-xs shadow-md">
                   WLJ • CHAKAN
                 </span>
               </div>
 
-              {/* Bottom transparent spacer so top photo breathes without duplicate overlay text */}
               <div className="z-10" />
             </div>
 
@@ -197,7 +198,7 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
                   </div>
                   <div>
                     <h4 className="font-marathi-serif font-bold text-[11px] sm:text-xs text-[#29231F] uppercase tracking-wider">
-                      {isMr ? 'पत्ता' : 'Address'}
+                      {isMr ? 'पत्ता (चाकण, पुणे)' : 'Showroom Address in Chakan'}
                     </h4>
                     <p className="font-marathi-serif text-xs sm:text-sm text-[#29231F] mt-0.5 leading-relaxed font-medium">
                       {isMr ? branch.addressMr : branch.addressEn}
@@ -227,11 +228,11 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
                   </div>
                   <div>
                     <h4 className="font-marathi-serif font-bold text-[11px] sm:text-xs text-[#29231F] uppercase tracking-wider">
-                      {isMr ? 'फोन नंबर' : 'Phone'}
+                      {isMr ? 'थेट संपर्क फोन' : 'Direct Call'}
                     </h4>
                     <p className="font-cinzel text-xs sm:text-sm text-[#3C0015] mt-0.5 font-bold">
                       <a href={`tel:${branch.phone}`} className="hover:underline">
-                        {branch.phone}
+                        +91 {branch.phone}
                       </a>
                     </p>
                   </div>
@@ -239,7 +240,7 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
 
               </div>
 
-              {/* Action Buttons: Full-width and easy tap on mobile */}
+              {/* Action Buttons: Google Maps Direction & WhatsApp */}
               <div className="pt-3.5 border-t border-[#D7B95F]/20 flex flex-col sm:flex-row gap-2.5">
                 <a
                   href={branch.mapsUrl}
@@ -248,21 +249,62 @@ export const VisitStoreSection: React.FC<VisitStoreSectionProps> = ({ currentLan
                   className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-full bg-[#3C0015] hover:bg-[#500018] text-[#F3F0EA] text-xs font-marathi-serif font-semibold border border-[#D7B95F]/40 transition-colors shadow-xs w-full sm:w-auto"
                 >
                   <Navigation className="w-3.5 h-3.5 text-[#D7B95F]" />
-                  <span>{isMr ? 'गुगल मॅपवर दिशा पहा' : 'Get Directions'}</span>
+                  <span>{isMr ? 'गुगल मॅपवर दिशा पहा (Directions)' : 'Google Maps Directions'}</span>
                 </a>
 
                 <button
                   onClick={() => handleWhatsAppBranch(branch.number, isMr ? branch.nameMr : branch.nameEn, branch.whatsapp)}
-                  className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-full bg-[#3C0015]/10 hover:bg-[#3C0015] text-[#3C0015] hover:text-[#F3F0EA] text-xs font-marathi-serif font-semibold transition-colors shadow-xs w-full sm:w-auto border border-[#D7B95F]/40"
+                  className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-full bg-[#3C0015]/10 hover:bg-[#3C0015] text-[#3C0015] hover:text-[#F3F0EA] text-xs font-marathi-serif font-semibold transition-colors shadow-xs w-full sm:w-auto border border-[#D7B95F]/40 cursor-pointer"
                 >
                   <MessageCircle className="w-3.5 h-3.5 text-[#D7B95F]" />
-                  <span>{isMr ? 'व्हॉट्सॲपवर संपर्क करा' : 'WhatsApp Us'}</span>
+                  <span>{isMr ? 'व्हॉट्सॲपवर संपर्क करा' : 'WhatsApp Inquiry'}</span>
                 </button>
               </div>
 
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Local SEO Trust & Jewellery Categories Highlights for Chakan */}
+      <div className="mt-10 sm:mt-12 p-6 sm:p-8 bg-[#F3F0EA] rounded-2xl sm:rounded-3xl border border-[#D7B95F]/40">
+        <div className="text-center max-w-3xl mx-auto mb-6">
+          <span className="text-[10px] sm:text-xs font-cinzel text-[#8B2131] uppercase tracking-[0.2em] font-bold block mb-1">
+            LOCAL JEWELLERY EXCELLENCE • CHAKAN
+          </span>
+          <h3 className="font-marathi-display text-xl sm:text-2xl font-bold text-[#3C0015]">
+            {isMr ? 'चाकणमधील सुवर्ण, हिरे व चांदीच्या दागिन्यांची विश्वासू परंपरा' : 'Best Jewellery Shop in Chakan — Tradition of Trust Since 1951'}
+          </h3>
+          <p className="font-marathi-serif text-xs sm:text-sm text-[#766A61] mt-1.5 leading-relaxed">
+            {isMr
+              ? 'वाफगांवकर लक्ष्मी ज्वेलर्स हे चाकण (ता. खेड, जि. पुणे) मधील अग्रगण्य सुवर्ण दालन असून, येथे अस्सल महाराष्ट्रीयन दागिने, लग्नाचा वधू साज आणि शुद्ध चांदीचे अलंकार प्रामाणिक दरात उपलब्ध आहेत.'
+              : 'Wafgaonkar Laxmi Jewellers is the trusted jewellery showroom in Chakan (Pune), renowned for handcrafted bridal jewellery, gold necklaces, earrings, and authentic Maharashtrian heritage ornaments.'}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-2">
+          {[
+            { mr: 'सुवर्ण हार व चोकर', en: 'Gold Necklaces' },
+            { mr: 'पारंपरिक मंगळसूत्र', en: 'Gold Mangalsutra' },
+            { mr: 'झुमके व कर्णफुले', en: 'Gold Earrings' },
+            { mr: 'शिंदेशाही तोडे व बांगड्या', en: 'Gold Bangles' },
+            { mr: 'शाही वधू व लग्न साज', en: 'Bridal Jewellery' },
+            { mr: 'शुद्ध चांदीच्या वस्तू', en: 'Silver Jewellery' },
+          ].map((cat, idx) => (
+            <div
+              key={idx}
+              className="bg-white p-3 rounded-xl border border-[#D7B95F]/30 text-center shadow-2xs hover:border-[#8B2131] transition-colors"
+            >
+              <CheckCircle2 className="w-4 h-4 text-[#8B2131] mx-auto mb-1.5" />
+              <div className="font-marathi-serif text-xs font-bold text-[#3C0015]">
+                {cat.mr}
+              </div>
+              <div className="text-[10px] text-[#766A61] font-cinzel uppercase tracking-wider mt-0.5">
+                {cat.en}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

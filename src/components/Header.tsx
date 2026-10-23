@@ -85,8 +85,8 @@ export const Header: React.FC<HeaderProps> = ({
     <header
       className={`w-full transition-all duration-300 relative z-50 ${
         isScrolled
-          ? 'bg-[#F3F0EA] py-2 border-b border-[#D7B95F]/35 shadow-sm'
-          : 'bg-[#F3F0EA]/98 backdrop-blur-xs py-3 sm:py-3.5 border-b border-[#D7B95F]/20'
+          ? 'bg-[#F3F0EA] py-1.5 border-b border-[#D7B95F]/35 shadow-sm'
+          : 'bg-[#F3F0EA]/98 backdrop-blur-xs py-2 sm:py-2.5 border-b border-[#D7B95F]/20'
       }`}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 flex items-center justify-between gap-2">
@@ -94,7 +94,9 @@ export const Header: React.FC<HeaderProps> = ({
         {/* LEFT: Official Wafgaonkar Laxmi Jewellers Logo with accurate Marathi typography */}
         <div 
           onClick={() => handleNavClick('home')} 
-          className="cursor-pointer flex items-center flex-shrink min-w-0"
+          className="cursor-pointer flex items-center flex-shrink min-w-0 notranslate"
+          translate="no"
+          aria-label="Wafgaonkar Laxmi Jewellers Homepage"
         >
           <BrandLogo variant="dark" size={isScrolled ? 'sm' : 'md'} showSubtitle={true} />
         </div>

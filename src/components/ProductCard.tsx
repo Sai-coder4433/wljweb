@@ -46,8 +46,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {/* Primary Image */}
         <img
           src={primaryImage}
-          alt={product.name}
+          alt={`${product.name} ${product.marathiName ? `(${product.marathiName})` : ''} - 100% BIS Hallmarked ${product.metal} Jewellery at Wafgaonkar Laxmi Jewellers Chakan`}
           loading="lazy"
+          width={400}
+          height={500}
           className={`w-full h-full object-cover object-center transform transition-all duration-700 ease-out ${
             isHovered ? 'scale-105' : 'scale-100'
           } ${hasMultipleImages && isHovered ? 'opacity-0' : 'opacity-100'}`}
@@ -57,8 +59,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {hasMultipleImages && (
           <img
             src={secondaryImage}
-            alt={`${product.name} alternate view`}
+            alt={`${product.name} ${product.marathiName ? `(${product.marathiName})` : ''} alternate view - Wafgaonkar Laxmi Jewellers Chakan`}
             loading="lazy"
+            width={400}
+            height={500}
             className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-700 ease-out ${
               isHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
             }`}

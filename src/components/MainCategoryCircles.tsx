@@ -339,7 +339,7 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
         }`}
       >
         <div>
-          <span className="text-[10px] sm:text-xs font-cinzel uppercase tracking-[0.25em] text-[#D7B95F] font-semibold block mb-1">
+          <span translate="no" className="notranslate text-[10px] sm:text-xs font-cinzel uppercase tracking-[0.25em] text-[#D7B95F] font-semibold block mb-1">
             SHOP BY CATEGORY • SINCE 1951
           </span>
           <h2 className="font-marathi-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#3C0015] tracking-tight">
@@ -407,8 +407,10 @@ export const MainCategoryCircles: React.FC<MainCategoryCirclesProps> = ({
                   <div className="w-full h-full rounded-full overflow-hidden bg-white">
                     <img
                       src={cat.image}
-                      alt={cat.name}
+                      alt={`${cat.name} ${cat.marathiName ? `(${cat.marathiName})` : ''} Jewellery Category at Wafgaonkar Laxmi Jewellers Chakan`}
                       loading="lazy"
+                      width={100}
+                      height={100}
                       className="w-full h-full object-cover object-center transform transition-transform duration-500 ease-out group-hover:scale-110"
                     />
                   </div>

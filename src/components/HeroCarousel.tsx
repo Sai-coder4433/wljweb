@@ -145,7 +145,12 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                 <source media="(max-width: 640px)" srcSet={slide.mobileImage} />
                 <img
                   src={slide.image}
-                  alt={isMr ? slide.headlineMr : slide.headlineEn}
+                  alt={`${isMr ? slide.headlineMr : slide.headlineEn} - Wafgaonkar Laxmi Jewellers Chakan Since 1951`}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  // @ts-ignore
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
+                  width={1920}
+                  height={900}
                   className={`w-full h-full object-cover object-center transition-transform duration-7000 ease-out ${
                     isActive ? 'scale-100' : 'scale-105'
                   }`}

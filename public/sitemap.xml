@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://wafgaonkarlaxmijewellers.com/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://wafgaonkarlaxmijewellers.com/editorial_maroon_jewellery.jpg</image:loc>
+      <image:title>Wafgaonkar Laxmi Jewellers Chakan</image:title>
+      <image:caption>Best jewellery showroom in Chakan since 1951</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Complete Catalogue View -->
+  <url>
+    <loc>https://wafgaonkarlaxmijewellers.com/?view=catalogue</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Gold Necklaces & Haar in Chakan -->
+  <url>
+    <loc>https://wafgaonkarlaxmijewellers.com/?category=necklaces</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Traditional Mangalsutra in Chakan -->
+  <url>
+    <loc>https://wafgaonkarlaxmijewellers.com/?category=mangalsutra</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Gold Earrings, Butti & Jhumkas in Chakan -->
+  <url>
+    <loc>https://wafgaonkarlaxmijewellers.com/?category=earrings</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Gold Bangles, Patlya & Shindeshahi Tode in Chakan -->
+  <url>
+    <loc>https://wafgaonkarlaxmijewellers.com/?category=bangles</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Gold & Diamond Rings in Chakan -->
+  <url>
+    <loc>https://wafgaonkarlaxmijewellers.com/?category=rings</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Traditional Maharashtrian Nath in Chakan -->
+  <url>
+    <loc>https://wafgaonkarlaxmijewellers.com/?category=nath</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Pure Silver Jewellery & Pooja Articles in Chakan -->
+  <url>
+    <loc>https://wafgaonkarlaxmijewellers.com/?category=silver</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+</urlset>

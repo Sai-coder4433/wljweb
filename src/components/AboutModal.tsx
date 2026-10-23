@@ -30,10 +30,10 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, current
           <div className="relative max-w-2xl">
             <div className="inline-flex items-center space-x-2 text-[#D7B95F] font-cinzel text-xs uppercase tracking-[0.25em] mb-3">
               <History className="w-4 h-4 text-[#D7B95F]" />
-              <span>{isMr ? '१९५१ पासूनची परंपरा' : 'Legacy Since 1951'}</span>
+              <span translate="no" className="notranslate">{isMr ? '१९५१ पासूनची परंपरा (Since 1951)' : 'Legacy Since 1951'}</span>
             </div>
 
-            <h2 className="font-marathi-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#F3F0EA] tracking-tight leading-snug">
+            <h2 translate="no" className="notranslate font-marathi-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#F3F0EA] tracking-tight leading-snug">
               {isMr ? 'वाफगावकर लक्ष्मी ज्वेलर्सची गौरवगाथा' : 'The Legacy of Wafgaonkar Laxmi Jewellers'}
             </h2>
 

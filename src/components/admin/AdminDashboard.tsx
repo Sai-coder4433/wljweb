@@ -342,14 +342,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           
           {/* Logo & Portal Title */}
           <div className="flex items-center gap-3">
-            <BrandLogo size="sm" variant="maroon" />
+            <BrandLogo size="sm" variant="maroon" showSubtitle={true} />
             <div className="h-6 w-px bg-[#A37B30]/40 hidden sm:block" />
-            <div>
+            <div className="hidden sm:block">
               <span className="text-xs font-serif tracking-wider uppercase text-[#E0C068] font-bold block">
-                वाफगावकर लक्ष्मी ज्वेलर्स
+                प्रशासकीय नियंत्रण कक्ष
               </span>
               <span className="text-[10px] text-[#E8DCC4]/60 tracking-widest uppercase">
-                ADMIN PANEL • FIREBASE REALTIME
+                ADMIN PORTAL • REALTIME SYNC
               </span>
             </div>
           </div>
